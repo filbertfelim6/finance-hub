@@ -34,4 +34,12 @@ describe("LoginForm", () => {
     await user.click(screen.getByRole("button", { name: /sign in/i }));
     expect(await screen.findByText(/email is required/i)).toBeInTheDocument();
   });
+
+  it("shows validation error when password is empty", async () => {
+    render(<LoginForm />);
+    const user = userEvent.setup();
+    await user.type(screen.getByLabelText(/email/i), "test@example.com");
+    await user.click(screen.getByRole("button", { name: /sign in/i }));
+    expect(await screen.findByText(/password is required/i)).toBeInTheDocument();
+  });
 });

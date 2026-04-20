@@ -44,6 +44,7 @@ export function LoginForm() {
       setLoading(false);
       return;
     }
+    setLoading(false);
     router.push("/");
     router.refresh();
   }
