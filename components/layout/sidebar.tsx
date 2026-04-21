@@ -18,6 +18,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarNavItem } from "./sidebar-nav-item";
 import { createClient } from "@/lib/supabase/client";
 
@@ -32,17 +33,20 @@ const NAV_ITEMS = [
 export function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [collapsed, setCollapsed] = useState(false);
 
   async function handleSignOut() {
     const supabase = createClient();
-    await supabase.auth.signOut();
-    router.push("/auth/login");
-    router.refresh();
+    const { error } = await supabase.auth.signOut();
+    if (!error) {
+      router.push("/auth/login");
+      router.refresh();
+    }
   }
 
   return (
+    <TooltipProvider delayDuration={0}>
     <aside
       className={cn(
         "hidden md:flex flex-col h-full border-r bg-background transition-all duration-200",
@@ -68,7 +72,7 @@ export function Sidebar() {
         </Button>
       </div>
 
-      <nav className="flex-1 flex flex-col gap-1 p-2 overflow-y-auto">
+      <nav aria-label="Main navigation" className="flex-1 flex flex-col gap-1 p-2 overflow-y-auto">
         {NAV_ITEMS.map((item) => (
           <SidebarNavItem
             key={item.href}
@@ -88,17 +92,17 @@ export function Sidebar() {
           variant="ghost"
           size={collapsed ? "icon" : "default"}
           className={cn("w-full", !collapsed && "justify-start gap-3 px-3")}
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
           aria-label="Toggle theme"
         >
-          {theme === "dark" ? (
+          {resolvedTheme === "dark" ? (
             <Sun className="h-4 w-4 shrink-0" />
           ) : (
             <Moon className="h-4 w-4 shrink-0" />
           )}
           {!collapsed && (
             <span className="text-sm font-medium text-muted-foreground">
-              {theme === "dark" ? "Light mode" : "Dark mode"}
+              {resolvedTheme === "dark" ? "Light mode" : "Dark mode"}
             </span>
           )}
         </Button>
@@ -116,5 +120,6 @@ export function Sidebar() {
         </Button>
       </div>
     </aside>
+    </TooltipProvider>
   );
 }

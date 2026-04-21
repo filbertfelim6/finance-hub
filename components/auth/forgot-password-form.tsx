@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,17 +34,22 @@ export function ForgotPasswordForm() {
 
   async function onSubmit(values: Values) {
     setLoading(true);
-    const supabase = createClient();
-    await supabase.auth.resetPasswordForEmail(values.email, {
-      redirectTo: `${window.location.origin}/auth/callback?next=/settings`,
-    });
-    setLoading(false);
-    setSent(true);
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
+        redirectTo: `${window.location.origin}/auth/callback?next=/settings`,
+      });
+      if (!error) {
+        setSent(true);
+      }
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (sent) {
     return (
-      <div className="w-full max-w-sm text-center space-y-2">
+      <div role="status" className="w-full max-w-sm text-center space-y-2">
         <h2 className="text-xl font-semibold">Check your email</h2>
         <p className="text-sm text-muted-foreground">
           If that address is registered, a reset link is on its way.
@@ -83,9 +89,9 @@ export function ForgotPasswordForm() {
       </Form>
 
       <p className="text-center text-sm text-muted-foreground">
-        <a href="/auth/login" className="underline underline-offset-4 hover:text-primary">
+        <Link href="/auth/login" className="underline underline-offset-4 hover:text-primary">
           Back to sign in
-        </a>
+        </Link>
       </p>
     </div>
   );

@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
@@ -25,10 +24,11 @@ export function SidebarNavItem({
   isActive,
   isCollapsed,
 }: SidebarNavItemProps) {
-  const item = (
+  const linkElement = (
     <Link
       href={href}
-      aria-label={label}
+      aria-label={isCollapsed ? label : undefined}
+      aria-current={isActive ? "page" : undefined}
       className={cn(
         "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
         isCollapsed ? "justify-center" : "",
@@ -44,14 +44,12 @@ export function SidebarNavItem({
 
   if (isCollapsed) {
     return (
-      <TooltipProvider delayDuration={0}>
-        <Tooltip>
-          <TooltipTrigger asChild>{item}</TooltipTrigger>
-          <TooltipContent side="right">{label}</TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>{linkElement}</TooltipTrigger>
+        <TooltipContent side="right">{label}</TooltipContent>
+      </Tooltip>
     );
   }
 
-  return item;
+  return linkElement;
 }
