@@ -45,7 +45,7 @@ export function SidebarNavItem({
   if (isCollapsed) {
     return (
       <Tooltip>
-        <TooltipTrigger asChild>{linkElement}</TooltipTrigger>
+        <TooltipTrigger render={linkElement} />
         <TooltipContent side="right">{label}</TooltipContent>
       </Tooltip>
     );

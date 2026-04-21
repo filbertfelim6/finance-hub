@@ -27,15 +27,16 @@ const FormFieldContext = React.createContext<FormFieldContextValue>(
   {} as FormFieldContextValue
 )
 
-const FormField = React.forwardRef<
-  React.ElementRef<typeof Controller>,
-  React.ComponentPropsWithoutRef<typeof Controller>
->(({ ...props }, ref) => (
+const FormField = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>({
+  ...props
+}: ControllerProps<TFieldValues, TName>) => (
   <FormFieldContext.Provider value={{ name: props.name }}>
-    <Controller {...props} ref={ref} />
+    <Controller {...props} />
   </FormFieldContext.Provider>
-))
-FormField.displayName = "FormField"
+)
 
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext)
@@ -100,7 +101,7 @@ const FormLabel = React.forwardRef<
 FormLabel.displayName = "FormLabel"
 
 const FormControl = React.forwardRef<
-  Slot,
+  React.ElementRef<typeof Slot>,
   React.ComponentPropsWithoutRef<typeof Slot>
 >(({ ...props }, ref) => {
   const { error, formItemId, formDescriptionId, formMessageId } =

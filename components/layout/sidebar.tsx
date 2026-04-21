@@ -48,7 +48,7 @@ export function Sidebar() {
   }
 
   return (
-    <TooltipProvider delayDuration={0}>
+    <TooltipProvider delay={0}>
     <aside
       className={cn(
         "hidden md:flex flex-col h-full border-r bg-background transition-all duration-200",
