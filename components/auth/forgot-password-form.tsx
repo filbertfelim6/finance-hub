@@ -26,6 +26,7 @@ type Values = z.infer<typeof schema>;
 export function ForgotPasswordForm() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   const form = useForm<Values>({
     resolver: zodResolver(schema),
@@ -34,12 +35,15 @@ export function ForgotPasswordForm() {
 
   async function onSubmit(values: Values) {
     setLoading(true);
+    setServerError(null);
     try {
       const supabase = createClient();
       const { error } = await supabase.auth.resetPasswordForEmail(values.email, {
         redirectTo: `${window.location.origin}/auth/callback?next=/settings`,
       });
-      if (!error) {
+      if (error) {
+        setServerError("Something went wrong. Please try again.");
+      } else {
         setSent(true);
       }
     } finally {
@@ -82,6 +86,9 @@ export function ForgotPasswordForm() {
               </FormItem>
             )}
           />
+          {serverError && (
+            <p className="text-sm text-destructive">{serverError}</p>
+          )}
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? "Sending…" : "Send reset link"}
           </Button>

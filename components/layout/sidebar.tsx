@@ -39,10 +39,12 @@ export function Sidebar() {
   async function handleSignOut() {
     const supabase = createClient();
     const { error } = await supabase.auth.signOut();
-    if (!error) {
-      router.push("/auth/login");
-      router.refresh();
+    if (error) {
+      console.error("Sign out failed:", error.message);
+      return;
     }
+    router.push("/auth/login");
+    router.refresh();
   }
 
   return (
