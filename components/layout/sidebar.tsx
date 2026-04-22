@@ -34,9 +34,18 @@ export function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const { resolvedTheme, setTheme } = useTheme();
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("sidebar-collapsed") === "true";
+  });
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
+
+  function toggleCollapsed() {
+    const next = !collapsed;
+    setCollapsed(next);
+    localStorage.setItem("sidebar-collapsed", String(next));
+  }
 
   async function handleSignOut() {
     const supabase = createClient();
@@ -53,7 +62,7 @@ export function Sidebar() {
     <TooltipProvider delay={0}>
     <aside
       className={cn(
-        "hidden md:flex flex-col h-full border-r bg-background transition-all duration-200",
+        "hidden md:flex flex-col h-full shrink-0 overflow-hidden border-r bg-background duration-200 [transition:width_200ms_ease]",
         collapsed ? "w-14" : "w-56"
       )}
     >
@@ -65,7 +74,7 @@ export function Sidebar() {
           variant="ghost"
           size="icon"
           className="h-7 w-7 shrink-0 ml-auto"
-          onClick={() => setCollapsed(!collapsed)}
+          onClick={toggleCollapsed}
           aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           {collapsed ? (
