@@ -73,7 +73,11 @@ export async function createAccount(
         p_recurring_id: null,
       }
     );
-    if (txnError) throw txnError;
+    if (txnError) {
+      // Best-effort cleanup: delete orphan account row before surfacing the error
+      await supabase.from("accounts").delete().eq("id", account.id);
+      throw txnError;
+    }
   }
 
   return getAccount(account.id);
