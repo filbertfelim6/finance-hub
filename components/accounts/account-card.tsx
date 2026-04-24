@@ -49,8 +49,8 @@ function AccountIcon({
 
 interface AccountCardProps {
   account: Account;
-  onEdit: () => void;
-  onArchive: () => void;
+  onEdit: (e?: React.MouseEvent) => void;
+  onArchive: (e?: React.MouseEvent) => void;
 }
 
 export function AccountCard({ account, onEdit, onArchive }: AccountCardProps) {
@@ -82,8 +82,8 @@ export function AccountCard({ account, onEdit, onArchive }: AccountCardProps) {
             }
           />
           <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={onEdit}>Edit</DropdownMenuItem>
-            <DropdownMenuItem onClick={onArchive} className="text-destructive">
+            <DropdownMenuItem onSelect={() => onEdit()}>Edit</DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => onArchive()} className="text-destructive">
               Archive
             </DropdownMenuItem>
           </DropdownMenuContent>
