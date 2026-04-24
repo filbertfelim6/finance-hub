@@ -7,11 +7,13 @@ const mockEq = vi.fn(() => ({ single: mockSingle, order: mockOrder, eq: mockEq, 
 const mockSelect = vi.fn(() => ({ single: mockSingle, order: mockOrder, eq: mockEq }));
 const mockInsert = vi.fn(() => ({ select: mockSelect }));
 const mockUpdate = vi.fn(() => ({ eq: mockEq }));
+const mockDelete = vi.fn(() => ({ eq: mockEq }));
 const mockRpc = vi.fn();
 const mockFrom = vi.fn(() => ({
   select: mockSelect,
   insert: mockInsert,
   update: mockUpdate,
+  delete: mockDelete,
 }));
 
 vi.mock("@/lib/supabase/client", () => ({
@@ -86,6 +88,22 @@ describe("createAccount", () => {
       "create_transaction_with_balance",
       expect.objectContaining({ p_is_opening_balance: true, p_amount: 1000000 })
     );
+  });
+
+  it("deletes orphan account and rethrows if RPC fails", async () => {
+    const account = { id: "a1", name: "BCA" };
+    mockSingle.mockResolvedValueOnce({ data: account, error: null }); // insert
+    const rpcError = new Error("rpc failed");
+    mockRpc.mockResolvedValueOnce({ data: null, error: rpcError });
+    mockEq.mockResolvedValueOnce({ error: null }); // delete cleanup
+    await expect(
+      createAccount(
+        { name: "BCA", type: "checking", currency: "IDR", initialBalance: 1000000, color: "#blue", icon: "bank" },
+        16000
+      )
+    ).rejects.toThrow("rpc failed");
+    expect(mockDelete).toHaveBeenCalled();
+    expect(mockEq).toHaveBeenCalledWith("id", "a1");
   });
 });
 
