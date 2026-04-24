@@ -95,7 +95,7 @@ describe("createAccount", () => {
     mockSingle.mockResolvedValueOnce({ data: account, error: null }); // insert
     const rpcError = new Error("rpc failed");
     mockRpc.mockResolvedValueOnce({ data: null, error: rpcError });
-    mockEq.mockResolvedValueOnce({ error: null }); // delete cleanup
+    mockEq.mockResolvedValueOnce({ error: null } as unknown as ReturnType<typeof mockEq>); // delete cleanup
     await expect(
       createAccount(
         { name: "BCA", type: "checking", currency: "IDR", initialBalance: 1000000, color: "#blue", icon: "bank" },
