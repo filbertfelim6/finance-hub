@@ -1,7 +1,10 @@
 import { test, expect } from "@playwright/test";
 
 // ─── Unauthenticated route guard ─────────────────────────────────────────────
+// These override the global storageState so we can test the redirect behaviour.
 test.describe("Plan 2 route guard (unauthenticated)", () => {
+  test.use({ storageState: { cookies: [], origins: [] } });
+
   const protectedRoutes = [
     "/accounts",
     "/transactions",
@@ -19,6 +22,8 @@ test.describe("Plan 2 route guard (unauthenticated)", () => {
 
 // ─── Auth pages still render ─────────────────────────────────────────────────
 test.describe("Auth pages render correctly after Plan 2", () => {
+  test.use({ storageState: { cookies: [], origins: [] } });
+
   test("login page still has email + password fields", async ({ page }) => {
     await page.goto("/auth/login");
     await expect(page.getByLabel(/email/i)).toBeVisible();
@@ -33,17 +38,11 @@ test.describe("Auth pages render correctly after Plan 2", () => {
   });
 });
 
-// ─── Authenticated UI — only runs when E2E credentials provided ───────────────
+// ─── Authenticated UI ─────────────────────────────────────────────────────────
+// Session is injected via storageState (set up once by e2e/setup/auth.setup.ts).
+// All tests in this block get a pre-authenticated page with no login overhead.
 test.describe("Plan 2 authenticated UI", () => {
   test.skip(!process.env.E2E_TEST_EMAIL, "Set E2E_TEST_EMAIL + E2E_TEST_PASSWORD to run");
-
-  test.beforeEach(async ({ page }) => {
-    await page.goto("/auth/login");
-    await page.getByLabel(/email/i).fill(process.env.E2E_TEST_EMAIL!);
-    await page.getByLabel(/password/i).fill(process.env.E2E_TEST_PASSWORD ?? "");
-    await page.getByRole("button", { name: /sign in/i }).click();
-    await page.waitForURL("/");
-  });
 
   test("accounts page renders heading and Add account button", async ({ page }) => {
     await page.goto("/accounts");
@@ -68,22 +67,23 @@ test.describe("Plan 2 authenticated UI", () => {
   test("log form advances from type → amount on Expense click", async ({ page }) => {
     await page.goto("/log");
     await page.getByRole("button", { name: /expense/i }).click();
-    // Amount step should now be visible (numeric keypad or input)
     await expect(page.getByPlaceholder("0")).toBeVisible();
   });
 
-  test("log form advances through expense flow to details", async ({ page }) => {
+  test("log form advances through expense flow to category", async ({ page }) => {
     await page.goto("/log");
-    // Step 1: type
+    // Step 1: select Expense
     await page.getByRole("button", { name: /expense/i }).click();
-    // Step 2: amount — enter 10000
-    await page.getByText("1").click();
-    await page.getByText("0").first().click();
-    await page.getByText("0").first().click();
-    await page.getByText("0").first().click();
-    await page.getByText("0").first().click();
-    await page.getByRole("button", { name: /next/i }).click();
-    // Step 3: category — skip if no categories yet, check heading visible
+    // Step 2: tap keypad digits to enter 10000
+    const keypad = page.locator("button[type='button']");
+    await page.locator("button[type='button']").filter({ hasText: /^1$/ }).click();
+    await page.locator("button[type='button']").filter({ hasText: /^0$/ }).click();
+    await page.locator("button[type='button']").filter({ hasText: /^0$/ }).click();
+    await page.locator("button[type='button']").filter({ hasText: /^0$/ }).click();
+    await page.locator("button[type='button']").filter({ hasText: /^0$/ }).click();
+    // Proceed — button is labeled "Continue" in AmountStep
+    await page.getByRole("button", { name: /continue/i }).click();
+    // Step 3: category heading should appear
     await expect(page.getByRole("heading", { name: /category/i })).toBeVisible();
   });
 
@@ -103,18 +103,13 @@ test.describe("Plan 2 authenticated UI", () => {
 
   test("account detail page navigates from accounts list", async ({ page }) => {
     await page.goto("/accounts");
-    const heading = page.getByRole("heading", { name: /accounts/i });
-    await expect(heading).toBeVisible();
-    // If there are account cards, click the first one
+    await expect(page.getByRole("heading", { name: /accounts/i })).toBeVisible();
     const cards = page.locator("a[href^='/accounts/']");
     const count = await cards.count();
-    if (count > 0) {
-      await cards.first().click();
-      await expect(page).toHaveURL(/\/accounts\/.+/);
-      await expect(page.getByRole("link", { name: /back/i }).or(page.getByLabel(/back/i))).toBeVisible();
-    } else {
-      test.skip();
-    }
+    if (count === 0) { test.skip(); return; }
+    await cards.first().click();
+    await expect(page).toHaveURL(/\/accounts\/.+/);
+    await expect(page.getByLabel(/back/i)).toBeVisible();
   });
 
   test("⋯ button on account card does NOT navigate (stopPropagation)", async ({ page }) => {
@@ -122,13 +117,9 @@ test.describe("Plan 2 authenticated UI", () => {
     const cards = page.locator("a[href^='/accounts/']");
     const count = await cards.count();
     if (count === 0) { test.skip(); return; }
-
-    // Click the ⋯ button — should open dropdown, NOT navigate
     const moreBtn = cards.first().getByRole("button", { name: /more/i });
     await moreBtn.click();
-    // Should still be on /accounts
     await expect(page).toHaveURL("/accounts");
-    // Dropdown items should be visible
-    await expect(page.getByRole("menuitem", { name: /edit/i }).or(page.getByText(/edit/i))).toBeVisible();
+    await expect(page.getByText(/edit/i).first()).toBeVisible();
   });
 });
