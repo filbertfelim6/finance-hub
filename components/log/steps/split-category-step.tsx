@@ -8,6 +8,7 @@ import { formatCurrency, cn } from "@/lib/utils";
 import type { CategoryType, Currency } from "@/lib/types/database.types";
 
 interface Split {
+  id: string;
   categoryId: string | null;
   amount: string;
 }
@@ -36,7 +37,7 @@ export function SplitCategoryStep({
   const isBalanced = Math.abs(remaining) < 0.01;
 
   function addSplit() {
-    onSplitsChange([...splits, { categoryId: null, amount: "" }]);
+    onSplitsChange([...splits, { id: crypto.randomUUID(), categoryId: null, amount: "" }]);
   }
 
   function updateSplit(index: number, patch: Partial<Split>) {
@@ -61,7 +62,7 @@ export function SplitCategoryStep({
 
       <div className="space-y-3">
         {splits.map((split, i) => (
-          <div key={i} className="flex gap-2 items-start">
+          <div key={split.id} className="flex gap-2 items-start">
             <div className="flex-1 space-y-1.5">
               <select
                 value={split.categoryId ?? ""}

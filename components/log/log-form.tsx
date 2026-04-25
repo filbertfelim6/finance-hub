@@ -32,7 +32,7 @@ interface LogState {
   isRecurring: boolean;
   recurringFrequency: RecurringFrequency;
   isSplit: boolean;
-  splits: Array<{ categoryId: string | null; amount: string }>;
+  splits: Array<{ id: string; categoryId: string | null; amount: string }>;
 }
 
 const INITIAL_STATE: LogState = {
@@ -221,7 +221,13 @@ export function LogForm() {
           onSelect={(categoryId) => { update({ categoryId }); next(); }}
           onSplitMode={() => {
             setSplitMode(true);
-            update({ splits: [{ categoryId: null, amount: "" }, { categoryId: null, amount: "" }] });
+            update({
+              isSplit: true,
+              splits: [
+                { id: crypto.randomUUID(), categoryId: null, amount: "" },
+                { id: crypto.randomUUID(), categoryId: null, amount: "" },
+              ],
+            });
           }}
         />
       )}
