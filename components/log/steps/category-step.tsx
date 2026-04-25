@@ -32,6 +32,9 @@ export function CategoryStep({ type, selectedId, onSelect, onSplitMode }: Catego
       icon: "tag",
       color: newColor,
     });
+    setAdding(false);
+    setNewName("");
+    setNewColor(CATEGORY_COLORS[0]);
     onSelect(cat.id);
   }
 

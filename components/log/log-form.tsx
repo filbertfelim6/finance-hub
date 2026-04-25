@@ -132,7 +132,6 @@ export function LogForm() {
           sourceAccountId={state.sourceAccountId}
           destAccountId={state.destAccountId}
           destAmount={state.destAmount}
-          sourceCurrency={state.currency}
           onAccountSelect={(accountId) => { update({ accountId }); next(); }}
           onTransferSelect={(sourceAccountId, destAccountId, destAmount) => {
             update({ sourceAccountId, destAccountId, destAmount });

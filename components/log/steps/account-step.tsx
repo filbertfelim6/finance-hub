@@ -13,7 +13,6 @@ interface AccountStepProps {
   sourceAccountId: string | null;
   destAccountId: string | null;
   destAmount: string;
-  sourceCurrency: Currency;
   onAccountSelect: (accountId: string) => void;
   onTransferSelect: (
     sourceAccountId: string,
@@ -28,7 +27,6 @@ export function AccountStep({
   sourceAccountId,
   destAccountId,
   destAmount,
-  sourceCurrency,
   onAccountSelect,
   onTransferSelect,
 }: AccountStepProps) {
