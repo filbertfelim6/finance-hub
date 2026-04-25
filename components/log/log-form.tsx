@@ -9,6 +9,11 @@ import { CategoryStep } from "./steps/category-step";
 import { AccountStep } from "./steps/account-step";
 import { DetailsStep } from "./steps/details-step";
 import type { TransactionType, Currency, RecurringFrequency } from "@/lib/types/database.types";
+import { toast } from "sonner";
+import { useCreateTransaction, useCreateTransfer } from "@/lib/hooks/use-transactions";
+import { useUsdToIdr } from "@/lib/hooks/use-exchange-rate";
+import { createClient } from "@/lib/supabase/client";
+import { useAccounts } from "@/lib/hooks/use-accounts";
 
 type LogStep = "type" | "amount" | "category" | "account" | "details";
 
@@ -56,6 +61,11 @@ export function LogForm() {
   const [state, setState] = useState<LogState>(INITIAL_STATE);
   const [splitMode, setSplitMode] = useState(false);
 
+  const createTransaction = useCreateTransaction();
+  const createTransfer = useCreateTransfer();
+  const usdToIdr = useUsdToIdr();
+  const { data: accounts = [] } = useAccounts();
+
   function update(patch: Partial<LogState>) {
     setState((prev) => ({ ...prev, ...patch }));
   }
@@ -76,6 +86,93 @@ export function LogForm() {
     setState(INITIAL_STATE);
     setStep("type");
     setSplitMode(false);
+  }
+
+  async function handleSubmit() {
+    try {
+      const amount = parseFloat(state.amount);
+      if (isNaN(amount) || amount <= 0) return;
+
+      if (state.type === "transfer") {
+        const sourceAcc = accounts.find((a) => a.id === state.sourceAccountId);
+        const destAcc = accounts.find((a) => a.id === state.destAccountId);
+        if (!sourceAcc || !destAcc) return;
+        const destAmount = state.destAmount
+          ? parseFloat(state.destAmount)
+          : sourceAcc.currency === destAcc.currency
+          ? amount
+          : sourceAcc.currency === "USD"
+          ? amount * usdToIdr
+          : amount / usdToIdr;
+
+        await createTransfer.mutateAsync({
+          sourceAccountId: sourceAcc.id,
+          destAccountId: destAcc.id,
+          amount,
+          sourceCurrency: sourceAcc.currency,
+          destCurrency: destAcc.currency,
+          destAmount,
+          notes: state.notes || null,
+          date: state.date,
+        });
+      } else if (splitMode) {
+        for (const split of state.splits) {
+          const splitAmount = parseFloat(split.amount);
+          if (isNaN(splitAmount) || splitAmount <= 0) continue;
+          const balanceDelta = state.type === "income" ? splitAmount : -splitAmount;
+          await createTransaction.mutateAsync({
+            account_id: state.accountId!,
+            type: state.type,
+            amount: splitAmount,
+            balance_delta: balanceDelta,
+            currency: state.currency,
+            category_id: split.categoryId,
+            notes: state.notes || null,
+            date: state.date,
+          });
+        }
+      } else {
+        if (!state.accountId) return;
+        const balanceDelta = state.type === "income" ? amount : -amount;
+        await createTransaction.mutateAsync({
+          account_id: state.accountId,
+          type: state.type,
+          amount,
+          balance_delta: balanceDelta,
+          currency: state.currency,
+          category_id: state.categoryId,
+          notes: state.notes || null,
+          date: state.date,
+        });
+
+        if (state.isRecurring) {
+          const supabase = createClient();
+          const nextDue = new Date(state.date);
+          if (state.recurringFrequency === "daily") nextDue.setDate(nextDue.getDate() + 1);
+          else if (state.recurringFrequency === "weekly") nextDue.setDate(nextDue.getDate() + 7);
+          else if (state.recurringFrequency === "monthly") nextDue.setMonth(nextDue.getMonth() + 1);
+          else nextDue.setFullYear(nextDue.getFullYear() + 1);
+
+          await supabase.from("recurring_transactions").insert({
+            transaction_template: {
+              account_id: state.accountId,
+              type: state.type,
+              amount,
+              currency: state.currency,
+              category_id: state.categoryId,
+              notes: state.notes || null,
+            },
+            frequency: state.recurringFrequency,
+            next_due_date: nextDue.toISOString().split("T")[0],
+          });
+        }
+      }
+
+      toast.success("Transaction saved");
+      reset();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Failed to save transaction");
+    }
   }
 
   return (
@@ -144,7 +241,8 @@ export function LogForm() {
         <DetailsStep
           state={state}
           update={update}
-          onSubmit={reset}
+          onSubmit={handleSubmit}
+          isPending={createTransaction.isPending || createTransfer.isPending}
         />
       )}
     </div>

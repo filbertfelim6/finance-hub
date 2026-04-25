@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Sidebar } from "@/components/layout/sidebar";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { FAB } from "@/components/layout/fab";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function AppLayout({
   children,
@@ -25,6 +26,7 @@ export default function AppLayout({
       </div>
       <BottomNav />
       <FAB />
+      <Toaster />
     </QueryClientProvider>
   );
 }
