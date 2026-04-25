@@ -76,7 +76,7 @@ export function AccountCard({ account, onEdit, onArchive }: AccountCardProps) {
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <Button variant="ghost" size="icon" className="h-7 w-7 -mr-1" aria-label="more">
+              <Button variant="ghost" size="icon" className="h-7 w-7 -mr-1" aria-label="more" onClick={(e) => e.stopPropagation()}>
                 <MoreHorizontal className="h-4 w-4" />
               </Button>
             }

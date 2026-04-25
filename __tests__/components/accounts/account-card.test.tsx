@@ -63,4 +63,15 @@ describe("AccountCard", () => {
     await userEvent.click(screen.getByText("Edit"));
     expect(onEdit).toHaveBeenCalled();
   });
+
+  it("trigger button click does not bubble to parent (stopPropagation)", async () => {
+    const parentClick = vi.fn();
+    render(
+      <div onClick={parentClick}>
+        <AccountCard account={mockAccount} onEdit={vi.fn()} onArchive={vi.fn()} />
+      </div>
+    );
+    await userEvent.click(screen.getByRole("button", { name: /more/i }));
+    expect(parentClick).not.toHaveBeenCalled();
+  });
 });
