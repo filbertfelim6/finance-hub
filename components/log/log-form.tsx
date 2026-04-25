@@ -59,7 +59,6 @@ function getStepsForType(type: TransactionType): LogStep[] {
 export function LogForm() {
   const [step, setStep] = useState<LogStep>("type");
   const [state, setState] = useState<LogState>(INITIAL_STATE);
-  const [splitMode, setSplitMode] = useState(false);
 
   const createTransaction = useCreateTransaction();
   const createTransfer = useCreateTransfer();
@@ -85,7 +84,6 @@ export function LogForm() {
   function reset() {
     setState(INITIAL_STATE);
     setStep("type");
-    setSplitMode(false);
   }
 
   async function handleSubmit() {
@@ -115,7 +113,7 @@ export function LogForm() {
           notes: state.notes || null,
           date: state.date,
         });
-      } else if (splitMode) {
+      } else if (state.isSplit) {
         for (const split of state.splits) {
           const splitAmount = parseFloat(split.amount);
           if (isNaN(splitAmount) || splitAmount <= 0) continue;
@@ -153,18 +151,21 @@ export function LogForm() {
           else if (state.recurringFrequency === "monthly") nextDue.setMonth(nextDue.getMonth() + 1);
           else nextDue.setFullYear(nextDue.getFullYear() + 1);
 
-          await supabase.from("recurring_transactions").insert({
-            transaction_template: {
-              account_id: state.accountId,
-              type: state.type,
-              amount,
-              currency: state.currency,
-              category_id: state.categoryId,
-              notes: state.notes || null,
-            },
-            frequency: state.recurringFrequency,
-            next_due_date: nextDue.toISOString().split("T")[0],
-          });
+          const { error: recurringError } = await supabase
+            .from("recurring_transactions")
+            .insert({
+              transaction_template: {
+                account_id: state.accountId,
+                type: state.type,
+                amount,
+                currency: state.currency,
+                category_id: state.categoryId,
+                notes: state.notes || null,
+              },
+              frequency: state.recurringFrequency,
+              next_due_date: nextDue.toISOString().split("T")[0],
+            });
+          if (recurringError) throw recurringError;
         }
       }
 
@@ -216,8 +217,7 @@ export function LogForm() {
           selectedId={state.categoryId}
           onSelect={(categoryId) => { update({ categoryId }); next(); }}
           onSplitMode={() => {
-            setSplitMode(true);
-            update({ splits: [{ categoryId: null, amount: "" }, { categoryId: null, amount: "" }] });
+            update({ isSplit: true, splits: [{ categoryId: null, amount: "" }, { categoryId: null, amount: "" }] });
           }}
         />
       )}
