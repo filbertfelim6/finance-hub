@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { TypeStep } from "./steps/type-step";
 import { AmountStep } from "./steps/amount-step";
 import { CategoryStep } from "./steps/category-step";
+import { SplitCategoryStep } from "./steps/split-category-step";
 import { AccountStep } from "./steps/account-step";
 import { DetailsStep } from "./steps/details-step";
 import type { TransactionType, Currency, RecurringFrequency } from "@/lib/types/database.types";
@@ -59,6 +60,7 @@ function getStepsForType(type: TransactionType): LogStep[] {
 export function LogForm() {
   const [step, setStep] = useState<LogStep>("type");
   const [state, setState] = useState<LogState>(INITIAL_STATE);
+  const [splitMode, setSplitMode] = useState(false);
 
   const createTransaction = useCreateTransaction();
   const createTransfer = useCreateTransfer();
@@ -84,6 +86,7 @@ export function LogForm() {
   function reset() {
     setState(INITIAL_STATE);
     setStep("type");
+    setSplitMode(false);
   }
 
   async function handleSubmit() {
@@ -113,7 +116,7 @@ export function LogForm() {
           notes: state.notes || null,
           date: state.date,
         });
-      } else if (state.isSplit) {
+      } else if (state.isSplit || splitMode) {
         for (const split of state.splits) {
           const splitAmount = parseFloat(split.amount);
           if (isNaN(splitAmount) || splitAmount <= 0) continue;
@@ -211,14 +214,26 @@ export function LogForm() {
         />
       )}
 
-      {step === "category" && (
+      {step === "category" && !splitMode && (
         <CategoryStep
           type={state.type === "income" ? "income" : "expense"}
           selectedId={state.categoryId}
           onSelect={(categoryId) => { update({ categoryId }); next(); }}
           onSplitMode={() => {
-            update({ isSplit: true, splits: [{ categoryId: null, amount: "" }, { categoryId: null, amount: "" }] });
+            setSplitMode(true);
+            update({ splits: [{ categoryId: null, amount: "" }, { categoryId: null, amount: "" }] });
           }}
+        />
+      )}
+
+      {step === "category" && splitMode && (
+        <SplitCategoryStep
+          totalAmount={parseFloat(state.amount) || 0}
+          currency={state.currency}
+          categoryType={state.type === "income" ? "income" : "expense"}
+          splits={state.splits}
+          onSplitsChange={(splits) => update({ splits })}
+          onNext={next}
         />
       )}
 
