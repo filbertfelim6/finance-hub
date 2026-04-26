@@ -182,3 +182,175 @@ export function computeSavingsRate(
     ((totalIncomeDisplay - totalExpensesDisplay) / totalIncomeDisplay) * 100
   ));
 }
+
+// ─── Savings Rate Trend ───────────────────────────────────────────────────────
+
+export interface SavingsRatePoint {
+  period: string;
+  rate: number;
+  income: number;
+  expenses: number;
+}
+
+export function buildSavingsRateSeries(
+  transactions: Transaction[],
+  dateFrom: string,
+  dateTo: string,
+  granularity: Granularity,
+  rates: Record<string, number>,
+  displayCurrency: string
+): SavingsRatePoint[] {
+  return buildIncomeExpenseSeries(transactions, dateFrom, dateTo, granularity, rates, displayCurrency)
+    .map(({ period, income, expenses }) => ({
+      period,
+      income,
+      expenses,
+      rate: computeSavingsRate(income, expenses),
+    }));
+}
+
+// ─── Category Spend Trend ─────────────────────────────────────────────────────
+
+export interface CategoryTrendPoint {
+  period: string;
+  [categoryName: string]: number | string;
+}
+
+export interface CategoryTrendData {
+  series: CategoryTrendPoint[];
+  topCategories: { name: string; color: string }[];
+}
+
+export function buildCategoryTrendSeries(
+  transactions: Transaction[],
+  categories: Category[],
+  topN: number,
+  dateFrom: string,
+  dateTo: string,
+  granularity: Granularity,
+  rates: Record<string, number>,
+  displayCurrency: string
+): CategoryTrendData {
+  const catById = Object.fromEntries(categories.map((c) => [c.id, c]));
+  const periodCatMap: Record<string, Record<string, number>> = {};
+  const catTotals: Record<string, number> = {};
+
+  for (const txn of transactions) {
+    if (txn.type !== "expense") continue;
+    const key = periodKey(txn.date, granularity);
+    const catId = txn.category_id ?? "uncategorized";
+    const amountUsd = txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1);
+    const inDisplay = amountUsd * (rates[displayCurrency] ?? 1);
+    if (!periodCatMap[key]) periodCatMap[key] = {};
+    periodCatMap[key][catId] = (periodCatMap[key][catId] ?? 0) + inDisplay;
+    catTotals[catId] = (catTotals[catId] ?? 0) + inDisplay;
+  }
+
+  const topCatIds = Object.entries(catTotals)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, topN)
+    .map(([id]) => id);
+
+  const topCategories = topCatIds.map((id) => ({
+    name: catById[id]?.name ?? "Uncategorized",
+    color: catById[id]?.color ?? "#94a3b8",
+  }));
+
+  const allDays = isoDatesBetween(dateFrom, dateTo);
+  const seenKeys = new Set<string>();
+  for (const day of allDays) {
+    const key = periodKey(day, granularity);
+    if (!seenKeys.has(key)) seenKeys.add(key);
+  }
+
+  const series: CategoryTrendPoint[] = [...seenKeys].map((key) => {
+    const point: CategoryTrendPoint = { period: key };
+    for (const id of topCatIds) {
+      const catName = catById[id]?.name ?? "Uncategorized";
+      point[catName] = periodCatMap[key]?.[id] ?? 0;
+    }
+    return point;
+  });
+
+  return { series, topCategories };
+}
+
+// ─── Cash Flow Waterfall ──────────────────────────────────────────────────────
+
+export interface WaterfallPoint {
+  name: string;
+  base: number;
+  value: number;
+  fill: string;
+}
+
+export function buildCashFlowWaterfall(
+  accounts: Account[],
+  transactions: Transaction[],
+  categories: Category[],
+  dateFrom: string,
+  dateTo: string,
+  rates: Record<string, number>,
+  displayCurrency: string,
+  topN = 6
+): WaterfallPoint[] {
+  const catById = Object.fromEntries(categories.map((c) => [c.id, c]));
+
+  // Opening = current balance minus all deltas in period
+  const deltaByAccount: Record<string, number> = {};
+  for (const txn of transactions) {
+    deltaByAccount[txn.account_id] = (deltaByAccount[txn.account_id] ?? 0) + (txn.balance_delta ?? 0);
+  }
+  let opening = 0;
+  for (const acc of accounts) {
+    const delta = deltaByAccount[acc.id] ?? 0;
+    opening += convertCurrency(acc.balance - delta, acc.currency, displayCurrency, rates);
+  }
+
+  let totalIncome = 0;
+  const catExpenses: Record<string, number> = {};
+  for (const txn of transactions) {
+    if (txn.type === "transfer") continue;
+    const amountUsd = txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1);
+    const inDisplay = amountUsd * (rates[displayCurrency] ?? 1);
+    if (txn.type === "income") {
+      totalIncome += inDisplay;
+    } else {
+      const catId = txn.category_id ?? "uncategorized";
+      catExpenses[catId] = (catExpenses[catId] ?? 0) + inDisplay;
+    }
+  }
+
+  const sortedCats = Object.entries(catExpenses).sort((a, b) => b[1] - a[1]);
+  const topCats = sortedCats.slice(0, topN);
+  const otherExpense = sortedCats.slice(topN).reduce((s, [, v]) => s + v, 0);
+
+  const points: WaterfallPoint[] = [];
+  let running = opening;
+
+  points.push({ name: "Opening", base: 0, value: opening, fill: "#3b82f6" });
+
+  if (totalIncome > 0) {
+    points.push({ name: "Income", base: running, value: totalIncome, fill: "#10b981" });
+    running += totalIncome;
+  }
+
+  for (const [catId, amount] of topCats) {
+    running -= amount;
+    points.push({
+      name: catById[catId]?.name ?? "Uncategorized",
+      base: running,
+      value: amount,
+      fill: catById[catId]?.color ?? "#ef4444",
+    });
+  }
+
+  if (otherExpense > 0) {
+    running -= otherExpense;
+    points.push({ name: "Other", base: running, value: otherExpense, fill: "#94a3b8" });
+  }
+
+  points.push({ name: "Closing", base: 0, value: running, fill: "#6366f1" });
+
+  return points;
+}

@@ -12,6 +12,9 @@ import {
   buildIncomeExpenseSeries,
   buildCategoryBreakdown,
   computeSavingsRate,
+  buildSavingsRateSeries,
+  buildCategoryTrendSeries,
+  buildCashFlowWaterfall,
   type RangeKey,
 } from "@/lib/utils/dashboard";
 import { convertCurrency } from "@/lib/utils";
@@ -74,5 +77,44 @@ export function useTotalNetWorth() {
     accounts.reduce((sum, acc) =>
       sum + convertCurrency(acc.balance, acc.currency, displayCurrency, rates), 0),
     [accounts, rates, displayCurrency]
+  );
+}
+
+export function useSavingsRateSeries() {
+  const { dateFrom, dateTo } = getRangeInterval("1Y");
+  const rates = useExchangeRates();
+  const { displayCurrency } = useDisplayCurrency();
+  const { data: transactions = [] } = useTransactions({ dateFrom, dateTo });
+
+  return useMemo(() =>
+    buildSavingsRateSeries(transactions, dateFrom, dateTo, "month", rates, displayCurrency),
+    [transactions, rates, displayCurrency, dateFrom, dateTo]
+  );
+}
+
+export function useCategoryTrendSeries(range: RangeKey) {
+  const { dateFrom, dateTo, granularity } = getRangeInterval(range);
+  const rates = useExchangeRates();
+  const { displayCurrency } = useDisplayCurrency();
+  const { data: transactions = [] } = useTransactions({ dateFrom, dateTo });
+  const { data: categories = [] } = useCategories();
+
+  return useMemo(() =>
+    buildCategoryTrendSeries(transactions, categories, 5, dateFrom, dateTo, granularity, rates, displayCurrency),
+    [transactions, categories, rates, displayCurrency, dateFrom, dateTo, granularity]
+  );
+}
+
+export function useCashFlowWaterfall(range: RangeKey) {
+  const { dateFrom, dateTo } = getRangeInterval(range);
+  const rates = useExchangeRates();
+  const { displayCurrency } = useDisplayCurrency();
+  const { data: transactions = [] } = useTransactions({ dateFrom, dateTo });
+  const { data: accounts = [] } = useAccounts();
+  const { data: categories = [] } = useCategories();
+
+  return useMemo(() =>
+    buildCashFlowWaterfall(accounts, transactions, categories, dateFrom, dateTo, rates, displayCurrency),
+    [accounts, transactions, categories, rates, displayCurrency, dateFrom, dateTo]
   );
 }
