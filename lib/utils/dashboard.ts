@@ -284,28 +284,16 @@ export interface WaterfallPoint {
   fill: string;
 }
 
+// Builds a period-only cash flow waterfall (no opening/closing balance).
+// Income is the full bar; expense categories eat downward; "Saved" closes the gap.
 export function buildCashFlowWaterfall(
-  accounts: Account[],
   transactions: Transaction[],
   categories: Category[],
-  dateFrom: string,
-  dateTo: string,
   rates: Record<string, number>,
   displayCurrency: string,
   topN = 6
 ): WaterfallPoint[] {
   const catById = Object.fromEntries(categories.map((c) => [c.id, c]));
-
-  // Opening = current balance minus all deltas in period
-  const deltaByAccount: Record<string, number> = {};
-  for (const txn of transactions) {
-    deltaByAccount[txn.account_id] = (deltaByAccount[txn.account_id] ?? 0) + (txn.balance_delta ?? 0);
-  }
-  let opening = 0;
-  for (const acc of accounts) {
-    const delta = deltaByAccount[acc.id] ?? 0;
-    opening += convertCurrency(acc.balance - delta, acc.currency, displayCurrency, rates);
-  }
 
   let totalIncome = 0;
   const catExpenses: Record<string, number> = {};
@@ -326,20 +314,15 @@ export function buildCashFlowWaterfall(
   const otherExpense = sortedCats.slice(topN).reduce((s, [, v]) => s + v, 0);
 
   const points: WaterfallPoint[] = [];
-  let running = opening;
+  let running = totalIncome;
 
-  points.push({ name: "Opening", base: 0, value: opening, fill: "#3b82f6" });
-
-  if (totalIncome > 0) {
-    points.push({ name: "Income", base: running, value: totalIncome, fill: "#10b981" });
-    running += totalIncome;
-  }
+  points.push({ name: "Income", base: 0, value: totalIncome, fill: "#10b981" });
 
   for (const [catId, amount] of topCats) {
     running -= amount;
     points.push({
       name: catById[catId]?.name ?? "Uncategorized",
-      base: running,
+      base: Math.max(0, running),
       value: amount,
       fill: catById[catId]?.color ?? "#ef4444",
     });
@@ -347,10 +330,14 @@ export function buildCashFlowWaterfall(
 
   if (otherExpense > 0) {
     running -= otherExpense;
-    points.push({ name: "Other", base: running, value: otherExpense, fill: "#94a3b8" });
+    points.push({ name: "Other", base: Math.max(0, running), value: otherExpense, fill: "#94a3b8" });
   }
 
-  points.push({ name: "Closing", base: 0, value: running, fill: "#6366f1" });
+  // Close the gap from 0 up to where expenses stopped
+  const saved = Math.max(0, running);
+  if (saved > 0) {
+    points.push({ name: "Saved", base: 0, value: saved, fill: "#6366f1" });
+  }
 
   return points;
 }

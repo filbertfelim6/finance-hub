@@ -110,11 +110,10 @@ export function useCashFlowWaterfall(range: RangeKey) {
   const rates = useExchangeRates();
   const { displayCurrency } = useDisplayCurrency();
   const { data: transactions = [] } = useTransactions({ dateFrom, dateTo });
-  const { data: accounts = [] } = useAccounts();
   const { data: categories = [] } = useCategories();
 
   return useMemo(() =>
-    buildCashFlowWaterfall(accounts, transactions, categories, dateFrom, dateTo, rates, displayCurrency),
-    [accounts, transactions, categories, rates, displayCurrency, dateFrom, dateTo]
+    buildCashFlowWaterfall(transactions, categories, rates, displayCurrency),
+    [transactions, categories, rates, displayCurrency, dateFrom, dateTo]
   );
 }
