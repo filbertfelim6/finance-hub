@@ -30,28 +30,28 @@ export interface NetWorthPoint {
 
 function isoDatesBetween(start: string, end: string): string[] {
   const dates: string[] = [];
-  const cur = new Date(start + "T00:00:00");
-  const last = new Date(end + "T00:00:00");
+  const cur = new Date(start + "T00:00:00Z");
+  const last = new Date(end + "T00:00:00Z");
   while (cur <= last) {
     dates.push(cur.toISOString().split("T")[0]);
-    cur.setDate(cur.getDate() + 1);
+    cur.setUTCDate(cur.getUTCDate() + 1);
   }
   return dates;
 }
 
 function periodKey(dateStr: string, granularity: Granularity): string {
-  const d = new Date(dateStr + "T00:00:00");
+  const d = new Date(dateStr + "T00:00:00Z");
   if (granularity === "month") {
-    return `${d.toLocaleString("default", { month: "short" })} ${d.getFullYear()}`;
+    return `${d.toLocaleString("default", { month: "short", timeZone: "UTC" })} ${d.getUTCFullYear()}`;
   }
   if (granularity === "week") {
-    const day = d.getDay();
+    const day = d.getUTCDay();
     const diff = (day === 0 ? -6 : 1) - day;
     const monday = new Date(d);
-    monday.setDate(d.getDate() + diff);
+    monday.setUTCDate(d.getUTCDate() + diff);
     return monday.toISOString().split("T")[0];
   }
-  return `${d.toLocaleString("default", { month: "short" })} ${d.getDate()}`;
+  return `${d.toLocaleString("default", { month: "short", timeZone: "UTC" })} ${d.getUTCDate()}`;
 }
 
 export function buildNetWorthSeries(
