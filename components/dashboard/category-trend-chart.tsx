@@ -11,7 +11,7 @@ import { useCategoryTrendSeries } from "@/lib/hooks/use-dashboard";
 import { useAccounts } from "@/lib/hooks/use-accounts";
 import { usePrivacy } from "@/lib/context/privacy-context";
 import { useDisplayCurrency } from "@/lib/context/display-currency-context";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, TOOLTIP_STYLE } from "@/lib/utils";
 import type { RangeKey } from "@/lib/utils/dashboard";
 
 export function CategoryTrendChart() {
@@ -72,13 +72,7 @@ export function CategoryTrendChart() {
                 isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
                 String(name),
               ]}
-              contentStyle={{
-                fontSize: 12,
-                borderRadius: 8,
-                border: "1px solid hsl(var(--border))",
-                backgroundColor: "hsl(var(--card))",
-                color: "hsl(var(--foreground))",
-              }}
+              contentStyle={TOOLTIP_STYLE}
             />
             <Legend wrapperStyle={{ fontSize: 11 }} />
             {topCategories.map((cat) => (

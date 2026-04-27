@@ -10,6 +10,7 @@ import { AccountFilter } from "@/components/dashboard/account-filter";
 import { useSavingsRateSeries } from "@/lib/hooks/use-dashboard";
 import { useAccounts } from "@/lib/hooks/use-accounts";
 import { usePrivacy } from "@/lib/context/privacy-context";
+import { TOOLTIP_STYLE } from "@/lib/utils";
 import type { RangeKey } from "@/lib/utils/dashboard";
 
 export function SavingsRateChart() {
@@ -64,13 +65,7 @@ export function SavingsRateChart() {
               isPrivate ? "••••" : `${Number(value ?? 0).toFixed(1)}%`,
               "Savings Rate",
             ]}
-            contentStyle={{
-              fontSize: 12,
-              borderRadius: 8,
-              border: "1px solid hsl(var(--border))",
-              backgroundColor: "hsl(var(--card))",
-              color: "hsl(var(--foreground))",
-            }}
+            contentStyle={TOOLTIP_STYLE}
           />
           <Line
             type="monotone"

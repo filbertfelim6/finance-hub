@@ -8,7 +8,7 @@ import { usePeriodSummary } from "@/lib/hooks/use-dashboard";
 import { useAccounts } from "@/lib/hooks/use-accounts";
 import { usePrivacy } from "@/lib/context/privacy-context";
 import { useDisplayCurrency } from "@/lib/context/display-currency-context";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, TOOLTIP_STYLE } from "@/lib/utils";
 import type { RangeKey } from "@/lib/utils/dashboard";
 
 export function CategoryDonutChart() {
@@ -67,13 +67,7 @@ export function CategoryDonutChart() {
                 formatter={(value: any) => [
                   isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
                 ]}
-                contentStyle={{
-                  fontSize: 12,
-                  borderRadius: 8,
-                  border: "1px solid hsl(var(--border))",
-                  backgroundColor: "hsl(var(--card))",
-                  color: "hsl(var(--foreground))",
-                }}
+                contentStyle={TOOLTIP_STYLE}
               />
             </PieChart>
           </ResponsiveContainer>

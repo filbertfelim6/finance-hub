@@ -1,3 +1,4 @@
+import type React from "react";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import type { Currency } from "@/lib/types/database.types"
@@ -35,17 +36,63 @@ export function exportToCsv(
   URL.revokeObjectURL(url);
 }
 
-export function formatCurrency(amount: number, currency: Currency): string {
-  if (currency === "USD") {
-    return new Intl.NumberFormat("en-US", {
+// Format a raw number string for display: dots as thousands separators, comma as decimal
+// e.g. "1000000.5" → "1.000.000,5"
+export function formatAmountInput(raw: string): string {
+  if (!raw) return "";
+  const [intPart, decPart] = raw.split(".");
+  const withThousands = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return decPart !== undefined ? `${withThousands},${decPart}` : withThousands;
+}
+
+// Parse a display-formatted string back to a raw number string
+// Strips thousand dots, converts decimal comma to period
+// e.g. "1.000.000,5" → "1000000.5"
+export function parseAmountInput(display: string): string {
+  return display.replace(/\./g, "").replace(",", ".");
+}
+
+/** Convert using a rates-from-USD map, e.g. { USD: 1, IDR: 16000, EUR: 0.92 } */
+export function convertCurrency(
+  amount: number,
+  from: string,
+  to: string,
+  ratesFromUsd: Record<string, number>
+): number {
+  if (from === to) return amount;
+  const fromRate = ratesFromUsd[from] ?? 1;
+  const toRate = ratesFromUsd[to] ?? 1;
+  return (amount / fromRate) * toRate;
+}
+
+export const TOOLTIP_STYLE: React.CSSProperties = {
+  fontSize: 12,
+  borderRadius: 8,
+  border: "1px solid var(--tooltip-border)",
+  backgroundColor: "var(--popover)",
+  color: "var(--popover-foreground)",
+  boxShadow: "var(--tooltip-shadow)",
+};
+
+export function formatCurrency(amount: number, currency: string): string {
+  if (currency === "IDR") {
+    return new Intl.NumberFormat("id-ID", {
       style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 2,
+      currency: "IDR",
+      maximumFractionDigits: 0,
     }).format(amount);
   }
-  return new Intl.NumberFormat("id-ID", {
+  if (currency === "JPY") {
+    return new Intl.NumberFormat("ja-JP", {
+      style: "currency",
+      currency: "JPY",
+      maximumFractionDigits: 0,
+    }).format(amount);
+  }
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0,
+    currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   }).format(amount);
 }

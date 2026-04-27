@@ -11,7 +11,7 @@ import { useCashFlowWaterfall } from "@/lib/hooks/use-dashboard";
 import { useAccounts } from "@/lib/hooks/use-accounts";
 import { usePrivacy } from "@/lib/context/privacy-context";
 import { useDisplayCurrency } from "@/lib/context/display-currency-context";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, TOOLTIP_STYLE } from "@/lib/utils";
 import type { RangeKey } from "@/lib/utils/dashboard";
 
 export function CashFlowWaterfallChart() {
@@ -68,13 +68,7 @@ export function CashFlowWaterfallChart() {
                 "Amount",
               ];
             }}
-            contentStyle={{
-              fontSize: 12,
-              borderRadius: 8,
-              border: "1px solid hsl(var(--border))",
-              backgroundColor: "hsl(var(--card))",
-              color: "hsl(var(--foreground))",
-            }}
+            contentStyle={TOOLTIP_STYLE}
           />
           {/* Invisible spacer bar that positions the visible bar */}
           <Bar dataKey="base" stackId="wf" fill="transparent" isAnimationActive={false} />
