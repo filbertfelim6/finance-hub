@@ -1,21 +1,41 @@
 "use client";
 
+import { useState } from "react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, ReferenceLine,
 } from "recharts";
+import { RangeSelector } from "@/components/dashboard/range-selector";
+import { AccountFilter } from "@/components/dashboard/account-filter";
 import { useSavingsRateSeries } from "@/lib/hooks/use-dashboard";
+import { useAccounts } from "@/lib/hooks/use-accounts";
 import { usePrivacy } from "@/lib/context/privacy-context";
+import type { RangeKey } from "@/lib/utils/dashboard";
 
 export function SavingsRateChart() {
-  const data = useSavingsRateSeries();
+  const [range, setRange] = useState<RangeKey>("1Y");
+  const [customFrom, setCustomFrom] = useState("");
+  const [customTo, setCustomTo] = useState("");
+  const [selectedIds, setSelectedIds] = useState<string[] | null>(null);
+
+  const { data: accounts = [] } = useAccounts();
+  const data = useSavingsRateSeries(range, customFrom || undefined, customTo || undefined, selectedIds ?? undefined);
   const { isPrivate } = usePrivacy();
 
   return (
     <div className="rounded-xl border bg-card p-4 space-y-4">
-      <div className="flex items-center justify-between gap-2">
-        <h3 className="text-sm font-semibold">Savings Rate Trend</h3>
-        <span className="text-xs text-muted-foreground">Last 12 months</span>
+      <div className="flex items-start justify-between gap-2 flex-wrap">
+        <h3 className="text-sm font-semibold pt-1">Savings Rate Trend</h3>
+        <div className="flex flex-wrap items-center gap-2 justify-end">
+          <AccountFilter accounts={accounts} selectedIds={selectedIds} onChange={setSelectedIds} />
+          <RangeSelector
+            value={range}
+            onChange={setRange}
+            customDateFrom={customFrom}
+            customDateTo={customTo}
+            onCustomDateChange={(f, t) => { setCustomFrom(f); setCustomTo(t); }}
+          />
+        </div>
       </div>
 
       <ResponsiveContainer width="100%" height={200}>

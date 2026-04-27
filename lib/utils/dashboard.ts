@@ -1,7 +1,7 @@
 import type { Account, Transaction, Category } from "@/lib/types/database.types";
 import { convertCurrency } from "@/lib/utils";
 
-export type RangeKey = "7D" | "30D" | "90D" | "1Y";
+export type RangeKey = "7D" | "30D" | "90D" | "1Y" | "custom";
 export type Granularity = "day" | "week" | "month";
 
 export interface RangeInterval {
@@ -10,12 +10,18 @@ export interface RangeInterval {
   granularity: Granularity;
 }
 
-export function getRangeInterval(range: RangeKey): RangeInterval {
+export function getRangeInterval(range: RangeKey, customFrom?: string, customTo?: string): RangeInterval {
+  if (range === "custom" && customFrom && customTo) {
+    const diffMs = new Date(customTo + "T00:00:00Z").getTime() - new Date(customFrom + "T00:00:00Z").getTime();
+    const days = Math.round(diffMs / 86400000);
+    const granularity: Granularity = days > 90 ? "month" : days > 30 ? "week" : "day";
+    return { dateFrom: customFrom, dateTo: customTo, granularity };
+  }
   const today = new Date();
   const dateTo = today.toISOString().split("T")[0];
   const start = new Date(today);
-  const days = { "7D": 7, "30D": 30, "90D": 90, "1Y": 365 } as const;
-  start.setDate(start.getDate() - days[range]);
+  const presetDays = { "7D": 7, "30D": 30, "90D": 90, "1Y": 365, "custom": 30 } as const;
+  start.setDate(start.getDate() - presetDays[range]);
   const dateFrom = start.toISOString().split("T")[0];
   const granularity: Granularity =
     range === "1Y" ? "month" : range === "90D" ? "week" : "day";

@@ -6,7 +6,9 @@ import {
   Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
 import { RangeSelector } from "@/components/dashboard/range-selector";
+import { AccountFilter } from "@/components/dashboard/account-filter";
 import { usePeriodSummary } from "@/lib/hooks/use-dashboard";
+import { useAccounts } from "@/lib/hooks/use-accounts";
 import { usePrivacy } from "@/lib/context/privacy-context";
 import { useDisplayCurrency } from "@/lib/context/display-currency-context";
 import { formatCurrency } from "@/lib/utils";
@@ -14,15 +16,29 @@ import type { RangeKey } from "@/lib/utils/dashboard";
 
 export function IncomeExpenseChart() {
   const [range, setRange] = useState<RangeKey>("30D");
-  const { incomeExpense } = usePeriodSummary(range);
+  const [customFrom, setCustomFrom] = useState("");
+  const [customTo, setCustomTo] = useState("");
+  const [selectedIds, setSelectedIds] = useState<string[] | null>(null);
+
+  const { data: accounts = [] } = useAccounts();
+  const { incomeExpense } = usePeriodSummary(range, customFrom || undefined, customTo || undefined, selectedIds ?? undefined);
   const { isPrivate } = usePrivacy();
   const { displayCurrency } = useDisplayCurrency();
 
   return (
     <div className="rounded-xl border bg-card p-4 space-y-4">
-      <div className="flex items-center justify-between gap-2 flex-wrap">
-        <h3 className="text-sm font-semibold">Income vs Expenses</h3>
-        <RangeSelector value={range} onChange={setRange} />
+      <div className="flex items-start justify-between gap-2 flex-wrap">
+        <h3 className="text-sm font-semibold pt-1">Income vs Expenses</h3>
+        <div className="flex flex-wrap items-center gap-2 justify-end">
+          <AccountFilter accounts={accounts} selectedIds={selectedIds} onChange={setSelectedIds} />
+          <RangeSelector
+            value={range}
+            onChange={setRange}
+            customDateFrom={customFrom}
+            customDateTo={customTo}
+            onCustomDateChange={(f, t) => { setCustomFrom(f); setCustomTo(t); }}
+          />
+        </div>
       </div>
 
       <ResponsiveContainer width="100%" height={200}>
