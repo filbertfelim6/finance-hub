@@ -48,7 +48,8 @@ export function CategoryTrendChart() {
           No expense data in this period
         </div>
       ) : (
-        <div className="flex-1 min-h-[200px]">
+        <div className="relative flex-1 min-h-[200px]">
+          <div className="absolute inset-0">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={series} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} style={{ overflow: "visible" }}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
@@ -89,6 +90,7 @@ export function CategoryTrendChart() {
               ))}
             </LineChart>
           </ResponsiveContainer>
+          </div>
         </div>
       )}
     </div>

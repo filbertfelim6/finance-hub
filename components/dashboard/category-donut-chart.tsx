@@ -47,7 +47,8 @@ export function CategoryDonutChart() {
         </div>
       ) : (
         <>
-          <div className="flex-1 min-h-[150px]">
+          <div className="relative flex-1 min-h-[150px]">
+            <div className="absolute inset-0">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart style={{ overflow: "visible" }}>
                 <Pie
@@ -72,6 +73,7 @@ export function CategoryDonutChart() {
                 />
               </PieChart>
             </ResponsiveContainer>
+            </div>
           </div>
 
           {/* Custom legend: color swatch + name + amount + percentage */}

@@ -48,7 +48,8 @@ export function NetWorthChart() {
         </div>
       </div>
 
-      <div className="flex-1 min-h-[180px]">
+      <div className="relative flex-1 min-h-[180px]">
+        <div className="absolute inset-0">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} style={{ overflow: "visible" }}>
             <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
@@ -93,6 +94,7 @@ export function NetWorthChart() {
             ))}
           </AreaChart>
         </ResponsiveContainer>
+        </div>
       </div>
     </div>
   );

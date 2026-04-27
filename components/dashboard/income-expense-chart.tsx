@@ -41,7 +41,8 @@ export function IncomeExpenseChart() {
         </div>
       </div>
 
-      <div className="flex-1 min-h-[180px]">
+      <div className="relative flex-1 min-h-[180px]">
+        <div className="absolute inset-0">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={incomeExpense} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} style={{ overflow: "visible" }}>
             <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
@@ -77,6 +78,7 @@ export function IncomeExpenseChart() {
             <Bar dataKey="expenses" fill="#ef4444" radius={[3, 3, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
+        </div>
       </div>
     </div>
   );
