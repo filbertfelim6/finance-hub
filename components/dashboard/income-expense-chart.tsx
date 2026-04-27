@@ -26,7 +26,7 @@ export function IncomeExpenseChart() {
   const { displayCurrency } = useDisplayCurrency();
 
   return (
-    <div className="rounded-xl border bg-card p-4 space-y-4">
+    <div className="rounded-xl border bg-card p-4 flex flex-col gap-4">
       <div className="flex items-start justify-between gap-2 flex-wrap">
         <h3 className="text-sm font-semibold pt-1">Income vs Expenses</h3>
         <div className="flex flex-wrap items-center gap-2 justify-end">
@@ -41,41 +41,43 @@ export function IncomeExpenseChart() {
         </div>
       </div>
 
-      <ResponsiveContainer width="100%" height={200}>
-        <BarChart data={incomeExpense} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
-          <XAxis
-            dataKey="period"
-            tick={{ fontSize: 10 }}
-            className="fill-muted-foreground"
-            tickLine={false}
-            axisLine={false}
-          />
-          <YAxis
-            tick={{ fontSize: 10 }}
-            className="fill-muted-foreground"
-            tickLine={false}
-            axisLine={false}
-            tickFormatter={(v) => isPrivate ? "••••" : formatCurrency(v, displayCurrency)}
-            width={70}
-          />
-          <Tooltip
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            formatter={(value: any, name: any) => [
-              isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
-              String(name).charAt(0).toUpperCase() + String(name).slice(1),
-            ]}
-            contentStyle={TOOLTIP_STYLE}
-          />
-          <Legend
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            formatter={(v: any) => String(v).charAt(0).toUpperCase() + String(v).slice(1)}
-            wrapperStyle={{ fontSize: 11 }}
-          />
-          <Bar dataKey="income" fill="#10b981" radius={[3, 3, 0, 0]} />
-          <Bar dataKey="expenses" fill="#ef4444" radius={[3, 3, 0, 0]} />
-        </BarChart>
-      </ResponsiveContainer>
+      <div className="flex-1 min-h-[180px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={incomeExpense} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} style={{ overflow: "visible" }}>
+            <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
+            <XAxis
+              dataKey="period"
+              tick={{ fontSize: 10 }}
+              className="fill-muted-foreground"
+              tickLine={false}
+              axisLine={false}
+            />
+            <YAxis
+              tick={{ fontSize: 10 }}
+              className="fill-muted-foreground"
+              tickLine={false}
+              axisLine={false}
+              tickFormatter={(v) => isPrivate ? "••••" : formatCurrency(v, displayCurrency)}
+              width={70}
+            />
+            <Tooltip
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              formatter={(value: any, name: any) => [
+                isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
+                String(name).charAt(0).toUpperCase() + String(name).slice(1),
+              ]}
+              contentStyle={TOOLTIP_STYLE}
+            />
+            <Legend
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              formatter={(v: any) => String(v).charAt(0).toUpperCase() + String(v).slice(1)}
+              wrapperStyle={{ fontSize: 11 }}
+            />
+            <Bar dataKey="income" fill="#10b981" radius={[3, 3, 0, 0]} />
+            <Bar dataKey="expenses" fill="#ef4444" radius={[3, 3, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }

@@ -28,7 +28,7 @@ export function CategoryTrendChart() {
   const isEmpty = topCategories.length === 0;
 
   return (
-    <div className="rounded-xl border bg-card p-4 space-y-4">
+    <div className="rounded-xl border bg-card p-4 flex flex-col gap-4">
       <div className="flex items-start justify-between gap-2 flex-wrap">
         <h3 className="text-sm font-semibold pt-1">Spending by Category Over Time</h3>
         <div className="flex flex-wrap items-center gap-2 justify-end">
@@ -44,50 +44,52 @@ export function CategoryTrendChart() {
       </div>
 
       {isEmpty ? (
-        <div className="h-50 flex items-center justify-center text-sm text-muted-foreground">
+        <div className="flex-1 min-h-[200px] flex items-center justify-center text-sm text-muted-foreground">
           No expense data in this period
         </div>
       ) : (
-        <ResponsiveContainer width="100%" height={220}>
-          <LineChart data={series} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
-            <XAxis
-              dataKey="period"
-              tick={{ fontSize: 10 }}
-              className="fill-muted-foreground"
-              tickLine={false}
-              axisLine={false}
-            />
-            <YAxis
-              tick={{ fontSize: 10 }}
-              className="fill-muted-foreground"
-              tickLine={false}
-              axisLine={false}
-              tickFormatter={(v) => isPrivate ? "••••" : formatCurrency(v, displayCurrency)}
-              width={70}
-            />
-            <Tooltip
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              formatter={(value: any, name: any) => [
-                isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
-                String(name),
-              ]}
-              contentStyle={TOOLTIP_STYLE}
-            />
-            <Legend wrapperStyle={{ fontSize: 11 }} />
-            {topCategories.map((cat) => (
-              <Line
-                key={cat.name}
-                type="monotone"
-                dataKey={cat.name}
-                stroke={cat.color}
-                strokeWidth={2}
-                dot={false}
-                activeDot={{ r: 4 }}
+        <div className="flex-1 min-h-[200px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={series} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} style={{ overflow: "visible" }}>
+              <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
+              <XAxis
+                dataKey="period"
+                tick={{ fontSize: 10 }}
+                className="fill-muted-foreground"
+                tickLine={false}
+                axisLine={false}
               />
-            ))}
-          </LineChart>
-        </ResponsiveContainer>
+              <YAxis
+                tick={{ fontSize: 10 }}
+                className="fill-muted-foreground"
+                tickLine={false}
+                axisLine={false}
+                tickFormatter={(v) => isPrivate ? "••••" : formatCurrency(v, displayCurrency)}
+                width={70}
+              />
+              <Tooltip
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                formatter={(value: any, name: any) => [
+                  isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
+                  String(name),
+                ]}
+                contentStyle={TOOLTIP_STYLE}
+              />
+              <Legend wrapperStyle={{ fontSize: 11 }} />
+              {topCategories.map((cat) => (
+                <Line
+                  key={cat.name}
+                  type="monotone"
+                  dataKey={cat.name}
+                  stroke={cat.color}
+                  strokeWidth={2}
+                  dot={false}
+                  activeDot={{ r: 4 }}
+                />
+              ))}
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       )}
     </div>
   );

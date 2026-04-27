@@ -26,7 +26,7 @@ export function CategoryDonutChart() {
   const isEmpty = categoryBreakdown.length === 0;
 
   return (
-    <div className="rounded-xl border bg-card p-4 space-y-4">
+    <div className="rounded-xl border bg-card p-4 flex flex-col gap-4">
       <div className="flex items-start justify-between gap-2 flex-wrap">
         <h3 className="text-sm font-semibold pt-1">Spending by Category</h3>
         <div className="flex flex-wrap items-center gap-2 justify-end">
@@ -42,35 +42,37 @@ export function CategoryDonutChart() {
       </div>
 
       {isEmpty ? (
-        <div className="h-[200px] flex items-center justify-center text-sm text-muted-foreground">
+        <div className="flex-1 min-h-[180px] flex items-center justify-center text-sm text-muted-foreground">
           No expenses in this period
         </div>
       ) : (
         <>
-          <ResponsiveContainer width="100%" height={180}>
-            <PieChart>
-              <Pie
-                data={categoryBreakdown}
-                cx="50%"
-                cy="50%"
-                innerRadius={55}
-                outerRadius={80}
-                paddingAngle={2}
-                dataKey="value"
-              >
-                {categoryBreakdown.map((entry, i) => (
-                  <Cell key={`cell-${i}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                formatter={(value: any) => [
-                  isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
-                ]}
-                contentStyle={TOOLTIP_STYLE}
-              />
-            </PieChart>
-          </ResponsiveContainer>
+          <div className="flex-1 min-h-[150px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart style={{ overflow: "visible" }}>
+                <Pie
+                  data={categoryBreakdown}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius="40%"
+                  outerRadius="65%"
+                  paddingAngle={2}
+                  dataKey="value"
+                >
+                  {categoryBreakdown.map((entry, i) => (
+                    <Cell key={`cell-${i}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  formatter={(value: any) => [
+                    isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
+                  ]}
+                  contentStyle={TOOLTIP_STYLE}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
 
           {/* Custom legend: color swatch + name + amount + percentage */}
           <div className="space-y-1.5">

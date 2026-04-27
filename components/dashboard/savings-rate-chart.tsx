@@ -24,7 +24,7 @@ export function SavingsRateChart() {
   const { isPrivate } = usePrivacy();
 
   return (
-    <div className="rounded-xl border bg-card p-4 space-y-4">
+    <div className="rounded-xl border bg-card p-4 flex flex-col gap-4">
       <div className="flex items-start justify-between gap-2 flex-wrap">
         <h3 className="text-sm font-semibold pt-1">Savings Rate Trend</h3>
         <div className="flex flex-wrap items-center gap-2 justify-end">
@@ -39,44 +39,46 @@ export function SavingsRateChart() {
         </div>
       </div>
 
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={data} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
-          <XAxis
-            dataKey="period"
-            tick={{ fontSize: 10 }}
-            className="fill-muted-foreground"
-            tickLine={false}
-            axisLine={false}
-          />
-          <YAxis
-            tick={{ fontSize: 10 }}
-            className="fill-muted-foreground"
-            tickLine={false}
-            axisLine={false}
-            tickFormatter={(v) => isPrivate ? "••" : `${v.toFixed(0)}%`}
-            domain={[0, 100]}
-            width={36}
-          />
-          <ReferenceLine y={20} stroke="#10b981" strokeDasharray="4 4" strokeOpacity={0.5} />
-          <Tooltip
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            formatter={(value: any) => [
-              isPrivate ? "••••" : `${Number(value ?? 0).toFixed(1)}%`,
-              "Savings Rate",
-            ]}
-            contentStyle={TOOLTIP_STYLE}
-          />
-          <Line
-            type="monotone"
-            dataKey="rate"
-            stroke="#6366f1"
-            strokeWidth={2}
-            dot={false}
-            activeDot={{ r: 4 }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      <div className="flex-1 min-h-[180px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }} style={{ overflow: "visible" }}>
+            <CartesianGrid strokeDasharray="3 3" className="stroke-border/50" />
+            <XAxis
+              dataKey="period"
+              tick={{ fontSize: 10 }}
+              className="fill-muted-foreground"
+              tickLine={false}
+              axisLine={false}
+            />
+            <YAxis
+              tick={{ fontSize: 10 }}
+              className="fill-muted-foreground"
+              tickLine={false}
+              axisLine={false}
+              tickFormatter={(v) => isPrivate ? "••" : `${v.toFixed(0)}%`}
+              domain={[0, 100]}
+              width={36}
+            />
+            <ReferenceLine y={20} stroke="#10b981" strokeDasharray="4 4" strokeOpacity={0.5} />
+            <Tooltip
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              formatter={(value: any) => [
+                isPrivate ? "••••" : `${Number(value ?? 0).toFixed(1)}%`,
+                "Savings Rate",
+              ]}
+              contentStyle={TOOLTIP_STYLE}
+            />
+            <Line
+              type="monotone"
+              dataKey="rate"
+              stroke="#6366f1"
+              strokeWidth={2}
+              dot={false}
+              activeDot={{ r: 4 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
 
       <p className="text-xs text-muted-foreground">Dashed line = 20% target</p>
     </div>
