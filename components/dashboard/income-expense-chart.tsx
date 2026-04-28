@@ -75,7 +75,7 @@ export function IncomeExpenseChart() {
               wrapperStyle={{ fontSize: 11 }}
             />
             <Bar dataKey="income" fill="#10b981" radius={[3, 3, 0, 0]} />
-            <Bar dataKey="expenses" fill="#ef4444" radius={[3, 3, 0, 0]} />
+            <Bar dataKey="expenses" fill="#b5603b" radius={[3, 3, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
         </div>

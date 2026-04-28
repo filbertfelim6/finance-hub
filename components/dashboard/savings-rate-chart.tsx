@@ -72,7 +72,7 @@ export function SavingsRateChart() {
             <Line
               type="monotone"
               dataKey="rate"
-              stroke="#6366f1"
+              stroke="#a07850"
               strokeWidth={2}
               dot={false}
               activeDot={{ r: 4 }}

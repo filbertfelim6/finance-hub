@@ -15,8 +15,8 @@ import { formatCurrency, formatCurrencyCompact, TOOLTIP_STYLE } from "@/lib/util
 import type { RangeKey } from "@/lib/utils/dashboard";
 
 const CHART_COLORS = [
-  "#3b82f6", "#10b981", "#f59e0b", "#ef4444",
-  "#8b5cf6", "#06b6d4", "#f97316",
+  "#c2714f", "#7d9b68", "#b5835a", "#e07b54",
+  "#8b6f47", "#6d8c64", "#d4956a",
 ];
 
 export function NetWorthChart() {
