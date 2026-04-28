@@ -11,7 +11,7 @@ import { usePeriodSummary } from "@/lib/hooks/use-dashboard";
 import { useAccounts } from "@/lib/hooks/use-accounts";
 import { usePrivacy } from "@/lib/context/privacy-context";
 import { useDisplayCurrency } from "@/lib/context/display-currency-context";
-import { formatCurrency, TOOLTIP_STYLE } from "@/lib/utils";
+import { formatCurrency, formatCurrencyCompact, TOOLTIP_STYLE } from "@/lib/utils";
 import type { RangeKey } from "@/lib/utils/dashboard";
 
 export function IncomeExpenseChart() {
@@ -58,7 +58,7 @@ export function IncomeExpenseChart() {
               className="fill-muted-foreground"
               tickLine={false}
               axisLine={false}
-              tickFormatter={(v) => isPrivate ? "••••" : formatCurrency(v, displayCurrency)}
+              tickFormatter={(v) => isPrivate ? "••••" : formatCurrencyCompact(v, displayCurrency)}
               width={70}
             />
             <Tooltip

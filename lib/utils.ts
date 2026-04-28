@@ -65,6 +65,22 @@ export function convertCurrency(
   return (amount / fromRate) * toRate;
 }
 
+const CURRENCY_SYMBOLS: Record<string, string> = {
+  USD: "$", IDR: "Rp", EUR: "€", GBP: "£", SGD: "S$", JPY: "¥",
+};
+
+/** Short axis-tick formatter: "Rp1.5B", "$1.2M", "¥154K", etc. */
+export function formatCurrencyCompact(amount: number, currency: string): string {
+  const sym = CURRENCY_SYMBOLS[currency] ?? currency;
+  const abs = Math.abs(amount);
+  const sign = amount < 0 ? "-" : "";
+  if (abs >= 1e12) return `${sign}${sym}${(abs / 1e12).toFixed(1)}T`;
+  if (abs >= 1e9)  return `${sign}${sym}${(abs / 1e9).toFixed(1)}B`;
+  if (abs >= 1e6)  return `${sign}${sym}${(abs / 1e6).toFixed(1)}M`;
+  if (abs >= 1e3)  return `${sign}${sym}${(abs / 1e3).toFixed(1)}K`;
+  return formatCurrency(amount, currency);
+}
+
 export const TOOLTIP_STYLE: React.CSSProperties = {
   fontSize: 12,
   borderRadius: 8,
