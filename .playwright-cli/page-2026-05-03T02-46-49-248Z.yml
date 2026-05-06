@@ -1,0 +1,218 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e668]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e669]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e670]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e671]:
+        - link [ref=e672] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e673] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e674] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link [ref=e675] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button [ref=e676]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button [ref=e677]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e345]:
+        - generic [ref=e346]:
+          - heading [level=1] [ref=e678]: Savings Goals
+          - button [ref=e679]:
+            - img
+            - text: Add Goal
+        - generic [ref=e349]:
+          - link [ref=e680] [cursor=pointer]:
+            - /url: /budgets
+            - text: Budgets
+          - link [ref=e681] [cursor=pointer]:
+            - /url: /goals
+            - text: Goals
+          - link [ref=e682] [cursor=pointer]:
+            - /url: /subscriptions
+            - text: Subscriptions
+        - generic [ref=e614]:
+          - generic [ref=e615]:
+            - paragraph [ref=e616]: Total Saved
+            - paragraph [ref=e617]: Rp 500.000
+          - generic [ref=e618]:
+            - paragraph [ref=e619]: Total Target
+            - paragraph [ref=e620]: Rp 10.000.000
+        - generic [ref=e621]:
+          - generic [ref=e622]:
+            - generic [ref=e623]:
+              - img [ref=e625]
+              - generic [ref=e626]:
+                - paragraph [ref=e627]: Emergency Fund
+                - text: 184d left
+            - button [ref=e683]:
+              - img
+          - generic [ref=e629]:
+            - generic [ref=e630]:
+              - img [ref=e631]
+              - generic [ref=e635]: 5%
+            - generic [ref=e636]:
+              - paragraph [ref=e637]: Rp500.0K
+              - paragraph [ref=e638]: of Rp 10.000.000
+          - button [ref=e684]: + Contribute
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]
+  - dialog "Edit goal" [ref=e688]:
+    - heading "Edit goal" [level=2] [ref=e690]
+    - generic [ref=e691]:
+      - generic [ref=e692]:
+        - generic [ref=e693]: Name
+        - textbox "Name" [active] [ref=e694]:
+          - /placeholder: Emergency Fund
+          - text: Emergency Fund
+      - generic [ref=e695]:
+        - generic [ref=e696]:
+          - generic [ref=e697]: Target amount
+          - spinbutton "Target amount" [ref=e698]: "10000000"
+        - generic [ref=e699]:
+          - generic [ref=e700]: Currency
+          - combobox "Currency" [ref=e701]:
+            - generic [ref=e702]: IDR
+            - img: ▼
+          - textbox [ref=e703]: IDR
+      - generic [ref=e704]:
+        - generic [ref=e705]: Deadline (optional)
+        - textbox "Deadline (optional)" [ref=e706]: 2026-11-03
+      - generic [ref=e707]:
+        - generic [ref=e708]: Icon
+        - generic [ref=e709]:
+          - button [ref=e710]:
+            - img [ref=e711]
+          - button [ref=e715]:
+            - img [ref=e716]
+          - button [ref=e717]:
+            - img [ref=e718]
+          - button [ref=e721]:
+            - img [ref=e722]
+          - button [ref=e724]:
+            - img [ref=e725]
+          - button [ref=e727]:
+            - img [ref=e728]
+          - button [ref=e731]:
+            - img [ref=e732]
+          - button [ref=e735]:
+            - img [ref=e736]
+          - button [ref=e740]:
+            - img [ref=e741]
+          - button [ref=e745]:
+            - img [ref=e746]
+          - button [ref=e748]:
+            - img [ref=e749]
+          - button [ref=e752]:
+            - img [ref=e753]
+          - button [ref=e759]:
+            - img [ref=e760]
+          - button [ref=e763]:
+            - img [ref=e764]
+          - button [ref=e766]:
+            - img [ref=e767]
+          - button [ref=e771]:
+            - img [ref=e772]
+          - button [ref=e775]:
+            - img [ref=e776]
+          - button [ref=e782]:
+            - img [ref=e783]
+          - button [ref=e785]:
+            - img [ref=e786]
+          - button [ref=e788]:
+            - img [ref=e789]
+          - button [ref=e792]:
+            - img [ref=e793]
+          - button [ref=e797]:
+            - img [ref=e798]
+          - button [ref=e800]:
+            - img [ref=e801]
+          - button [ref=e805]:
+            - img [ref=e806]
+          - button [ref=e808]:
+            - img [ref=e809]
+          - button [ref=e812]:
+            - img [ref=e813]
+          - button [ref=e815]:
+            - img [ref=e816]
+          - button [ref=e819]:
+            - img [ref=e820]
+          - button [ref=e822]:
+            - img [ref=e823]
+          - button [ref=e825]:
+            - img [ref=e826]
+          - button [ref=e828]:
+            - img [ref=e829]
+          - button [ref=e834]:
+            - img [ref=e835]
+          - button [ref=e841]:
+            - img [ref=e842]
+          - button [ref=e844]:
+            - img [ref=e845]
+          - button [ref=e847]:
+            - img [ref=e848]
+          - button [ref=e851]:
+            - img [ref=e852]
+          - button [ref=e856]:
+            - img [ref=e857]
+          - button [ref=e859]:
+            - img [ref=e860]
+          - button [ref=e863]:
+            - img [ref=e864]
+          - button [ref=e868]:
+            - img [ref=e869]
+          - button [ref=e872]:
+            - img [ref=e873]
+          - button [ref=e876]:
+            - img [ref=e877]
+          - button [ref=e880]:
+            - img [ref=e881]
+          - button [ref=e884]:
+            - img [ref=e885]
+          - button [ref=e889]:
+            - img [ref=e890]
+          - button [ref=e892]:
+            - img [ref=e893]
+      - generic [ref=e895]:
+        - generic [ref=e896]: Color
+        - generic [ref=e897]:
+          - textbox [ref=e899] [cursor=pointer]: "#5a7a4e"
+          - code [ref=e900]: "#5A7A4E"
+      - generic [ref=e901]:
+        - generic [ref=e902]: Linked account (optional)
+        - combobox "Linked account (optional)" [ref=e903]:
+          - generic [ref=e904]: None
+          - img: ▼
+        - textbox [ref=e905]
+      - generic [ref=e906]:
+        - button "Cancel" [ref=e907]
+        - button "Save changes" [ref=e908]
+    - button "Close" [ref=e909]:
+      - img
+      - generic [ref=e910]: Close

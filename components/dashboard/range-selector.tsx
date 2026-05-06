@@ -3,28 +3,24 @@
 import { cn } from "@/lib/utils";
 import type { RangeKey } from "@/lib/utils/dashboard";
 
-const RANGES: RangeKey[] = ["7D", "30D", "90D", "1Y", "custom"];
+const DEFAULT_RANGES: RangeKey[] = ["7D", "30D", "90D", "1Y", "custom"];
 
 interface RangeSelectorProps {
   value: RangeKey;
   onChange: (range: RangeKey) => void;
-  customDateFrom?: string;
-  customDateTo?: string;
-  onCustomDateChange?: (from: string, to: string) => void;
+  ranges?: RangeKey[];
   className?: string;
 }
 
 export function RangeSelector({
   value,
   onChange,
-  customDateFrom,
-  customDateTo,
-  onCustomDateChange,
+  ranges = DEFAULT_RANGES,
   className,
 }: RangeSelectorProps) {
   return (
-    <div className={cn("flex flex-wrap items-center gap-1 justify-end", className)}>
-      {RANGES.map((r) => (
+    <div className={cn("flex items-center gap-1 justify-end", className)}>
+      {ranges.map((r) => (
         <button
           key={r}
           type="button"
@@ -39,23 +35,6 @@ export function RangeSelector({
           {r === "custom" ? "Custom" : r}
         </button>
       ))}
-      {value === "custom" && (
-        <div className="flex items-center gap-1 w-full mt-1">
-          <input
-            type="date"
-            value={customDateFrom ?? ""}
-            onChange={(e) => onCustomDateChange?.(e.target.value, customDateTo ?? "")}
-            className="h-6 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground"
-          />
-          <span className="text-xs text-muted-foreground shrink-0">–</span>
-          <input
-            type="date"
-            value={customDateTo ?? ""}
-            onChange={(e) => onCustomDateChange?.(customDateFrom ?? "", e.target.value)}
-            className="h-6 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground"
-          />
-        </div>
-      )}
     </div>
   );
 }

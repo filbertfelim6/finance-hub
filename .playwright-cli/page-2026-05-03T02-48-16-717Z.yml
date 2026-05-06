@@ -1,0 +1,117 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e1149]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e1150]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e1151]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e1152]:
+        - link [ref=e1153] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e1154] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e1155] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link [ref=e1156] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button [ref=e1157]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button [ref=e1158]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e954]:
+        - generic [ref=e955]:
+          - heading [level=1] [ref=e1159]: Subscriptions
+          - button [ref=e1160]:
+            - img
+            - text: Add
+        - generic [ref=e958]:
+          - link [ref=e1161] [cursor=pointer]:
+            - /url: /budgets
+            - text: Budgets
+          - link [ref=e1162] [cursor=pointer]:
+            - /url: /goals
+            - text: Goals
+          - link [ref=e1163] [cursor=pointer]:
+            - /url: /subscriptions
+            - text: Subscriptions
+        - generic [ref=e1118]:
+          - img [ref=e1120]
+          - generic [ref=e1123]:
+            - generic [ref=e1124]:
+              - generic [ref=e1125]:
+                - paragraph [ref=e1126]: Netflix
+                - paragraph [ref=e1127]: Entertainment · monthly
+              - generic [ref=e1128]:
+                - generic [ref=e1129]: Rp 150.000
+                - button [ref=e1164]:
+                  - img
+            - generic [ref=e1132]: Due 2026-06-03
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]
+  - dialog "Edit subscription" [ref=e1168]:
+    - heading "Edit subscription" [level=2] [ref=e1170]
+    - generic [ref=e1171]:
+      - generic [ref=e1172]:
+        - generic [ref=e1173]: Name
+        - textbox "Name" [active] [ref=e1174]:
+          - /placeholder: Netflix, Spotify…
+          - text: Netflix
+      - generic [ref=e1175]:
+        - generic [ref=e1176]: Type
+        - generic [ref=e1177]:
+          - button "expense" [ref=e1178]
+          - button "income" [ref=e1179]
+      - generic [ref=e1180]:
+        - generic [ref=e1181]:
+          - generic [ref=e1182]: Amount
+          - spinbutton "Amount" [ref=e1183]: "150000"
+        - generic [ref=e1184]:
+          - generic [ref=e1185]: Currency
+          - combobox "Currency" [ref=e1186]:
+            - generic [ref=e1187]: IDR
+            - img: ▼
+          - textbox [ref=e1188]: IDR
+      - generic [ref=e1189]:
+        - generic [ref=e1190]: Category (optional)
+        - combobox "Category (optional)" [ref=e1191]:
+          - generic [ref=e1192]: 3d2a6050-9d23-4412-a00a-ce37a45bef41
+          - img: ▼
+        - textbox [ref=e1193]: 3d2a6050-9d23-4412-a00a-ce37a45bef41
+      - generic [ref=e1194]:
+        - generic [ref=e1195]: Frequency
+        - combobox "Frequency" [ref=e1196]:
+          - generic [ref=e1197]: monthly
+          - img: ▼
+        - textbox [ref=e1198]: monthly
+      - generic [ref=e1199]:
+        - generic [ref=e1200]: Next due date
+        - textbox "Next due date" [ref=e1201]: 2026-06-03
+      - generic [ref=e1202]:
+        - button "Cancel" [ref=e1203]
+        - button "Save changes" [ref=e1204]
+    - button "Close" [ref=e1205]:
+      - img
+      - generic [ref=e1206]: Close

@@ -1,0 +1,57 @@
+/* Shared base for all preview cards.
+   Cards target ~700px wide. They render INSIDE a card frame, so don't add titles/borders. */
+
+@import url("../colors_and_type.css");
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fh-card {
+  /* the actual content frame inside the registered viewport */
+  width: 700px;
+  padding: 24px;
+  background: var(--bg-page);
+}
+
+.fh-card.surface {
+  background: var(--bg-surface);
+}
+
+.fh-row { display: flex; align-items: center; gap: 16px; }
+.fh-col { display: flex; flex-direction: column; gap: 8px; }
+.fh-stack { display: flex; flex-direction: column; }
+.fh-grid { display: grid; gap: 16px; }
+
+/* Swatch tile */
+.sw {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sw-chip {
+  height: 56px;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+.sw-name { font-size: 11px; font-weight: 500; color: var(--fg-1); font-family: var(--font-mono); }
+.sw-hex  { font-size: 10px; color: var(--fg-3); font-family: var(--font-mono); }
+
+/* Subtle baseline label */
+.fh-meta {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-3);
+  font-weight: 500;
+}

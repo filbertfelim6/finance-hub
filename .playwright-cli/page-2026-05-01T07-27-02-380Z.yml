@@ -1,0 +1,90 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e6]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e12]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e14]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e16]:
+        - link "Dashboard" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e24] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Transactions" [ref=e28] [cursor=pointer]:
+          - /url: /transactions
+          - img [ref=e29]
+          - generic [ref=e32]: Transactions
+        - link "Budgets" [ref=e33] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e34]
+          - generic [ref=e37]: Budgets
+        - link "Goals" [ref=e38] [cursor=pointer]:
+          - /url: /goals
+          - img [ref=e39]
+          - generic [ref=e43]: Goals
+        - link "Subscriptions" [ref=e44] [cursor=pointer]:
+          - /url: /subscriptions
+          - img [ref=e45]
+          - generic [ref=e50]: Subscriptions
+        - link "Settings" [ref=e51] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e52]
+          - generic [ref=e55]: Settings
+      - separator [ref=e56]
+      - generic [ref=e57]:
+        - button "Toggle theme" [ref=e58]:
+          - img
+          - generic [ref=e59]: Dark mode
+        - button "Sign out" [ref=e60]:
+          - img
+          - generic [ref=e61]: Sign out
+    - main [ref=e63]:
+      - generic [ref=e65]:
+        - heading "Log transaction" [level=1] [ref=e66]
+        - generic [ref=e67]:
+          - button "back" [ref=e96]:
+            - img
+            - text: Back
+          - generic [ref=e97]:
+            - generic [ref=e98]: Expense
+            - generic [ref=e118]: Rp 50.000
+            - generic [ref=e215]: Food & Drink
+          - generic [ref=e216]:
+            - heading "Account" [level=2] [ref=e217]
+            - generic [ref=e218]:
+              - button "Mandiri checking Rp 176.874.084" [ref=e219]:
+                - generic [ref=e220]:
+                  - paragraph [ref=e221]: Mandiri
+                  - paragraph [ref=e222]: checking
+                - paragraph [ref=e223]: Rp 176.874.084
+              - button "USD Savings savings $83,678.18" [ref=e224]:
+                - generic [ref=e225]:
+                  - paragraph [ref=e226]: USD Savings
+                  - paragraph [ref=e227]: savings
+                - paragraph [ref=e228]: $83,678.18
+              - button "JPY savings savings ￥40,000,000" [ref=e229]:
+                - generic [ref=e230]:
+                  - paragraph [ref=e231]: JPY savings
+                  - paragraph [ref=e232]: savings
+                - paragraph [ref=e233]: ￥40,000,000
+              - button "Cash cash Rp 20.000.000" [ref=e234]:
+                - generic [ref=e235]:
+                  - paragraph [ref=e236]: Cash
+                  - paragraph [ref=e237]: cash
+                - paragraph [ref=e238]: Rp 20.000.000
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e91] [cursor=pointer]:
+    - img [ref=e92]
+  - alert [ref=e95]

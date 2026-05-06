@@ -9,6 +9,7 @@ const mockInsert = vi.fn(() => ({ select: mockSelect }));
 const mockUpdate = vi.fn(() => ({ eq: mockEq }));
 const mockDelete = vi.fn(() => ({ eq: mockEq }));
 const mockRpc = vi.fn();
+const mockGetUser = vi.fn();
 const mockFrom = vi.fn(() => ({
   select: mockSelect,
   insert: mockInsert,
@@ -17,7 +18,7 @@ const mockFrom = vi.fn(() => ({
 }));
 
 vi.mock("@/lib/supabase/client", () => ({
-  createClient: () => ({ from: mockFrom, rpc: mockRpc } as any),
+  createClient: () => ({ from: mockFrom, rpc: mockRpc, auth: { getUser: mockGetUser } } as any),
 }));
 
 beforeEach(() => vi.clearAllMocks());
@@ -64,25 +65,27 @@ describe("getAccount", () => {
 describe("createAccount", () => {
   it("skips RPC when initialBalance is 0", async () => {
     const account = { id: "a1", name: "Cash" };
+    mockGetUser.mockResolvedValueOnce({ data: { user: { id: "u1" } }, error: null });
     mockSingle
       .mockResolvedValueOnce({ data: account, error: null }) // insert
       .mockResolvedValueOnce({ data: account, error: null }); // getAccount
     await createAccount(
       { name: "Cash", type: "cash", currency: "USD", initialBalance: 0, color: "#fff", icon: "wallet" },
-      16000
+      { USD: 1, IDR: 16000, EUR: 0.92, GBP: 0.79, SGD: 1.35, JPY: 154 }
     );
     expect(mockRpc).not.toHaveBeenCalled();
   });
 
   it("calls RPC when initialBalance > 0", async () => {
     const account = { id: "a1", name: "BCA" };
+    mockGetUser.mockResolvedValueOnce({ data: { user: { id: "u1" } }, error: null });
     mockSingle
       .mockResolvedValueOnce({ data: account, error: null }) // insert
       .mockResolvedValueOnce({ data: account, error: null }); // getAccount
     mockRpc.mockResolvedValueOnce({ data: [account], error: null });
     await createAccount(
       { name: "BCA", type: "checking", currency: "IDR", initialBalance: 1000000, color: "#blue", icon: "bank" },
-      16000
+      { USD: 1, IDR: 16000, EUR: 0.92, GBP: 0.79, SGD: 1.35, JPY: 154 }
     );
     expect(mockRpc).toHaveBeenCalledWith(
       "create_transaction_with_balance",
@@ -92,14 +95,14 @@ describe("createAccount", () => {
 
   it("deletes orphan account and rethrows if RPC fails", async () => {
     const account = { id: "a1", name: "BCA" };
+    mockGetUser.mockResolvedValueOnce({ data: { user: { id: "u1" } }, error: null });
     mockSingle.mockResolvedValueOnce({ data: account, error: null }); // insert
     const rpcError = new Error("rpc failed");
     mockRpc.mockResolvedValueOnce({ data: null, error: rpcError });
-    mockEq.mockResolvedValueOnce({ error: null } as unknown as ReturnType<typeof mockEq>); // delete cleanup
     await expect(
       createAccount(
         { name: "BCA", type: "checking", currency: "IDR", initialBalance: 1000000, color: "#blue", icon: "bank" },
-        16000
+        { USD: 1, IDR: 16000, EUR: 0.92, GBP: 0.79, SGD: 1.35, JPY: 154 }
       )
     ).rejects.toThrow("rpc failed");
     expect(mockDelete).toHaveBeenCalled();

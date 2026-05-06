@@ -1,0 +1,185 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e965]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e966]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e967]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e968]:
+        - link [ref=e969] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e970] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e971] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link [ref=e972] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button [ref=e973]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button [ref=e974]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e954]:
+        - generic [ref=e955]:
+          - heading [level=1] [ref=e975]: Subscriptions
+          - button [ref=e976]:
+            - img
+            - text: Add
+        - generic [ref=e958]:
+          - link [ref=e977] [cursor=pointer]:
+            - /url: /budgets
+            - text: Budgets
+          - link [ref=e978] [cursor=pointer]:
+            - /url: /goals
+            - text: Goals
+          - link [ref=e979] [cursor=pointer]:
+            - /url: /subscriptions
+            - text: Subscriptions
+        - generic [ref=e962]:
+          - paragraph [ref=e963]: No subscriptions yet.
+          - button [ref=e980]:
+            - img
+            - text: Add your first subscription
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]
+  - dialog "Add subscription" [ref=e984]:
+    - heading "Add subscription" [level=2] [ref=e986]
+    - generic [ref=e987]:
+      - generic [ref=e988]:
+        - generic [ref=e989]: Name
+        - textbox "Name" [ref=e990]:
+          - /placeholder: Netflix, Spotify…
+          - text: Netflix
+      - generic [ref=e991]:
+        - generic [ref=e992]: Type
+        - generic [ref=e993]:
+          - button "expense" [ref=e994]
+          - button "income" [ref=e995]
+      - generic [ref=e996]:
+        - generic [ref=e997]:
+          - generic [ref=e998]: Amount
+          - spinbutton "Amount" [ref=e999]: "150000"
+        - generic [ref=e1000]:
+          - generic [ref=e1001]: Currency
+          - combobox "Currency" [ref=e1002]:
+            - generic [ref=e1003]: IDR
+            - img: ▼
+          - textbox [ref=e1004]: IDR
+      - generic [ref=e1005]:
+        - generic [ref=e1006]: Category (optional)
+        - combobox "Category (optional)" [expanded] [ref=e1007]:
+          - generic [ref=e1008]: None
+          - img: ▼
+        - generic [ref=e1026]:
+          - listbox [ref=e1027]:
+            - option "None" [active] [selected] [ref=e1028]:
+              - generic [ref=e1029]: None
+              - generic:
+                - img
+            - option "Bills & Utilities" [ref=e1030]:
+              - generic [ref=e1031]: Bills & Utilities
+            - option "Charity" [ref=e1032]:
+              - generic [ref=e1033]: Charity
+            - option "Clothing" [ref=e1034]:
+              - generic [ref=e1035]: Clothing
+            - option "Courses" [ref=e1036]:
+              - generic [ref=e1037]: Courses
+            - option "Dining Out" [ref=e1038]:
+              - generic [ref=e1039]: Dining Out
+            - option "Education" [ref=e1040]:
+              - generic [ref=e1041]: Education
+            - option "Electricity" [ref=e1042]:
+              - generic [ref=e1043]: Electricity
+            - option "Electronics" [ref=e1044]:
+              - generic [ref=e1045]: Electronics
+            - option "Entertainment" [ref=e1046]:
+              - generic [ref=e1047]: Entertainment
+            - option "Food & Drink" [ref=e1048]:
+              - generic [ref=e1049]: Food & Drink
+            - option "Fuel" [ref=e1050]:
+              - generic [ref=e1051]: Fuel
+            - option "Games" [ref=e1052]:
+              - generic [ref=e1053]: Games
+            - option "Groceries" [ref=e1054]:
+              - generic [ref=e1055]: Groceries
+            - option "Gym & Fitness" [ref=e1056]:
+              - generic [ref=e1057]: Gym & Fitness
+            - option "Haircut & Beauty" [ref=e1058]:
+              - generic [ref=e1059]: Haircut & Beauty
+            - option "Health" [ref=e1060]:
+              - generic [ref=e1061]: Health
+            - option "Home Repairs" [ref=e1062]:
+              - generic [ref=e1063]: Home Repairs
+            - option "Hotels" [ref=e1064]:
+              - generic [ref=e1065]: Hotels
+            - option "Housing" [ref=e1066]:
+              - generic [ref=e1067]: Housing
+            - option "Insurance" [ref=e1068]:
+              - generic [ref=e1069]: Insurance
+            - option "Internet & Phone" [ref=e1070]:
+              - generic [ref=e1071]: Internet & Phone
+            - option "Medical" [ref=e1072]:
+              - generic [ref=e1073]: Medical
+            - option "Other Expense" [ref=e1074]:
+              - generic [ref=e1075]: Other Expense
+            - option "Personal Care" [ref=e1076]:
+              - generic [ref=e1077]: Personal Care
+            - option "Pharmacy" [ref=e1078]:
+              - generic [ref=e1079]: Pharmacy
+            - option "Rent" [ref=e1080]:
+              - generic [ref=e1081]: Rent
+            - option "Ride-Hailing" [ref=e1082]:
+              - generic [ref=e1083]: Ride-Hailing
+            - option "Shopping" [ref=e1084]:
+              - generic [ref=e1085]: Shopping
+            - option "Streaming" [ref=e1086]:
+              - generic [ref=e1087]: Streaming
+            - option "Subscriptions" [ref=e1088]:
+              - generic [ref=e1089]: Subscriptions
+            - option "Taxes" [ref=e1090]:
+              - generic [ref=e1091]: Taxes
+            - option "Transport" [ref=e1092]:
+              - generic [ref=e1093]: Transport
+            - option "Travel" [ref=e1094]:
+              - generic [ref=e1095]: Travel
+            - option "Water" [ref=e1096]:
+              - generic [ref=e1097]: Water
+          - img [ref=e1099]
+        - textbox [ref=e1009]
+      - generic [ref=e1010]:
+        - generic [ref=e1011]: Frequency
+        - combobox "Frequency" [ref=e1012]:
+          - generic [ref=e1013]: monthly
+          - img: ▼
+        - textbox [ref=e1014]: monthly
+      - generic [ref=e1015]:
+        - generic [ref=e1016]: Next due date
+        - textbox "Next due date" [ref=e1017]: 2026-05-03
+      - generic [ref=e1018]:
+        - button "Cancel" [ref=e1019]
+        - button "Add subscription" [ref=e1020]
+    - button "Close" [ref=e1021]:
+      - img
+      - generic [ref=e1022]: Close

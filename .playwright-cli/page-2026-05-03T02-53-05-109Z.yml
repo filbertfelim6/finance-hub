@@ -1,0 +1,289 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e38] [cursor=pointer]:
+    - img [ref=e39]
+  - alert [ref=e42]
+  - generic [ref=e43]:
+    - complementary [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - img "FinanceHub" [ref=e47]:
+            - generic [ref=e52]: FinanceHub
+          - button "Collapse sidebar" [ref=e53]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e55]:
+        - img
+        - generic [ref=e56]: Log transaction
+      - navigation "Main navigation" [ref=e57]:
+        - link "Dashboard" [ref=e58] [cursor=pointer]:
+          - /url: /
+          - img [ref=e59]
+          - generic [ref=e64]: Dashboard
+        - link "Accounts" [ref=e65] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e66]
+          - generic [ref=e68]: Accounts
+        - link "Plan" [ref=e69] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e70]
+          - generic [ref=e74]: Plan
+        - link "Settings" [ref=e75] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e76]
+          - generic [ref=e79]: Settings
+      - separator [ref=e80]
+      - generic [ref=e81]:
+        - button "Toggle theme" [ref=e82]:
+          - img
+          - generic [ref=e83]: Dark mode
+        - button "Sign out" [ref=e84]:
+          - img
+          - generic [ref=e85]: Sign out
+    - main [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - paragraph [ref=e91]: Total Net Worth
+            - paragraph [ref=e92]: Rp 1.619.125.000
+          - generic [ref=e93]:
+            - combobox [ref=e94]:
+              - generic [ref=e95]: IDR
+              - img: ▼
+            - textbox [ref=e96]: IDR
+            - button "Hide balances" [ref=e97]:
+              - img
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - paragraph [ref=e101]: Period Summary
+              - link "Transactions →" [ref=e102] [cursor=pointer]:
+                - /url: /transactions
+            - generic [ref=e104]:
+              - button "7D" [ref=e105]
+              - button "30D" [ref=e106]
+              - button "90D" [ref=e107]
+              - button "1Y" [ref=e108]
+              - button "Custom" [ref=e109]
+          - generic [ref=e110]:
+            - generic [ref=e111]:
+              - img [ref=e113]
+              - generic [ref=e116]:
+                - paragraph [ref=e117]: Income
+                - paragraph [ref=e118]: Rp 3.000.000
+            - generic [ref=e119]:
+              - img [ref=e121]
+              - generic [ref=e124]:
+                - paragraph [ref=e125]: Expenses
+                - paragraph [ref=e126]: Rp 275.000
+            - generic [ref=e127]:
+              - img [ref=e129]
+              - generic [ref=e133]:
+                - paragraph [ref=e134]: Savings Rate
+                - paragraph [ref=e135]: 90.8%
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - heading "Net Worth" [level=3] [ref=e138]
+            - generic [ref=e140]:
+              - button "All accounts" [ref=e141]:
+                - text: All accounts
+                - img
+              - generic [ref=e142]:
+                - button "7D" [ref=e143]
+                - button "30D" [ref=e144]
+                - button "90D" [ref=e145]
+                - button "1Y" [ref=e146]
+                - button "Custom" [ref=e147]
+          - generic [ref=e151]:
+            - generic:
+              - status:
+                - paragraph: Apr 13
+                - list:
+                  - listitem: "BCA Savings : Rp 16.000.000"
+                  - listitem: "Cash Wallet : Rp 500.000"
+            - application [ref=e152]:
+              - generic [ref=e181]:
+                - generic [ref=e182]:
+                  - generic [ref=e184]: Apr 3
+                  - generic [ref=e186]: Apr 8
+                  - generic [ref=e188]: Apr 13
+                  - generic [ref=e190]: Apr 18
+                  - generic [ref=e192]: Apr 23
+                  - generic [ref=e194]: Apr 28
+                  - generic [ref=e196]: May 3
+                - generic [ref=e197]:
+                  - generic [ref=e199]: Rp 0
+                  - generic [ref=e201]: Rp450.0M
+                  - generic [ref=e203]: Rp900.0M
+                  - generic [ref=e205]: Rp1.4B
+                  - generic [ref=e207]: Rp1.8B
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - generic [ref=e210]:
+              - heading "Income vs Expenses" [level=3] [ref=e211]
+              - generic [ref=e212]:
+                - button "All accounts" [ref=e213]:
+                  - text: All accounts
+                  - img
+                - generic [ref=e214]:
+                  - button "3M" [ref=e215]
+                  - button "6M" [ref=e216]
+                  - button "1Y" [ref=e217]
+            - generic [ref=e221]:
+              - list [ref=e223]:
+                - listitem [ref=e224]:
+                  - img "expenses legend icon" [ref=e225]
+                  - text: Expenses
+                - listitem [ref=e227]:
+                  - img "income legend icon" [ref=e228]
+                  - text: Income
+              - application [ref=e230]:
+                - generic [ref=e257]:
+                  - generic [ref=e258]:
+                    - generic [ref=e260]: Nov 2025
+                    - generic [ref=e262]: Dec 2025
+                    - generic [ref=e264]: Jan 2026
+                    - generic [ref=e266]: Feb 2026
+                    - generic [ref=e268]: Mar 2026
+                    - generic [ref=e270]: Apr 2026
+                    - generic [ref=e272]: May 2026
+                  - generic [ref=e273]:
+                    - generic [ref=e275]: Rp 0
+                    - generic [ref=e277]: Rp450.0K
+                    - generic [ref=e279]: Rp900.0K
+                    - generic [ref=e281]: Rp1.4M
+                    - generic [ref=e283]: Rp1.8M
+                    - generic [ref=e285]: Rp2.3M
+                    - generic [ref=e287]: Rp2.7M
+                    - generic [ref=e289]: Rp3.1M
+          - generic [ref=e290]:
+            - generic [ref=e291]:
+              - heading "Spending by Category" [level=3] [ref=e292]
+              - generic [ref=e294]:
+                - button "All accounts" [ref=e295]:
+                  - text: All accounts
+                  - img
+                - generic [ref=e296]:
+                  - button "7D" [ref=e297]
+                  - button "30D" [ref=e298]
+                  - button "90D" [ref=e299]
+                  - button "1Y" [ref=e300]
+                  - button "Custom" [ref=e301]
+            - application [ref=e306]
+            - generic [ref=e307]:
+              - generic [ref=e308]:
+                - generic [ref=e310]: Food & Drink
+                - generic [ref=e311]: Rp 150.000
+                - generic [ref=e312]: 54.5%
+              - generic [ref=e313]:
+                - generic [ref=e315]: Transport
+                - generic [ref=e316]: Rp 125.000
+                - generic [ref=e317]: 45.5%
+        - generic [ref=e318]:
+          - generic [ref=e319]:
+            - generic [ref=e320]:
+              - heading "Savings Rate Trend" [level=3] [ref=e321]
+              - generic [ref=e323]:
+                - button "All accounts" [ref=e324]:
+                  - text: All accounts
+                  - img
+                - generic [ref=e325]:
+                  - button "7D" [ref=e326]
+                  - button "30D" [ref=e327]
+                  - button "90D" [ref=e328]
+                  - button "1Y" [ref=e329]
+                  - button "Custom" [ref=e330]
+            - application [ref=e335]:
+              - generic [ref=e351]:
+                - generic [ref=e352]:
+                  - generic [ref=e354]: May 2025
+                  - generic [ref=e356]: Jul 2025
+                  - generic [ref=e358]: Sep 2025
+                  - generic [ref=e360]: Nov 2025
+                  - generic [ref=e362]: Jan 2026
+                  - generic [ref=e364]: Mar 2026
+                  - generic [ref=e366]: May 2026
+                - generic [ref=e367]:
+                  - generic [ref=e369]: 0%
+                  - generic [ref=e371]: 25%
+                  - generic [ref=e373]: 50%
+                  - generic [ref=e375]: 75%
+                  - generic [ref=e377]: 100%
+            - paragraph [ref=e378]: Dashed line = 20% target
+          - generic [ref=e379]:
+            - generic [ref=e380]:
+              - heading "Net Worth & Cash Flow" [level=3] [ref=e381]
+              - generic [ref=e382]:
+                - button "All accounts" [ref=e383]:
+                  - text: All accounts
+                  - img
+                - generic [ref=e384]:
+                  - button "3M" [ref=e385]
+                  - button "6M" [ref=e386]
+                  - button "1Y" [ref=e387]
+            - application [ref=e392]:
+              - generic [ref=e429]:
+                - generic [ref=e430]:
+                  - generic [ref=e432]: Nov 2025
+                  - generic [ref=e434]: Dec 2025
+                  - generic [ref=e436]: Jan 2026
+                  - generic [ref=e438]: Feb 2026
+                  - generic [ref=e440]: Mar 2026
+                  - generic [ref=e442]: Apr 2026
+                  - generic [ref=e444]: May 2026
+                - generic [ref=e445]:
+                  - generic [ref=e447]: "-Rp550.0M"
+                  - generic [ref=e449]: Rp 0
+                  - generic [ref=e451]: Rp550.0M
+                  - generic [ref=e453]: Rp1.1B
+                  - generic [ref=e455]: Rp1.6B
+                - generic [ref=e456]:
+                  - generic [ref=e458]: Rp 0
+                  - generic [ref=e460]: Rp450.0M
+                  - generic [ref=e462]: Rp900.0M
+                  - generic [ref=e464]: Rp1.4B
+                  - generic [ref=e466]: Rp1.8B
+            - generic [ref=e467]:
+              - generic [ref=e468]: Gain
+              - generic [ref=e470]: Loss
+              - generic [ref=e472]: Net Worth
+        - generic [ref=e474]:
+          - generic [ref=e475]:
+            - heading "Spending by Category Over Time" [level=3] [ref=e476]
+            - generic [ref=e478]:
+              - button "All accounts" [ref=e479]:
+                - text: All accounts
+                - img
+              - generic [ref=e480]:
+                - button "7D" [ref=e481]
+                - button "30D" [ref=e482]
+                - button "90D" [ref=e483]
+                - button "1Y" [ref=e484]
+                - button "Custom" [ref=e485]
+          - generic [ref=e489]:
+            - list [ref=e491]:
+              - listitem [ref=e492]:
+                - img "Food & Drink legend icon" [ref=e493]
+                - text: Food & Drink
+              - listitem [ref=e495]:
+                - img "Transport legend icon" [ref=e496]
+                - text: Transport
+            - application [ref=e498]:
+              - generic [ref=e516]:
+                - generic [ref=e517]:
+                  - generic [ref=e519]: Feb 2
+                  - generic [ref=e521]: Feb 16
+                  - generic [ref=e523]: Mar 2
+                  - generic [ref=e525]: Mar 16
+                  - generic [ref=e527]: Mar 30
+                  - generic [ref=e529]: Apr 13
+                  - generic [ref=e531]: Apr 27
+                - generic [ref=e532]:
+                  - generic [ref=e534]: Rp 0
+                  - generic [ref=e536]: Rp40.0K
+                  - generic [ref=e538]: Rp80.0K
+                  - generic [ref=e540]: Rp120.0K
+                  - generic [ref=e542]: Rp160.0K
+  - region "Notifications alt+T"
+  - generic [ref=e543]: 0%

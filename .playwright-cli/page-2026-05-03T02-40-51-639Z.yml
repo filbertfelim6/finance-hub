@@ -1,0 +1,166 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e6]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e12]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e14]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e16]:
+        - link "Dashboard" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e24] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e28] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e34] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e41]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e43]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e48]:
+        - heading "Log transaction" [level=1] [ref=e49]
+        - generic [ref=e50]:
+          - button "back" [ref=e903]:
+            - img
+            - text: Back
+          - generic [ref=e904]:
+            - generic [ref=e905]: Expense
+            - generic [ref=e925]: Rp 25.000
+          - generic [ref=e927]:
+            - generic [ref=e928]:
+              - heading "Category" [level=2] [ref=e929]
+              - button "Split" [ref=e930]:
+                - img
+                - text: Split
+            - generic [ref=e931]:
+              - button "Bills & Utilities" [ref=e932]:
+                - img [ref=e934]
+                - generic [ref=e936]: Bills & Utilities
+              - button "Charity" [ref=e937]:
+                - img [ref=e939]
+                - generic [ref=e941]: Charity
+              - button "Clothing" [ref=e942]:
+                - img [ref=e944]
+                - generic [ref=e946]: Clothing
+              - button "Courses" [ref=e947]:
+                - img [ref=e949]
+                - generic [ref=e952]: Courses
+              - button "Dining Out" [ref=e953]:
+                - img [ref=e955]
+                - generic [ref=e957]: Dining Out
+              - button "Education" [ref=e958]:
+                - img [ref=e960]
+                - generic [ref=e962]: Education
+              - button "Electricity" [ref=e963]:
+                - img [ref=e965]
+                - generic [ref=e967]: Electricity
+              - button "Electronics" [ref=e968]:
+                - img [ref=e970]
+                - generic [ref=e972]: Electronics
+              - button "Entertainment" [ref=e973]:
+                - img [ref=e975]
+                - generic [ref=e978]: Entertainment
+              - button "Food & Drink" [ref=e979]:
+                - img [ref=e981]
+                - generic [ref=e984]: Food & Drink
+              - button "Fuel" [ref=e985]:
+                - img [ref=e987]
+                - generic [ref=e990]: Fuel
+              - button "Games" [ref=e991]:
+                - img [ref=e993]
+                - generic [ref=e995]: Games
+              - button "Groceries" [ref=e996]:
+                - img [ref=e998]
+                - generic [ref=e1002]: Groceries
+              - button "Gym & Fitness" [ref=e1003]:
+                - img [ref=e1005]
+                - generic [ref=e1011]: Gym & Fitness
+              - button "Haircut & Beauty" [ref=e1012]:
+                - img [ref=e1014]
+                - generic [ref=e1020]: Haircut & Beauty
+              - button "Health" [ref=e1021]:
+                - img [ref=e1023]
+                - generic [ref=e1025]: Health
+              - button "Home Repairs" [ref=e1026]:
+                - img [ref=e1028]
+                - generic [ref=e1030]: Home Repairs
+              - button "Hotels" [ref=e1031]:
+                - img [ref=e1033]
+                - generic [ref=e1036]: Hotels
+              - button "Housing" [ref=e1037]:
+                - img [ref=e1039]
+                - generic [ref=e1042]: Housing
+              - button "Insurance" [ref=e1043]:
+                - img [ref=e1045]
+                - generic [ref=e1047]: Insurance
+              - button "Internet & Phone" [ref=e1048]:
+                - img [ref=e1050]
+                - generic [ref=e1054]: Internet & Phone
+              - button "Medical" [ref=e1055]:
+                - img [ref=e1057]
+                - generic [ref=e1061]: Medical
+              - button "Other Expense" [ref=e1062]:
+                - img [ref=e1064]
+                - generic [ref=e1068]: Other Expense
+              - button "Personal Care" [ref=e1069]:
+                - img [ref=e1071]
+                - generic [ref=e1074]: Personal Care
+              - button "Pharmacy" [ref=e1075]:
+                - img [ref=e1077]
+                - generic [ref=e1080]: Pharmacy
+              - button "Rent" [ref=e1081]:
+                - img [ref=e1083]
+                - generic [ref=e1086]: Rent
+              - button "Ride-Hailing" [ref=e1087]:
+                - img [ref=e1089]
+                - generic [ref=e1091]: Ride-Hailing
+              - button "Shopping" [ref=e1092]:
+                - img [ref=e1094]
+                - generic [ref=e1097]: Shopping
+              - button "Streaming" [ref=e1098]:
+                - img [ref=e1100]
+                - generic [ref=e1103]: Streaming
+              - button "Subscriptions" [ref=e1104]:
+                - img [ref=e1106]
+                - generic [ref=e1111]: Subscriptions
+              - button "Taxes" [ref=e1112]:
+                - img [ref=e1114]
+                - generic [ref=e1116]: Taxes
+              - button "Transport" [ref=e1117]:
+                - img [ref=e1119]
+                - generic [ref=e1123]: Transport
+              - button "Travel" [ref=e1124]:
+                - img [ref=e1126]
+                - generic [ref=e1128]: Travel
+              - button "Water" [ref=e1129]:
+                - img [ref=e1131]
+                - generic [ref=e1134]: Water
+              - button "New" [ref=e1135]:
+                - img [ref=e1136]
+                - generic [ref=e1137]: New
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e74] [cursor=pointer]:
+    - img [ref=e75]
+  - alert [ref=e78]

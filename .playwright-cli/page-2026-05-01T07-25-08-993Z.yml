@@ -1,0 +1,161 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e149]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e150]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e151]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e152]:
+        - link [ref=e153] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e154] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e155] [cursor=pointer]:
+          - /url: /transactions
+          - img [ref=e29]
+          - generic [ref=e32]: Transactions
+        - link [ref=e156] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e34]
+          - generic [ref=e37]: Budgets
+        - link [ref=e157] [cursor=pointer]:
+          - /url: /goals
+          - img [ref=e39]
+          - generic [ref=e43]: Goals
+        - link [ref=e158] [cursor=pointer]:
+          - /url: /subscriptions
+          - img [ref=e45]
+          - generic [ref=e50]: Subscriptions
+        - link [ref=e159] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e52]
+          - generic [ref=e55]: Settings
+      - separator [ref=e56]
+      - generic [ref=e57]:
+        - button [ref=e160]:
+          - img
+          - generic [ref=e59]: Dark mode
+        - button [ref=e161]:
+          - img
+          - generic [ref=e61]: Sign out
+    - main [ref=e63]:
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - heading [level=1] [ref=e162]: Accounts
+          - combobox [ref=e67]
+          - button [ref=e163]:
+            - img
+            - text: Add account
+        - generic [ref=e82]:
+          - generic [ref=e84] [cursor=pointer]:
+            - generic [ref=e85]:
+              - generic [ref=e86]:
+                - img [ref=e88]
+                - generic [ref=e92]:
+                  - paragraph [ref=e93]: Mandiri
+                  - paragraph [ref=e94]: checking
+              - button [ref=e164]:
+                - img
+            - generic [ref=e96]:
+              - paragraph [ref=e97]: Balance
+              - paragraph [ref=e98]: Rp 176.874.084
+              - paragraph [ref=e99]: = Rp 176.874.084
+          - generic [ref=e101] [cursor=pointer]:
+            - generic [ref=e102]:
+              - generic [ref=e103]:
+                - img [ref=e105]
+                - generic [ref=e108]:
+                  - paragraph [ref=e109]: USD Savings
+                  - paragraph [ref=e110]: savings
+              - button [ref=e165]:
+                - img
+            - generic [ref=e112]:
+              - paragraph [ref=e113]: Balance
+              - paragraph [ref=e114]: Rp 1.338.850.880
+              - paragraph [ref=e115]: ≈ $83,678.18
+          - generic [ref=e117] [cursor=pointer]:
+            - generic [ref=e118]:
+              - generic [ref=e119]:
+                - img [ref=e121]
+                - generic [ref=e124]:
+                  - paragraph [ref=e125]: JPY savings
+                  - paragraph [ref=e126]: savings
+              - button [ref=e166]:
+                - img
+            - generic [ref=e128]:
+              - paragraph [ref=e129]: Balance
+              - paragraph [ref=e130]: Rp 4.142.394.822
+              - paragraph [ref=e131]: ≈ ￥40,000,000
+          - generic [ref=e133] [cursor=pointer]:
+            - generic [ref=e134]:
+              - generic [ref=e135]:
+                - img [ref=e137]
+                - generic [ref=e140]:
+                  - paragraph [ref=e141]: Cash
+                  - paragraph [ref=e142]: cash
+              - button [ref=e167]:
+                - img
+            - generic [ref=e144]:
+              - paragraph [ref=e145]: Balance
+              - paragraph [ref=e146]: Rp 20.000.000
+              - paragraph [ref=e147]: = Rp 20.000.000
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e78] [cursor=pointer]:
+    - img [ref=e79]
+  - alert [ref=e148]
+  - dialog "Add account" [ref=e171]:
+    - heading "Add account" [level=2] [ref=e173]
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - generic [ref=e176]: Name
+        - textbox "Name" [active] [ref=e177]:
+          - /placeholder: BCA Savings
+        - paragraph [ref=e213]: Name is required
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]: Type
+          - combobox "Type" [ref=e181]:
+            - generic [ref=e182]: checking
+            - img: ▼
+          - textbox [ref=e183]: checking
+        - generic [ref=e184]:
+          - generic [ref=e185]: Currency
+          - combobox "Currency" [ref=e186]:
+            - generic [ref=e187]: IDR
+            - img: ▼
+          - textbox [ref=e188]: IDR
+      - generic [ref=e189]:
+        - generic [ref=e190]: Initial balance
+        - spinbutton "Initial balance" [ref=e191]: "0"
+      - generic [ref=e192]:
+        - generic [ref=e193]: Color
+        - generic [ref=e194]:
+          - textbox [ref=e196] [cursor=pointer]: "#5a7a4e"
+          - code [ref=e197]: "#5A7A4E"
+      - generic [ref=e198]:
+        - generic [ref=e199]: Icon
+        - generic [ref=e200]:
+          - button "Wallet" [ref=e201]
+          - button "Card" [ref=e202]
+          - button "Bank" [ref=e203]
+          - button "E-Wallet" [ref=e204]
+          - button "Landmark" [ref=e205]
+          - button "Piggy Bank" [ref=e206]
+      - generic [ref=e207]:
+        - button "Cancel" [ref=e208]
+        - button "Add account" [ref=e209]
+    - button "Close" [ref=e210]:
+      - img
+      - generic [ref=e211]: Close

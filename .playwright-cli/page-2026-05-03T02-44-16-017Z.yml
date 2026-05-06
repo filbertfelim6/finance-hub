@@ -1,0 +1,113 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e256]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e257]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e258]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e259]:
+        - link [ref=e260] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e261] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e262] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link [ref=e263] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button [ref=e264]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button [ref=e265]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading [level=1] [ref=e266]: Budgets
+          - button [ref=e267]:
+            - img
+            - text: Add Budget
+        - generic [ref=e51]:
+          - link [ref=e268] [cursor=pointer]:
+            - /url: /budgets
+            - text: Budgets
+          - link [ref=e269] [cursor=pointer]:
+            - /url: /goals
+            - text: Goals
+          - link [ref=e270] [cursor=pointer]:
+            - /url: /subscriptions
+            - text: Subscriptions
+        - generic [ref=e212]:
+          - generic [ref=e213]:
+            - paragraph [ref=e214]: Total Spent
+            - paragraph [ref=e215]: Rp 150.000
+          - generic [ref=e216]:
+            - paragraph [ref=e217]: Total Budgeted
+            - paragraph [ref=e218]: Rp 500.000
+        - generic [ref=e219]:
+          - generic [ref=e220]:
+            - generic [ref=e221]:
+              - img [ref=e223]
+              - generic [ref=e226]:
+                - paragraph [ref=e227]: Food & Drink
+                - paragraph [ref=e228]: monthly
+            - button [ref=e271]:
+              - img
+          - generic [ref=e230]:
+            - generic [ref=e231]:
+              - generic [ref=e232]: Rp150.0K
+              - generic [ref=e233]: Rp 500.000
+            - progressbar [ref=e234]: x
+            - paragraph [ref=e239]: 30% used
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]
+  - dialog "Edit budget" [ref=e275]:
+    - heading "Edit budget" [level=2] [ref=e277]
+    - generic [ref=e278]:
+      - generic [ref=e279]:
+        - generic [ref=e280]: Category
+        - combobox "Category" [active] [ref=e281]:
+          - generic [ref=e282]: b73ab319-467b-481d-bcd5-09276faf9977
+          - img: ▼
+        - textbox [ref=e283]: b73ab319-467b-481d-bcd5-09276faf9977
+      - generic [ref=e284]:
+        - generic [ref=e285]:
+          - generic [ref=e286]: Amount
+          - spinbutton "Amount" [ref=e287]: "500000"
+        - generic [ref=e288]:
+          - generic [ref=e289]: Currency
+          - combobox "Currency" [ref=e290]:
+            - generic [ref=e291]: IDR
+            - img: ▼
+          - textbox [ref=e292]: IDR
+      - generic [ref=e293]:
+        - generic [ref=e294]: Period
+        - generic [ref=e295]:
+          - button "Monthly" [ref=e296]
+          - button "Weekly" [ref=e297]
+      - generic [ref=e298]:
+        - button "Cancel" [ref=e299]
+        - button "Save changes" [ref=e300]
+    - button "Close" [ref=e301]:
+      - img
+      - generic [ref=e302]: Close

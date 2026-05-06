@@ -10,6 +10,7 @@ const withPWAConfig = withPWA({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  transpilePackages: ["geist"],
   turbopack: {},
 };
 

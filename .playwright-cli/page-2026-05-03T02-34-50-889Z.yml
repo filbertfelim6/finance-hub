@@ -1,0 +1,101 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e69]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e70]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e71]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e72]:
+        - link [ref=e73] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e74] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e75] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link [ref=e76] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button [ref=e77]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button [ref=e78]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading [level=1] [ref=e79]: Accounts
+          - combobox [ref=e50]
+          - button [ref=e80]:
+            - img
+            - text: Add account
+        - generic [ref=e65]:
+          - paragraph [ref=e66]: No accounts yet.
+          - button [ref=e81]:
+            - img
+            - text: Add your first account
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e61] [cursor=pointer]:
+    - img [ref=e62]
+  - alert [ref=e68]
+  - dialog "Add account" [ref=e85]:
+    - heading "Add account" [level=2] [ref=e87]
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]: Name
+        - textbox "Name" [ref=e91]:
+          - /placeholder: BCA Savings
+          - text: Cash
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e94]: Type
+          - combobox "Type" [active] [ref=e95]:
+            - generic [ref=e96]: cash
+            - img: ▼
+          - textbox [ref=e97]: cash
+        - generic [ref=e98]:
+          - generic [ref=e99]: Currency
+          - combobox "Currency" [ref=e100]:
+            - generic [ref=e101]: IDR
+            - img: ▼
+          - textbox [ref=e102]: IDR
+      - generic [ref=e103]:
+        - generic [ref=e104]: Initial balance
+        - spinbutton "Initial balance" [ref=e105]: "0"
+      - generic [ref=e106]:
+        - generic [ref=e107]: Color
+        - generic [ref=e108]:
+          - textbox [ref=e110] [cursor=pointer]: "#5a7a4e"
+          - code [ref=e111]: "#5A7A4E"
+      - generic [ref=e112]:
+        - generic [ref=e113]: Icon
+        - generic [ref=e114]:
+          - button "Wallet" [ref=e115]
+          - button "Card" [ref=e116]
+          - button "Bank" [ref=e117]
+          - button "E-Wallet" [ref=e118]
+          - button "Landmark" [ref=e119]
+          - button "Piggy Bank" [ref=e120]
+      - generic [ref=e121]:
+        - button "Cancel" [ref=e122]
+        - button "Add account" [ref=e123]
+    - button "Close" [ref=e124]:
+      - img
+      - generic [ref=e125]: Close

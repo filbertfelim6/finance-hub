@@ -32,6 +32,7 @@ export async function getTransactions(
   let query = supabase
     .from("transactions")
     .select("*")
+    .eq("is_opening_balance", false)
     .order("date", { ascending: false })
     .order("created_at", { ascending: false });
 
@@ -69,51 +70,82 @@ export async function createTransaction(
   return (data as Transaction[])[0];
 }
 
+function convertViaUsd(
+  amount: number,
+  from: string,
+  to: string,
+  rates: Record<string, number>
+): number {
+  if (from === to) return amount;
+  const fromRate = rates[from] ?? 1;
+  const toRate = rates[to] ?? 1;
+  return (amount / fromRate) * toRate;
+}
+
 export async function createTransfer(params: {
   sourceAccountId: string;
+  sourceAccountName: string;
   destAccountId: string;
+  destAccountName: string;
   amount: number;
   sourceCurrency: Currency;
+  sourceAccountCurrency: Currency;
   destCurrency: Currency;
+  destAccountCurrency: Currency;
   destAmount: number;
-  usdToIdrRate: number;
+  ratesFromUsd: Record<string, number>;
   notes: string | null;
   date: string;
 }): Promise<{ debit: Transaction; credit: Transaction }> {
   const transferPairId = crypto.randomUUID();
 
-  const sourceConvertedUsd =
-    params.sourceCurrency === "USD"
-      ? params.amount
-      : params.amount / params.usdToIdrRate;
+  const label = `${params.sourceAccountName} → ${params.destAccountName}`;
+  const autoNotes = params.notes ? `${label} — ${params.notes}` : label;
+
+  const sourceConvertedUsd = convertViaUsd(
+    params.amount, params.sourceCurrency, "USD", params.ratesFromUsd
+  );
+
+  const sourceBalanceDelta = convertViaUsd(
+    params.amount,
+    params.sourceCurrency,
+    params.sourceAccountCurrency,
+    params.ratesFromUsd
+  );
 
   const debit = await createTransaction({
     account_id: params.sourceAccountId,
     type: "transfer",
     amount: params.amount,
-    balance_delta: -params.amount,
+    balance_delta: -sourceBalanceDelta,
     currency: params.sourceCurrency,
     converted_amount_usd: sourceConvertedUsd,
     category_id: null,
-    notes: params.notes,
+    notes: autoNotes,
     date: params.date,
     transfer_pair_id: transferPairId,
   });
 
-  const destConvertedUsd =
-    params.destCurrency === "USD"
-      ? params.destAmount
-      : params.destAmount / params.usdToIdrRate;
+  const destConvertedUsd = convertViaUsd(
+    params.destAmount, params.destCurrency, "USD", params.ratesFromUsd
+  );
+
+  const destBalanceDelta = convertViaUsd(
+    params.destAmount,
+    params.destCurrency,
+    params.destAccountCurrency,
+    params.ratesFromUsd
+  );
 
   const credit = await createTransaction({
     account_id: params.destAccountId,
     type: "transfer",
     amount: params.destAmount,
-    balance_delta: params.destAmount,
+    balance_delta: destBalanceDelta,
     currency: params.destCurrency,
     converted_amount_usd: destConvertedUsd,
     category_id: null,
-    notes: params.notes,
+    notes: autoNotes,
     date: params.date,
     transfer_pair_id: transferPairId,
   });

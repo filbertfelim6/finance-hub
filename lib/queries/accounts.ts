@@ -34,12 +34,15 @@ export async function getAccount(id: string): Promise<Account> {
 
 export async function createAccount(
   input: CreateAccountInput,
-  usdToIdrRate: number
+  ratesFromUsd: Record<string, number>
 ): Promise<Account> {
   const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error("Not authenticated");
   const { data: account, error } = await supabase
     .from("accounts")
     .insert({
+      user_id: user.id,
       name: input.name,
       type: input.type,
       currency: input.currency,
@@ -52,10 +55,7 @@ export async function createAccount(
   if (error) throw error;
 
   if (input.initialBalance > 0) {
-    const convertedUsd =
-      input.currency === "USD"
-        ? input.initialBalance
-        : input.initialBalance / usdToIdrRate;
+    const convertedUsd = input.initialBalance / (ratesFromUsd[input.currency] ?? 1);
     const { error: txnError } = await supabase.rpc(
       "create_transaction_with_balance",
       {
@@ -96,6 +96,24 @@ export async function updateAccount(
     .single();
   if (error) throw error;
   return data as Account;
+}
+
+export async function getBalanceDeltaAfterDate(
+  accountId: string,
+  date: string
+): Promise<number> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("transactions")
+    .select("balance_delta")
+    .eq("account_id", accountId)
+    .eq("is_opening_balance", false)
+    .gt("date", date);
+  if (error) throw error;
+  return (data as { balance_delta: number | null }[]).reduce(
+    (s, t) => s + (t.balance_delta ?? 0),
+    0
+  );
 }
 
 export async function archiveAccount(id: string): Promise<void> {

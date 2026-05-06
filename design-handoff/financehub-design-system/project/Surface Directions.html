@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FinanceHub — Surface Directions</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font-sans); color: var(--ink-900); -webkit-font-smoothing: antialiased; }
+  .page { min-height: 100vh; padding: 32px 28px 80px; transition: background 250ms; }
+  .head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; max-width: 1100px; margin-left:auto; margin-right:auto; }
+  .head h1 { font-family: var(--font-display); font-size: 32px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+  .head .sub { color: var(--ink-500); font-size: 14px; }
+
+  .picker { display: flex; gap: 8px; padding: 4px; background: rgba(0,0,0,0.05); border-radius: 999px; }
+  .pick { padding: 7px 14px; border: none; border-radius: 999px; background: transparent; font: inherit; font-size: 13px; font-weight: 600; color: var(--ink-700); cursor: pointer; }
+  .pick[data-active="true"] { background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.08); color: var(--green-700); }
+
+  .grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 220px 1fr; gap: 20px; }
+  /* Sidebar */
+  .sb { background: #fff; border: 1px solid rgba(26,31,23,0.08); border-radius: 14px; padding: 14px 10px; height: fit-content; }
+  .sb-brand { display:flex; align-items:center; gap:8px; padding: 6px 10px 16px; }
+  .sb-brand img { height: 26px; }
+  .sb-cta { display:flex; align-items:center; gap:8px; padding: 9px 12px; border-radius: 10px; background: var(--green-500); color: #fbf9f4; border: none; font-size: 13px; font-weight: 600; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.05); width: 100%; margin-bottom: 8px; }
+  .sb-row { display:flex; align-items:center; gap:10px; padding: 8px 12px; border-radius: 8px; color: var(--ink-700); font-size: 13px; font-weight: 500; }
+  .sb-row.active { background: var(--green-50); color: var(--green-700); }
+  .sb-row svg { width: 14px; height: 14px; }
+
+  .stage { display: flex; flex-direction: column; gap: 16px; }
+
+  /* Stat tiles */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .tile { background:#fff; border:1px solid rgba(26,31,23,0.08); border-radius: 14px; padding: 16px; box-shadow: 0 1px 2px rgba(26,31,23,0.05); }
+  .icon-tile { width: 28px; height: 28px; border-radius: 7px; display:flex; align-items:center; justify-content:center; margin-bottom: 10px; }
+  .eyebrow { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-500); margin-bottom: 4px; }
+  .num { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; font-feature-settings: 'tnum' 1, 'lnum' 1; }
+
+  /* Chart card */
+  .chart-card { background:#fff; border:1px solid rgba(26,31,23,0.08); border-radius:14px; padding: 18px 18px 14px; box-shadow: 0 1px 2px rgba(26,31,23,0.05); }
+  .chart-head { display:flex; align-items:center; justify-content:space-between; margin-bottom: 10px; }
+  .chart-head h3 { margin:0; font-size: 15px; font-weight: 600; }
+  .pills { display: inline-flex; padding: 3px; border-radius: 999px; gap: 2px; }
+  .pill { padding: 4px 10px; border: none; border-radius: 999px; font-size: 11px; font-weight: 600; background: transparent; color: var(--ink-500); }
+  .pill.active { background: var(--green-500); color: #fbf9f4; }
+
+  /* Net-worth display */
+  .nw-card { background:#fff; border:1px solid rgba(26,31,23,0.08); border-radius:14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,31,23,0.05); }
+  .nw-figure { font-size: 36px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-top: 4px; font-feature-settings:'tnum' 1,'lnum' 1; }
+
+  /* Inline picker (replaces floating panel) */
+  .options { max-width: 1100px; margin: 0 auto 24px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .opt { background: #fff; border: 2px solid rgba(26,31,23,0.08); border-radius: 12px; padding: 14px; cursor: pointer; text-align: left; transition: border-color 150ms, transform 150ms; }
+  .opt:hover { transform: translateY(-2px); }
+  .opt[data-active="true"] { border-color: var(--green-500); }
+  .opt .swatch { height: 48px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06); margin-bottom: 10px; }
+  .opt .name { font-size: 13px; font-weight: 700; color: var(--ink-900); margin-bottom: 2px; }
+  .opt .hex { font-family: var(--font-mono); font-size: 10px; color: var(--ink-500); margin-bottom: 4px; }
+  .opt .note { font-size: 11px; color: var(--ink-500); line-height: 1.4; }
+  .tweaks { display: none; }
+  .tweaks h4 { margin: 0 0 10px; font-size: 13px; font-weight: 700; }
+  .tw-row { display: grid; grid-template-columns: 18px 1fr auto; gap: 10px; padding: 8px 0; align-items: center; cursor: pointer; }
+  .tw-row + .tw-row { border-top: 1px solid rgba(0,0,0,0.06); }
+  .swatch { width: 18px; height: 18px; border-radius: 5px; border: 1px solid rgba(0,0,0,0.1); }
+  .tw-row .name { font-weight: 600; }
+  .tw-row .hex { font-family: var(--font-mono); font-size: 11px; color: var(--ink-500); }
+  .tw-row.active { color: var(--green-700); }
+  .tw-help { font-size: 11px; color: var(--ink-500); margin-top: 8px; line-height: 1.4; }
+</style>
+</head>
+<body>
+<div class="page" id="page">
+  <div class="head">
+    <div>
+      <h1>Lighter surface — pick a direction</h1>
+      <div class="sub">All four use the same sage green and warm graphite text. Only the page background and chart-card surface change.</div>
+    </div>
+    <div class="picker" id="picker"></div>
+  </div>
+
+  <div class="options" id="opts"></div>
+
+  <div class="grid">
+    <!-- Sidebar -->
+    <aside class="sb">
+      <div class="sb-brand"><img src="assets/logo.svg?v=2" alt="FinanceHub"></div>
+      <button class="sb-cta">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Log transaction
+      </button>
+      <div class="sb-row active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3"/><rect width="7" height="5" x="14" y="3"/><rect width="7" height="9" x="14" y="12"/><rect width="7" height="5" x="3" y="16"/></svg>Dashboard</div>
+      <div class="sb-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>Accounts</div>
+      <div class="sb-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>Transactions</div>
+      <div class="sb-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>Portfolio</div>
+    </aside>
+
+    <!-- Stage -->
+    <div class="stage">
+      <div class="nw-card">
+        <div class="eyebrow">Total net worth</div>
+        <div class="nw-figure">Rp 5.507.086.769</div>
+      </div>
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="icon-tile" style="background:#e7efde; color:#6b8e4e;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <div class="eyebrow">Income</div>
+          <div class="num">Rp 0</div>
+        </div>
+        <div class="tile">
+          <div class="icon-tile" style="background:#f3dfdb; color:#b8615a;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg></div>
+          <div class="eyebrow">Expenses</div>
+          <div class="num">Rp 1.869.672.160</div>
+        </div>
+        <div class="tile">
+          <div class="icon-tile" style="background:#f5ebd1; color:#c89b3c;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div>
+          <div class="eyebrow">Savings rate</div>
+          <div class="num">0.0%</div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-head">
+          <h3>Net Worth</h3>
+          <div class="pills" id="pills">
+            <button class="pill">7D</button>
+            <button class="pill active">30D</button>
+            <button class="pill">90D</button>
+            <button class="pill">1Y</button>
+          </div>
+        </div>
+        <svg viewBox="0 0 800 180" width="100%" height="180" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="ga" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5a7a4e" stop-opacity="0.3"/><stop offset="1" stop-color="#5a7a4e" stop-opacity="0.04"/></linearGradient>
+            <linearGradient id="gb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b8615a" stop-opacity="0.26"/><stop offset="1" stop-color="#b8615a" stop-opacity="0.04"/></linearGradient>
+          </defs>
+          <line x1="0" x2="800" y1="40" y2="40" stroke="rgba(26,31,23,0.06)"/>
+          <line x1="0" x2="800" y1="90" y2="90" stroke="rgba(26,31,23,0.06)"/>
+          <line x1="0" x2="800" y1="140" y2="140" stroke="rgba(26,31,23,0.06)"/>
+          <path d="M0 60 C 80 55, 160 40, 280 45 S 480 30, 580 32 L 700 32 L 720 80 L 800 75 L 800 180 L 0 180 Z" fill="url(#ga)"/>
+          <path d="M0 60 C 80 55, 160 40, 280 45 S 480 30, 580 32 L 700 32 L 720 80 L 800 75" stroke="#5a7a4e" stroke-width="1.5" fill="none"/>
+          <path d="M0 130 C 100 128, 200 122, 320 115 S 540 108, 660 110 L 720 138 L 800 132 L 800 180 L 0 180 Z" fill="url(#gb)"/>
+          <path d="M0 130 C 100 128, 200 122, 320 115 S 540 108, 660 110 L 720 138 L 800 132" stroke="#b8615a" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside class="tweaks">
+  <h4>Surface direction</h4>
+  <div id="opts"></div>
+  <div class="tw-help">Click a direction to preview live. Cards stay pure white in all four — only the page background changes.</div>
+</aside>
+
+<script>
+const OPTIONS = [
+  { id: "current", name: "Cream (current)",  hex: "#fbf9f4", note: "Editorial, warmest" },
+  { id: "paper",   name: "Paper",            hex: "#f6f5f1", note: "Neutral off-white, warm undertone" },
+  { id: "linen",   name: "Linen",            hex: "#efece4", note: "Warmer, more contrast vs cards" },
+  { id: "mist",    name: "Mist",             hex: "#f1f4ee", note: "Cool sage-tinted, sage-on-sage" },
+  { id: "stone",   name: "Stone",            hex: "#eeede8", note: "Light warm gray, professional" },
+];
+
+const page = document.getElementById("page");
+const opts = document.getElementById("opts");
+const picker = document.getElementById("picker");
+
+function render(active) {
+  page.style.background = OPTIONS.find(o => o.id === active).hex;
+  opts.innerHTML = OPTIONS.map(o => `
+    <button class="opt" data-id="${o.id}" data-active="${o.id===active}">
+      <div class="swatch" style="background:${o.hex};"></div>
+      <div class="name">${o.name}${o.id===active?' ✓':''}</div>
+      <div class="hex">${o.hex}</div>
+      <div class="note">${o.note}</div>
+    </button>
+  `).join("");
+  picker.innerHTML = OPTIONS.map(o => `<button class="pick" data-id="${o.id}" data-active="${o.id===active}">${o.name.split(' ')[0]}</button>`).join("");
+  document.querySelectorAll('[data-id]').forEach(el => el.onclick = () => render(el.dataset.id));
+}
+render("paper");
+</script>
+</body>
+</html>

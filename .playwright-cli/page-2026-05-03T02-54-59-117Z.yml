@@ -1,0 +1,46 @@
+- generic [ref=e1]:
+  - main [ref=e4]:
+    - generic [ref=e225]:
+      - generic [ref=e226]:
+        - heading "Budgets" [level=1] [ref=e227]
+        - button "Add Budget" [ref=e228]:
+          - img
+          - text: Add Budget
+      - generic [ref=e229]:
+        - link "Budgets" [ref=e230] [cursor=pointer]:
+          - /url: /budgets
+        - link "Goals" [ref=e231] [cursor=pointer]:
+          - /url: /goals
+        - link "Subscriptions" [ref=e232] [cursor=pointer]:
+          - /url: /subscriptions
+      - generic [ref=e233]:
+        - paragraph [ref=e234]: No budgets yet.
+        - button "Add your first budget" [ref=e235]:
+          - img
+          - text: Add your first budget
+  - navigation "Mobile navigation" [ref=e52]:
+    - generic [ref=e53]:
+      - link "Home" [ref=e54] [cursor=pointer]:
+        - /url: /
+        - img [ref=e55]
+        - generic [ref=e60]: Home
+      - link "Accounts" [ref=e61] [cursor=pointer]:
+        - /url: /accounts
+        - img [ref=e62]
+        - generic [ref=e64]: Accounts
+      - link "Log transaction" [ref=e65] [cursor=pointer]:
+        - /url: /log
+        - img [ref=e66]
+      - link "Plan" [active] [ref=e68] [cursor=pointer]:
+        - /url: /budgets
+        - img [ref=e69]
+        - generic [ref=e73]: Plan
+      - link "Settings" [ref=e74] [cursor=pointer]:
+        - /url: /settings
+        - img [ref=e75]
+        - generic [ref=e78]: Settings
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e84] [cursor=pointer]:
+    - img [ref=e85]
+  - alert [ref=e163]
+  - generic [ref=e202]: Rp40.0K

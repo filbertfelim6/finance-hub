@@ -4,6 +4,13 @@ import userEvent from "@testing-library/user-event";
 import { AccountCard } from "@/components/accounts/account-card";
 import type { Account } from "@/lib/types/database.types";
 
+vi.mock("@/lib/hooks/use-exchange-rate", () => ({
+  useExchangeRates: () => ({ USD: 1, IDR: 16000, EUR: 0.92, SGD: 1.35, GBP: 0.79, JPY: 149 }),
+}));
+vi.mock("@/lib/context/display-currency-context", () => ({
+  useDisplayCurrency: () => ({ displayCurrency: "IDR" }),
+}));
+
 // Mock DropdownMenu so content is always rendered in JSDOM (no Portal issues)
 vi.mock("@/components/ui/dropdown-menu", () => ({
   DropdownMenu: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
@@ -54,7 +61,7 @@ describe("AccountCard", () => {
   it("renders account name and formatted balance", () => {
     render(<AccountCard account={mockAccount} onEdit={vi.fn()} onArchive={vi.fn()} />);
     expect(screen.getByText("BCA Savings")).toBeInTheDocument();
-    expect(screen.getByText(/5\.000\.000/)).toBeInTheDocument();
+    expect(screen.getAllByText(/5\.000\.000/).length).toBeGreaterThan(0);
   });
 
   it("calls onEdit when edit is clicked", async () => {
@@ -71,7 +78,7 @@ describe("AccountCard", () => {
         <AccountCard account={mockAccount} onEdit={vi.fn()} onArchive={vi.fn()} />
       </div>
     );
-    await userEvent.click(screen.getByRole("button", { name: /more/i }));
+    await userEvent.click(screen.getByRole("button", { name: /account options/i }));
     expect(parentClick).not.toHaveBeenCalled();
   });
 });

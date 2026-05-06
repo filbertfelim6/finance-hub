@@ -6,6 +6,7 @@ const PUBLIC_PATHS = [
   "/auth/register",
   "/auth/forgot-password",
   "/auth/callback",
+  "/api/cron",
 ];
 
 export async function middleware(request: NextRequest) {

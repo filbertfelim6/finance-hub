@@ -1,0 +1,204 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e1208]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e1209]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e1210]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e1211]:
+        - link "Dashboard" [ref=e1212] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e1213] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e1214] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e1215] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e1216]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e1217]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e1249]:
+        - heading "Settings" [level=1] [ref=e1250]
+        - generic [ref=e1251]:
+          - heading "Appearance" [level=2] [ref=e1252]
+          - generic [ref=e1253]:
+            - paragraph [ref=e1254]: Theme
+            - generic [ref=e1255]:
+              - button "light" [ref=e1256]:
+                - img [ref=e1257]
+                - text: light
+              - button "dark" [ref=e1263]:
+                - img [ref=e1264]
+                - text: dark
+              - button "system" [ref=e1266]:
+                - img [ref=e1267]
+                - text: system
+        - separator [ref=e1269]
+        - generic [ref=e1270]:
+          - heading "Display" [level=2] [ref=e1271]
+          - generic [ref=e1272]:
+            - generic [ref=e1273]:
+              - generic [ref=e1274]:
+                - paragraph [ref=e1275]: Display currency
+                - paragraph [ref=e1276]: All amounts are shown in this currency
+              - combobox [ref=e1277]:
+                - generic [ref=e1278]: IDR
+                - img: ▼
+              - textbox [ref=e1279]: IDR
+            - separator [ref=e1280]
+            - generic [ref=e1281]:
+              - generic [ref=e1282]:
+                - paragraph [ref=e1283]: Privacy mode
+                - paragraph [ref=e1284]: Hide all amounts and balances
+              - switch [checked] [active] [ref=e1285]
+              - checkbox [checked] [ref=e1286]
+        - separator [ref=e1287]
+        - generic [ref=e1288]:
+          - heading "Categories" [level=2] [ref=e1289]
+          - generic [ref=e1292]:
+            - tablist [ref=e1293]:
+              - tab "Expense" [selected] [ref=e1294]
+              - tab "Income" [ref=e1295]
+            - tabpanel "Expense" [ref=e1296]:
+              - generic [ref=e1297]:
+                - generic [ref=e1298]:
+                  - img [ref=e1300]
+                  - generic [ref=e1302]: Bills & Utilities
+                - generic [ref=e1303]:
+                  - img [ref=e1305]
+                  - generic [ref=e1307]: Charity
+                - generic [ref=e1308]:
+                  - img [ref=e1310]
+                  - generic [ref=e1312]: Clothing
+                - generic [ref=e1313]:
+                  - img [ref=e1315]
+                  - generic [ref=e1318]: Courses
+                - generic [ref=e1319]:
+                  - img [ref=e1321]
+                  - generic [ref=e1323]: Dining Out
+                - generic [ref=e1324]:
+                  - img [ref=e1326]
+                  - generic [ref=e1328]: Education
+                - generic [ref=e1329]:
+                  - img [ref=e1331]
+                  - generic [ref=e1333]: Electricity
+                - generic [ref=e1334]:
+                  - img [ref=e1336]
+                  - generic [ref=e1338]: Electronics
+                - generic [ref=e1339]:
+                  - img [ref=e1341]
+                  - generic [ref=e1344]: Entertainment
+                - generic [ref=e1345]:
+                  - img [ref=e1347]
+                  - generic [ref=e1350]: Food & Drink
+                - generic [ref=e1351]:
+                  - img [ref=e1353]
+                  - generic [ref=e1356]: Fuel
+                - generic [ref=e1357]:
+                  - img [ref=e1359]
+                  - generic [ref=e1361]: Games
+                - generic [ref=e1362]:
+                  - img [ref=e1364]
+                  - generic [ref=e1368]: Groceries
+                - generic [ref=e1369]:
+                  - img [ref=e1371]
+                  - generic [ref=e1377]: Gym & Fitness
+                - generic [ref=e1378]:
+                  - img [ref=e1380]
+                  - generic [ref=e1386]: Haircut & Beauty
+                - generic [ref=e1387]:
+                  - img [ref=e1389]
+                  - generic [ref=e1391]: Health
+                - generic [ref=e1392]:
+                  - img [ref=e1394]
+                  - generic [ref=e1396]: Home Repairs
+                - generic [ref=e1397]:
+                  - img [ref=e1399]
+                  - generic [ref=e1402]: Hotels
+                - generic [ref=e1403]:
+                  - img [ref=e1405]
+                  - generic [ref=e1408]: Housing
+                - generic [ref=e1409]:
+                  - img [ref=e1411]
+                  - generic [ref=e1413]: Insurance
+                - generic [ref=e1414]:
+                  - img [ref=e1416]
+                  - generic [ref=e1420]: Internet & Phone
+                - generic [ref=e1421]:
+                  - img [ref=e1423]
+                  - generic [ref=e1427]: Medical
+                - generic [ref=e1428]:
+                  - img [ref=e1430]
+                  - generic [ref=e1434]: Other Expense
+                - generic [ref=e1435]:
+                  - img [ref=e1437]
+                  - generic [ref=e1440]: Personal Care
+                - generic [ref=e1441]:
+                  - img [ref=e1443]
+                  - generic [ref=e1446]: Pharmacy
+                - generic [ref=e1447]:
+                  - img [ref=e1449]
+                  - generic [ref=e1452]: Rent
+                - generic [ref=e1453]:
+                  - img [ref=e1455]
+                  - generic [ref=e1457]: Ride-Hailing
+                - generic [ref=e1458]:
+                  - img [ref=e1460]
+                  - generic [ref=e1463]: Shopping
+                - generic [ref=e1464]:
+                  - img [ref=e1466]
+                  - generic [ref=e1469]: Streaming
+                - generic [ref=e1470]:
+                  - img [ref=e1472]
+                  - generic [ref=e1477]: Subscriptions
+                - generic [ref=e1478]:
+                  - img [ref=e1480]
+                  - generic [ref=e1482]: Taxes
+                - generic [ref=e1483]:
+                  - img [ref=e1485]
+                  - generic [ref=e1489]: Transport
+                - generic [ref=e1490]:
+                  - img [ref=e1492]
+                  - generic [ref=e1494]: Travel
+                - generic [ref=e1495]:
+                  - img [ref=e1497]
+                  - generic [ref=e1500]: Water
+                - button "Add category" [ref=e1501]:
+                  - img [ref=e1502]
+                  - text: Add category
+        - separator [ref=e1503]
+        - generic [ref=e1504]:
+          - heading "Account" [level=2] [ref=e1505]
+          - generic [ref=e1507]:
+            - generic [ref=e1508]:
+              - paragraph [ref=e1509]: Sign out
+              - paragraph [ref=e1510]: Sign out of your account on this device
+            - button "Sign out" [ref=e1511]:
+              - img
+              - text: Sign out
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]

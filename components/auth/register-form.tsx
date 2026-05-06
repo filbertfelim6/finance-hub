@@ -4,7 +4,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
+import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -18,7 +21,7 @@ import {
 
 const registerSchema = z
   .object({
-    email: z.string().min(1, "Email is required").email("Invalid email"),
+    email: z.email({ error: "Invalid email" }),
     password: z.string().min(8, "Password must be at least 8 characters"),
     confirmPassword: z.string().min(1, "Please confirm your password"),
   })
@@ -49,7 +52,14 @@ export function RegisterForm() {
     });
     setLoading(false);
     if (error) {
-      setServerError(error.message);
+      const msg = (error.message ?? "").toLowerCase();
+      if (msg.includes("confirmation email") || msg.includes("sending")) {
+        setServerError(
+          "Your account was created but we couldn't send the confirmation email — Supabase's email limit was hit. Wait a few minutes and try signing in, or check your spam folder."
+        );
+      } else {
+        setServerError(error.message || "Something went wrong. Please try again.");
+      }
       return;
     }
     setSuccess(true);
@@ -57,7 +67,10 @@ export function RegisterForm() {
 
   if (success) {
     return (
-      <div className="w-full max-w-sm text-center space-y-2">
+      <div className="w-full max-w-sm text-center space-y-3">
+        <div className="flex justify-center">
+          <CheckCircle className="h-10 w-10 text-green-500" />
+        </div>
         <h2 className="text-xl font-semibold">Check your email</h2>
         <p className="text-sm text-muted-foreground">
           We&apos;ve sent a confirmation link to your inbox.
@@ -69,8 +82,9 @@ export function RegisterForm() {
   return (
     <div className="w-full max-w-sm space-y-6">
       <div className="space-y-1 text-center">
+        <Logo className="h-9 w-auto mx-auto" />
         <h1 className="text-2xl font-semibold tracking-tight">Create your account</h1>
-        <p className="text-sm text-muted-foreground">Start tracking your finances with Moonlit</p>
+        <p className="text-sm text-muted-foreground">Start tracking your finances with FinanceHub</p>
       </div>
 
       <Form {...form}>
@@ -125,9 +139,9 @@ export function RegisterForm() {
 
       <p className="text-center text-sm text-muted-foreground">
         Already have an account?{" "}
-        <a href="/auth/login" className="underline underline-offset-4 hover:text-primary">
+        <Link href="/auth/login" className="underline underline-offset-4 hover:text-primary">
           Sign in
-        </a>
+        </Link>
       </p>
     </div>
   );

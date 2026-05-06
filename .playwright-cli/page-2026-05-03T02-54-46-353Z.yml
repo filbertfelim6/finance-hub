@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - main [ref=e4]:
+    - generic [ref=e164]:
+      - generic [ref=e165]:
+        - heading "Accounts" [level=1] [ref=e166]
+        - combobox [ref=e167]:
+          - option "IDR — Indonesian Rupiah" [selected]
+          - option "USD — US Dollar"
+          - option "EUR — Euro"
+          - option "SGD — Singapore Dollar"
+          - option "GBP — British Pound"
+          - option "JPY — Japanese Yen"
+        - button "Add account" [ref=e168]:
+          - img
+          - text: Add account
+      - generic [ref=e169]:
+        - generic [ref=e171] [cursor=pointer]:
+          - generic [ref=e172]:
+            - generic [ref=e173]:
+              - img [ref=e175]
+              - generic [ref=e178]:
+                - paragraph [ref=e179]: Cash Wallet
+                - paragraph [ref=e180]: cash
+            - button "Account options" [ref=e181]:
+              - img
+          - generic [ref=e182]:
+            - paragraph [ref=e183]: Balance
+            - paragraph [ref=e184]: Rp 3.125.000
+            - paragraph [ref=e185]: = Rp 3.125.000
+        - generic [ref=e187] [cursor=pointer]:
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - img [ref=e191]
+              - generic [ref=e194]:
+                - paragraph [ref=e195]: BCA Savings
+                - paragraph [ref=e196]: checking
+            - button "Account options" [ref=e197]:
+              - img
+          - generic [ref=e198]:
+            - paragraph [ref=e199]: Balance
+            - paragraph [ref=e200]: Rp 1.616.000.000
+            - paragraph [ref=e201]: ≈ $101,000.00
+  - navigation "Mobile navigation" [ref=e52]:
+    - generic [ref=e53]:
+      - link "Home" [ref=e54] [cursor=pointer]:
+        - /url: /
+        - img [ref=e55]
+        - generic [ref=e60]: Home
+      - link "Accounts" [active] [ref=e61] [cursor=pointer]:
+        - /url: /accounts
+        - img [ref=e62]
+        - generic [ref=e64]: Accounts
+      - link "Log transaction" [ref=e65] [cursor=pointer]:
+        - /url: /log
+        - img [ref=e66]
+      - link "Plan" [ref=e68] [cursor=pointer]:
+        - /url: /budgets
+        - img [ref=e69]
+        - generic [ref=e73]: Plan
+      - link "Settings" [ref=e74] [cursor=pointer]:
+        - /url: /settings
+        - img [ref=e75]
+        - generic [ref=e78]: Settings
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e84] [cursor=pointer]:
+    - img [ref=e85]
+  - alert [ref=e163]
+  - generic [ref=e202]: Rp40.0K

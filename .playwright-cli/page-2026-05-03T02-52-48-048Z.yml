@@ -1,0 +1,35 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e117] [cursor=pointer]:
+    - img [ref=e118]
+  - alert [ref=e343]
+  - main [ref=e351]:
+    - button "Toggle theme" [ref=e353]:
+      - img
+    - generic [ref=e354]:
+      - generic [ref=e355]:
+        - img "FinanceHub" [ref=e356]:
+          - generic [ref=e361]: FinanceHub
+        - generic [ref=e362]:
+          - heading "Welcome back" [level=1] [ref=e363]
+          - paragraph [ref=e364]: Sign in to your account
+      - generic [ref=e365]:
+        - generic [ref=e366]:
+          - generic [ref=e367]: Email
+          - textbox "Email" [ref=e368]:
+            - /placeholder: you@example.com
+        - generic [ref=e369]:
+          - generic [ref=e370]: Password
+          - textbox "Password" [ref=e371]:
+            - /placeholder: ••••••••
+        - button "Sign in" [ref=e372]
+      - generic [ref=e377]: or
+      - button "Continue with Google" [ref=e378]:
+        - img
+        - text: Continue with Google
+      - paragraph [ref=e379]:
+        - text: No account?
+        - link "Register" [ref=e380] [cursor=pointer]:
+          - /url: /auth/register
+        - text: ·
+        - link "Forgot password?" [ref=e381] [cursor=pointer]:
+          - /url: /auth/forgot-password

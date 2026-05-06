@@ -6,6 +6,6 @@ describe("formatCurrency", () => {
     expect(formatCurrency(1234.5, "USD")).toBe("$1,234.50");
   });
   it("formats IDR without decimals", () => {
-    expect(formatCurrency(1500000, "IDR")).toMatch(/1\.500\.000/);
+    expect(formatCurrency(1500000, "IDR")).toBe("Rp\u00A01.500.000");
   });
 });

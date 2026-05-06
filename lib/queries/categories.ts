@@ -23,11 +23,34 @@ export async function createCategory(input: {
   color: string;
 }): Promise<Category> {
   const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error("Not authenticated");
   const { data, error } = await supabase
     .from("categories")
-    .insert(input)
+    .insert({ ...input, user_id: user.id })
     .select()
     .single();
   if (error) throw error;
   return data as Category;
+}
+
+export async function updateCategory(
+  id: string,
+  patch: { name?: string; icon?: string; color?: string }
+): Promise<Category> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("categories")
+    .update(patch)
+    .eq("id", id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as Category;
+}
+
+export async function deleteCategory(id: string): Promise<void> {
+  const supabase = createClient();
+  const { error } = await supabase.from("categories").delete().eq("id", id);
+  if (error) throw error;
 }

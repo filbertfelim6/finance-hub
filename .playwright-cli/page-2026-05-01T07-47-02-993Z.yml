@@ -1,0 +1,140 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e81]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e82]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e83]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e84]:
+        - link [ref=e85] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e86] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e87] [cursor=pointer]:
+          - /url: /transactions
+          - img [ref=e29]
+          - generic [ref=e32]: Transactions
+        - link [ref=e88] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e34]
+          - generic [ref=e37]: Budgets
+        - link [ref=e89] [cursor=pointer]:
+          - /url: /goals
+          - img [ref=e39]
+          - generic [ref=e43]: Goals
+        - link [ref=e90] [cursor=pointer]:
+          - /url: /subscriptions
+          - img [ref=e45]
+          - generic [ref=e50]: Subscriptions
+        - link [ref=e91] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e52]
+          - generic [ref=e55]: Settings
+      - separator [ref=e56]
+      - generic [ref=e57]:
+        - button [ref=e92]:
+          - img
+          - generic [ref=e59]: Dark mode
+        - button [ref=e93]:
+          - img
+          - generic [ref=e61]: Sign out
+    - main [ref=e63]:
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - heading [level=1] [ref=e94]: Savings Goals
+          - button [ref=e95]:
+            - img
+            - text: Add Goal
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: No savings goals yet.
+          - button [ref=e96]:
+            - img
+            - text: Add your first goal
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e76] [cursor=pointer]:
+    - img [ref=e77]
+  - alert [ref=e80]
+  - dialog "Add goal" [ref=e100]:
+    - heading "Add goal" [level=2] [ref=e102]
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - generic [ref=e105]: Name
+        - textbox "Name" [active] [ref=e106]:
+          - /placeholder: Emergency Fund
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - generic [ref=e109]: Target amount
+          - spinbutton "Target amount" [ref=e110]: "0"
+        - generic [ref=e111]:
+          - generic [ref=e112]: Currency
+          - combobox "Currency" [ref=e113]:
+            - generic [ref=e114]: IDR
+            - img: ▼
+          - textbox [ref=e115]: IDR
+      - generic [ref=e116]:
+        - generic [ref=e117]: Deadline (optional)
+        - textbox "Deadline (optional)" [ref=e118]
+      - generic [ref=e119]:
+        - generic [ref=e120]: Icon
+        - generic [ref=e121]:
+          - button [ref=e122]:
+            - img [ref=e123]
+          - button [ref=e127]:
+            - img [ref=e128]
+          - button [ref=e131]:
+            - img [ref=e132]
+          - button [ref=e134]:
+            - img [ref=e135]
+          - button [ref=e138]:
+            - img [ref=e139]
+          - button [ref=e141]:
+            - img [ref=e142]
+          - button [ref=e145]:
+            - img [ref=e146]
+          - button [ref=e150]:
+            - img [ref=e151]
+          - button [ref=e154]:
+            - img [ref=e155]
+          - button [ref=e157]:
+            - img [ref=e158]
+          - button [ref=e160]:
+            - img [ref=e161]
+          - button [ref=e164]:
+            - img [ref=e165]
+          - button [ref=e167]:
+            - img [ref=e168]
+          - button [ref=e170]:
+            - img [ref=e171]
+          - button [ref=e174]:
+            - img [ref=e175]
+          - button [ref=e179]:
+            - img [ref=e180]
+      - generic [ref=e183]:
+        - generic [ref=e184]: Color
+        - generic [ref=e185]:
+          - textbox [ref=e187] [cursor=pointer]: "#5a7a4e"
+          - code [ref=e188]: "#5A7A4E"
+      - generic [ref=e189]:
+        - generic [ref=e190]: Linked account (optional)
+        - combobox "Linked account (optional)" [ref=e191]:
+          - generic [ref=e192]: None
+          - img: ▼
+        - textbox [ref=e193]
+      - generic [ref=e194]:
+        - button "Cancel" [ref=e195]
+        - button "Add goal" [ref=e196]
+    - button "Close" [ref=e197]:
+      - img
+      - generic [ref=e198]: Close

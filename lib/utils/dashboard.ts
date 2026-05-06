@@ -1,7 +1,7 @@
-import type { Account, Transaction, Category } from "@/lib/types/database.types";
+import type { Account, Transaction, Category, Budget } from "@/lib/types/database.types";
 import { convertCurrency } from "@/lib/utils";
 
-export type RangeKey = "7D" | "30D" | "90D" | "1Y" | "custom";
+export type RangeKey = "7D" | "30D" | "90D" | "3M" | "6M" | "1Y" | "custom";
 export type Granularity = "day" | "week" | "month";
 
 export interface RangeInterval {
@@ -19,12 +19,19 @@ export function getRangeInterval(range: RangeKey, customFrom?: string, customTo?
   }
   const today = new Date();
   const dateTo = today.toISOString().split("T")[0];
+
+  if (range === "3M" || range === "6M" || range === "1Y") {
+    const months = range === "3M" ? 3 : range === "6M" ? 6 : 12;
+    const start = new Date(today.getFullYear(), today.getMonth() - (months - 1), 1);
+    const dateFrom = start.toISOString().split("T")[0];
+    return { dateFrom, dateTo, granularity: "month" };
+  }
+
   const start = new Date(today);
-  const presetDays = { "7D": 7, "30D": 30, "90D": 90, "1Y": 365, "custom": 30 } as const;
-  start.setDate(start.getDate() - presetDays[range]);
+  const presetDays = { "7D": 7, "30D": 30, "90D": 90, "custom": 30 } as const;
+  start.setDate(start.getDate() - presetDays[range as keyof typeof presetDays]);
   const dateFrom = start.toISOString().split("T")[0];
-  const granularity: Granularity =
-    range === "1Y" ? "month" : range === "90D" ? "week" : "day";
+  const granularity: Granularity = range === "90D" ? "week" : "day";
   return { dateFrom, dateTo, granularity };
 }
 
@@ -55,9 +62,30 @@ function periodKey(dateStr: string, granularity: Granularity): string {
     const diff = (day === 0 ? -6 : 1) - day;
     const monday = new Date(d);
     monday.setUTCDate(d.getUTCDate() + diff);
-    return monday.toISOString().split("T")[0];
+    return `${monday.toLocaleString("default", { month: "short", timeZone: "UTC" })} ${monday.getUTCDate()}`;
   }
   return `${d.toLocaleString("default", { month: "short", timeZone: "UTC" })} ${d.getUTCDate()}`;
+}
+
+// Infers balance_delta for transactions that pre-date the balance_delta column.
+// Transfer direction is determined from notes format "SourceName → DestName".
+function effectiveDelta(
+  txn: Transaction,
+  accountById: Record<string, Account>,
+  rates: Record<string, number>
+): number {
+  if (txn.balance_delta !== null) return txn.balance_delta;
+  const acc = accountById[txn.account_id];
+  if (!acc) return 0;
+  const inAccCurrency = convertCurrency(txn.amount, txn.currency, acc.currency, rates);
+  if (txn.type === "income") return inAccCurrency;
+  if (txn.type === "expense") return -inAccCurrency;
+  // transfer: check notes "SourceName → DestName"
+  if (txn.notes) {
+    const sourceName = txn.notes.split(" → ")[0]?.trim();
+    if (sourceName && acc.name === sourceName) return -inAccCurrency;
+  }
+  return inAccCurrency; // destination
 }
 
 export function buildNetWorthSeries(
@@ -69,11 +97,12 @@ export function buildNetWorthSeries(
   rates: Record<string, number>,
   displayCurrency: string
 ): NetWorthPoint[] {
+  const accountById = Object.fromEntries(accounts.map((a) => [a.id, a]));
   const deltaMap: Record<string, Record<string, number>> = {};
   for (const txn of transactions) {
     if (!deltaMap[txn.account_id]) deltaMap[txn.account_id] = {};
     deltaMap[txn.account_id][txn.date] =
-      (deltaMap[txn.account_id][txn.date] ?? 0) + (txn.balance_delta ?? 0);
+      (deltaMap[txn.account_id][txn.date] ?? 0) + effectiveDelta(txn, accountById, rates);
   }
 
   const runningBalance: Record<string, number> = {};
@@ -126,8 +155,9 @@ export function buildIncomeExpenseSeries(
     const key = periodKey(txn.date, granularity);
     if (!map[key]) map[key] = { income: 0, expenses: 0 };
 
-    const amountUsd = txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1);
-    const inDisplay = amountUsd * (rates[displayCurrency] ?? 1);
+    const inDisplay = txn.currency === displayCurrency
+      ? txn.amount
+      : (txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1)) * (rates[displayCurrency] ?? 1);
 
     if (txn.type === "income") map[key].income += inDisplay;
     else map[key].expenses += inDisplay;
@@ -163,19 +193,24 @@ export function buildCategoryBreakdown(
   for (const txn of transactions) {
     if (txn.type !== "expense") continue;
     const key = txn.category_id ?? "uncategorized";
-    const amountUsd = txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1);
-    const inDisplay = amountUsd * (rates[displayCurrency] ?? 1);
+    const inDisplay = txn.currency === displayCurrency
+      ? txn.amount
+      : (txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1)) * (rates[displayCurrency] ?? 1);
     map[key] = (map[key] ?? 0) + inDisplay;
   }
 
   const catById = Object.fromEntries(categories.map((c) => [c.id, c]));
 
-  return Object.entries(map)
-    .map(([id, value]) => ({
-      name: catById[id]?.name ?? "Uncategorized",
-      value,
-      color: catById[id]?.color ?? "#94a3b8",
-    }))
+  const byName: Record<string, { value: number; color: string }> = {};
+  for (const [id, value] of Object.entries(map)) {
+    const name = catById[id]?.name ?? "Uncategorized";
+    const color = catById[id]?.color ?? "#94a3b8";
+    if (!byName[name]) byName[name] = { value: 0, color };
+    byName[name].value += value;
+  }
+
+  return Object.entries(byName)
+    .map(([name, { value, color }]) => ({ name, value, color }))
     .sort((a, b) => b.value - a.value);
 }
 
@@ -244,9 +279,11 @@ export function buildCategoryTrendSeries(
   for (const txn of transactions) {
     if (txn.type !== "expense") continue;
     const key = periodKey(txn.date, granularity);
-    const catId = txn.category_id ?? "uncategorized";
-    const amountUsd = txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1);
-    const inDisplay = amountUsd * (rates[displayCurrency] ?? 1);
+    // Normalize deleted/missing category IDs to a single "uncategorized" bucket
+    const catId = txn.category_id && catById[txn.category_id] ? txn.category_id : "uncategorized";
+    const inDisplay = txn.currency === displayCurrency
+      ? txn.amount
+      : (txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1)) * (rates[displayCurrency] ?? 1);
     if (!periodCatMap[key]) periodCatMap[key] = {};
     periodCatMap[key][catId] = (periodCatMap[key][catId] ?? 0) + inDisplay;
     catTotals[catId] = (catTotals[catId] ?? 0) + inDisplay;
@@ -281,6 +318,62 @@ export function buildCategoryTrendSeries(
   return { series, topCategories };
 }
 
+// ─── Net Worth Flow (monthly net worth + change) ─────────────────────────────
+
+export interface NetWorthFlowPoint {
+  period: string;
+  netWorth: number;
+  cashFlow: number;
+}
+
+export function buildNetWorthFlowSeries(
+  accounts: Account[],
+  transactions: Transaction[],
+  dateFrom: string,
+  dateTo: string,
+  granularity: Granularity,
+  rates: Record<string, number>,
+  displayCurrency: string
+): NetWorthFlowPoint[] {
+  const accountById = Object.fromEntries(accounts.map((a) => [a.id, a]));
+  const deltaMap: Record<string, Record<string, number>> = {};
+  for (const txn of transactions) {
+    if (!deltaMap[txn.account_id]) deltaMap[txn.account_id] = {};
+    deltaMap[txn.account_id][txn.date] =
+      (deltaMap[txn.account_id][txn.date] ?? 0) + effectiveDelta(txn, accountById, rates);
+  }
+
+  const runningBalance: Record<string, number> = {};
+  let startingTotal = 0;
+  for (const acc of accounts) {
+    const sumInRange = Object.values(deltaMap[acc.id] ?? {}).reduce((s, d) => s + d, 0);
+    runningBalance[acc.id] = acc.balance - sumInRange;
+    startingTotal += convertCurrency(runningBalance[acc.id], acc.currency, displayCurrency, rates);
+  }
+
+  const allDays = isoDatesBetween(dateFrom, dateTo);
+  const periodMap: Record<string, number> = {};
+
+  for (const day of allDays) {
+    for (const acc of accounts) {
+      runningBalance[acc.id] += deltaMap[acc.id]?.[day] ?? 0;
+    }
+    const key = periodKey(day, granularity);
+    let total = 0;
+    for (const acc of accounts) {
+      total += convertCurrency(runningBalance[acc.id], acc.currency, displayCurrency, rates);
+    }
+    periodMap[key] = total;
+  }
+
+  const periods = Object.keys(periodMap);
+  return periods.map((period, i) => {
+    const netWorth = periodMap[period];
+    const prev = i === 0 ? startingTotal : periodMap[periods[i - 1]];
+    return { period, netWorth, cashFlow: netWorth - prev };
+  });
+}
+
 // ─── Cash Flow Waterfall ──────────────────────────────────────────────────────
 
 export interface WaterfallPoint {
@@ -305,8 +398,9 @@ export function buildCashFlowWaterfall(
   const catExpenses: Record<string, number> = {};
   for (const txn of transactions) {
     if (txn.type === "transfer") continue;
-    const amountUsd = txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1);
-    const inDisplay = amountUsd * (rates[displayCurrency] ?? 1);
+    const inDisplay = txn.currency === displayCurrency
+      ? txn.amount
+      : (txn.converted_amount_usd ?? txn.amount / (rates[txn.currency] ?? 1)) * (rates[displayCurrency] ?? 1);
     if (txn.type === "income") {
       totalIncome += inDisplay;
     } else {
@@ -322,7 +416,7 @@ export function buildCashFlowWaterfall(
   const points: WaterfallPoint[] = [];
   let running = totalIncome;
 
-  points.push({ name: "Income", base: 0, value: totalIncome, fill: "#10b981" });
+  points.push({ name: "Income", base: 0, value: totalIncome, fill: "#6b8e4e" });
 
   for (const [catId, amount] of topCats) {
     running -= amount;
@@ -330,20 +424,100 @@ export function buildCashFlowWaterfall(
       name: catById[catId]?.name ?? "Uncategorized",
       base: Math.max(0, running),
       value: amount,
-      fill: catById[catId]?.color ?? "#ef4444",
+      fill: catById[catId]?.color ?? "#b8615a",
     });
   }
 
   if (otherExpense > 0) {
     running -= otherExpense;
-    points.push({ name: "Other", base: Math.max(0, running), value: otherExpense, fill: "#94a3b8" });
+    points.push({ name: "Other", base: Math.max(0, running), value: otherExpense, fill: "#8d9181" });
   }
 
   // Close the gap from 0 up to where expenses stopped
   const saved = Math.max(0, running);
   if (saved > 0) {
-    points.push({ name: "Saved", base: 0, value: saved, fill: "#6366f1" });
+    points.push({ name: "Saved", base: 0, value: saved, fill: "#5a7a4e" });
   }
 
   return points;
+}
+
+// ─── Budget Progress ──────────────────────────────────────────────────────────
+
+export interface BudgetProgressPoint {
+  budgetId: string;
+  categoryId: string;
+  categoryName: string;
+  categoryColor: string;
+  categoryIcon: string;
+  budgetAmount: number;
+  spent: number;
+  pct: number;
+  period: "monthly" | "weekly";
+}
+
+export function buildBudgetProgress(
+  budgets: Budget[],
+  transactions: Transaction[],
+  categories: Category[],
+  rates: Record<string, number>,
+  displayCurrency: string
+): BudgetProgressPoint[] {
+  const catById = Object.fromEntries(categories.map((c) => [c.id, c]));
+
+  const now = new Date();
+  const todayStr = now.toISOString().split("T")[0];
+
+  // Current month boundaries
+  const monthStart = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-01`;
+
+  // Current week boundaries (Mon–Sun)
+  const day = now.getDay();
+  const diffToMon = (day === 0 ? -6 : 1) - day;
+  const weekStart = new Date(now);
+  weekStart.setDate(now.getDate() + diffToMon);
+  const weekStartStr = weekStart.toISOString().split("T")[0];
+
+  return budgets.map((budget) => {
+    const cat = budget.category_id ? catById[budget.category_id] : null;
+    const start = budget.period === "monthly" ? monthStart : weekStartStr;
+
+    const spent = transactions
+      .filter(
+        (t) =>
+          t.type === "expense" &&
+          t.category_id === budget.category_id &&
+          t.date >= start &&
+          t.date <= todayStr
+      )
+      .reduce((s, t) => {
+        const inDisplay =
+          t.currency === displayCurrency
+            ? t.amount
+            : (t.converted_amount_usd ?? t.amount / (rates[t.currency] ?? 1)) *
+              (rates[displayCurrency] ?? 1);
+        return s + inDisplay;
+      }, 0);
+
+    const budgetAmount = convertCurrency(
+      budget.amount,
+      budget.currency,
+      displayCurrency,
+      rates
+    );
+
+    const pct = budgetAmount > 0 ? (spent / budgetAmount) * 100 : 0;
+
+    return {
+      budgetId: budget.id,
+      categoryId: budget.category_id ?? "",
+      categoryName: cat?.name ?? "Uncategorized",
+      categoryColor: cat?.color ?? "#94a3b8",
+      categoryIcon: cat?.icon ?? "tag",
+      budgetAmount,
+      spent,
+      pct,
+      period: budget.period,
+    };
+  });
 }

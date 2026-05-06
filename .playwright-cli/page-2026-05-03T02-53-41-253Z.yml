@@ -1,0 +1,205 @@
+- generic [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e38] [cursor=pointer]:
+    - img [ref=e39]
+  - alert [ref=e42]
+  - generic [ref=e43]:
+    - complementary [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - img "FinanceHub" [ref=e47]:
+            - generic [ref=e52]: FinanceHub
+          - button "Collapse sidebar" [ref=e53]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e55]:
+        - img
+        - generic [ref=e56]: Log transaction
+      - navigation "Main navigation" [ref=e57]:
+        - link "Dashboard" [ref=e58] [cursor=pointer]:
+          - /url: /
+          - img [ref=e59]
+          - generic [ref=e64]: Dashboard
+        - link "Accounts" [ref=e65] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e66]
+          - generic [ref=e68]: Accounts
+        - link "Plan" [ref=e69] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e70]
+          - generic [ref=e74]: Plan
+        - link "Settings" [active] [ref=e75] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e76]
+          - generic [ref=e79]: Settings
+      - separator [ref=e80]
+      - generic [ref=e81]:
+        - button "Toggle theme" [ref=e82]:
+          - img
+          - generic [ref=e83]: Dark mode
+        - button "Sign out" [ref=e84]:
+          - img
+          - generic [ref=e85]: Sign out
+    - main [ref=e87]:
+      - generic [ref=e623]:
+        - heading "Settings" [level=1] [ref=e624]
+        - generic [ref=e625]:
+          - heading "Appearance" [level=2] [ref=e626]
+          - generic [ref=e627]:
+            - paragraph [ref=e628]: Theme
+            - generic [ref=e629]:
+              - button "light" [ref=e630]:
+                - img [ref=e631]
+                - text: light
+              - button "dark" [ref=e637]:
+                - img [ref=e638]
+                - text: dark
+              - button "system" [ref=e640]:
+                - img [ref=e641]
+                - text: system
+        - separator [ref=e643]
+        - generic [ref=e644]:
+          - heading "Display" [level=2] [ref=e645]
+          - generic [ref=e646]:
+            - generic [ref=e647]:
+              - generic [ref=e648]:
+                - paragraph [ref=e649]: Display currency
+                - paragraph [ref=e650]: All amounts are shown in this currency
+              - combobox [ref=e651]:
+                - generic [ref=e652]: IDR
+                - img: ▼
+              - textbox [ref=e653]: IDR
+            - separator [ref=e654]
+            - generic [ref=e655]:
+              - generic [ref=e656]:
+                - paragraph [ref=e657]: Privacy mode
+                - paragraph [ref=e658]: Hide all amounts and balances
+              - switch [ref=e659]
+              - checkbox [ref=e660]
+        - separator [ref=e661]
+        - generic [ref=e662]:
+          - heading "Categories" [level=2] [ref=e663]
+          - generic [ref=e666]:
+            - tablist [ref=e667]:
+              - tab "Expense" [selected] [ref=e668]
+              - tab "Income" [ref=e669]
+            - tabpanel "Expense" [ref=e670]:
+              - generic [ref=e671]:
+                - generic [ref=e672]:
+                  - img [ref=e674]
+                  - generic [ref=e676]: Bills & Utilities
+                - generic [ref=e677]:
+                  - img [ref=e679]
+                  - generic [ref=e681]: Charity
+                - generic [ref=e682]:
+                  - img [ref=e684]
+                  - generic [ref=e686]: Clothing
+                - generic [ref=e687]:
+                  - img [ref=e689]
+                  - generic [ref=e692]: Courses
+                - generic [ref=e693]:
+                  - img [ref=e695]
+                  - generic [ref=e697]: Dining Out
+                - generic [ref=e698]:
+                  - img [ref=e700]
+                  - generic [ref=e702]: Education
+                - generic [ref=e703]:
+                  - img [ref=e705]
+                  - generic [ref=e707]: Electricity
+                - generic [ref=e708]:
+                  - img [ref=e710]
+                  - generic [ref=e712]: Electronics
+                - generic [ref=e713]:
+                  - img [ref=e715]
+                  - generic [ref=e718]: Entertainment
+                - generic [ref=e719]:
+                  - img [ref=e721]
+                  - generic [ref=e724]: Food & Drink
+                - generic [ref=e725]:
+                  - img [ref=e727]
+                  - generic [ref=e730]: Fuel
+                - generic [ref=e731]:
+                  - img [ref=e733]
+                  - generic [ref=e735]: Games
+                - generic [ref=e736]:
+                  - img [ref=e738]
+                  - generic [ref=e742]: Groceries
+                - generic [ref=e743]:
+                  - img [ref=e745]
+                  - generic [ref=e751]: Gym & Fitness
+                - generic [ref=e752]:
+                  - img [ref=e754]
+                  - generic [ref=e760]: Haircut & Beauty
+                - generic [ref=e761]:
+                  - img [ref=e763]
+                  - generic [ref=e765]: Health
+                - generic [ref=e766]:
+                  - img [ref=e768]
+                  - generic [ref=e770]: Home Repairs
+                - generic [ref=e771]:
+                  - img [ref=e773]
+                  - generic [ref=e776]: Hotels
+                - generic [ref=e777]:
+                  - img [ref=e779]
+                  - generic [ref=e782]: Housing
+                - generic [ref=e783]:
+                  - img [ref=e785]
+                  - generic [ref=e787]: Insurance
+                - generic [ref=e788]:
+                  - img [ref=e790]
+                  - generic [ref=e794]: Internet & Phone
+                - generic [ref=e795]:
+                  - img [ref=e797]
+                  - generic [ref=e801]: Medical
+                - generic [ref=e802]:
+                  - img [ref=e804]
+                  - generic [ref=e808]: Other Expense
+                - generic [ref=e809]:
+                  - img [ref=e811]
+                  - generic [ref=e814]: Personal Care
+                - generic [ref=e815]:
+                  - img [ref=e817]
+                  - generic [ref=e820]: Pharmacy
+                - generic [ref=e821]:
+                  - img [ref=e823]
+                  - generic [ref=e826]: Rent
+                - generic [ref=e827]:
+                  - img [ref=e829]
+                  - generic [ref=e831]: Ride-Hailing
+                - generic [ref=e832]:
+                  - img [ref=e834]
+                  - generic [ref=e837]: Shopping
+                - generic [ref=e838]:
+                  - img [ref=e840]
+                  - generic [ref=e843]: Streaming
+                - generic [ref=e844]:
+                  - img [ref=e846]
+                  - generic [ref=e851]: Subscriptions
+                - generic [ref=e852]:
+                  - img [ref=e854]
+                  - generic [ref=e856]: Taxes
+                - generic [ref=e857]:
+                  - img [ref=e859]
+                  - generic [ref=e863]: Transport
+                - generic [ref=e864]:
+                  - img [ref=e866]
+                  - generic [ref=e868]: Travel
+                - generic [ref=e869]:
+                  - img [ref=e871]
+                  - generic [ref=e874]: Water
+                - button "Add category" [ref=e875]:
+                  - img [ref=e876]
+                  - text: Add category
+        - separator [ref=e877]
+        - generic [ref=e878]:
+          - heading "Account" [level=2] [ref=e879]
+          - generic [ref=e881]:
+            - generic [ref=e882]:
+              - paragraph [ref=e883]: Sign out
+              - paragraph [ref=e884]: Sign out of your account on this device
+            - button "Sign out" [ref=e885]:
+              - img
+              - text: Sign out
+  - region "Notifications alt+T"
+  - generic [ref=e543]: 0%

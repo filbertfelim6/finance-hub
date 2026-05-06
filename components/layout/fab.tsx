@@ -6,7 +6,7 @@ export function FAB() {
   return (
     <Link
       href="/log"
-      className="md:hidden fixed bottom-20 right-4 z-50"
+      className="lg:hidden fixed bottom-20 right-4 z-50"
       aria-label="Log transaction"
     >
       <Button

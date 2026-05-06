@@ -1,0 +1,119 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e81]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e82]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e83]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e84]:
+        - link [ref=e85] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e86] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e87] [cursor=pointer]:
+          - /url: /transactions
+          - img [ref=e29]
+          - generic [ref=e32]: Transactions
+        - link [ref=e88] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e34]
+          - generic [ref=e37]: Budgets
+        - link [ref=e89] [cursor=pointer]:
+          - /url: /goals
+          - img [ref=e39]
+          - generic [ref=e43]: Goals
+        - link [ref=e90] [cursor=pointer]:
+          - /url: /subscriptions
+          - img [ref=e45]
+          - generic [ref=e50]: Subscriptions
+        - link [ref=e91] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e52]
+          - generic [ref=e55]: Settings
+      - separator [ref=e56]
+      - generic [ref=e57]:
+        - button [ref=e92]:
+          - img
+          - generic [ref=e59]: Dark mode
+        - button [ref=e93]:
+          - img
+          - generic [ref=e61]: Sign out
+    - main [ref=e63]:
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - heading [level=1] [ref=e94]: Subscriptions
+          - button [ref=e95]:
+            - img
+            - text: Add
+        - generic [ref=e96]:
+          - img [ref=e98]
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e104]:
+                - paragraph [ref=e105]: Subscription
+                - paragraph [ref=e106]: Other Expense · daily
+              - generic [ref=e107]:
+                - generic [ref=e108]: Rp 1.000
+                - button [ref=e109]:
+                  - img
+            - generic [ref=e111]: Overdue
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e76] [cursor=pointer]:
+    - img [ref=e77]
+  - alert [ref=e80]
+  - dialog "Add subscription" [ref=e115]:
+    - heading "Add subscription" [level=2] [ref=e117]
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - generic [ref=e120]: Name
+        - textbox "Name" [ref=e121]:
+          - /placeholder: Netflix, Spotify…
+          - text: Netflix
+      - generic [ref=e122]:
+        - generic [ref=e123]: Type
+        - generic [ref=e124]:
+          - button "expense" [ref=e125]
+          - button "income" [ref=e126]
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - generic [ref=e129]: Amount
+          - spinbutton "Amount" [ref=e130]: "150000"
+        - generic [ref=e131]:
+          - generic [ref=e132]: Currency
+          - combobox "Currency" [ref=e133]:
+            - generic [ref=e134]: IDR
+            - img: ▼
+          - textbox [ref=e135]: IDR
+      - generic [ref=e136]:
+        - generic [ref=e137]: Category (optional)
+        - combobox "Category (optional)" [ref=e138]:
+          - generic [ref=e139]: None
+          - img: ▼
+        - textbox [ref=e140]
+      - generic [ref=e141]:
+        - generic [ref=e142]: Frequency
+        - combobox "Frequency" [ref=e143]:
+          - generic [ref=e144]: monthly
+          - img: ▼
+        - textbox [ref=e145]: monthly
+      - generic [ref=e146]:
+        - generic [ref=e147]: Next due date
+        - textbox "Next due date" [ref=e148]: 2026-06-01
+      - generic [ref=e149]:
+        - button "Cancel" [ref=e150]
+        - button "Saving…" [disabled]
+    - button "Close" [ref=e152]:
+      - img
+      - generic [ref=e153]: Close

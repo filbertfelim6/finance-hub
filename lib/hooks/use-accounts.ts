@@ -7,7 +7,7 @@ import {
   archiveAccount,
   type CreateAccountInput,
 } from "@/lib/queries/accounts";
-import { useUsdToIdr } from "./use-exchange-rate";
+import { useExchangeRates } from "./use-exchange-rate";
 
 export function useAccounts() {
   return useQuery({ queryKey: ["accounts"], queryFn: getAccounts });
@@ -23,9 +23,9 @@ export function useAccount(id: string) {
 
 export function useCreateAccount() {
   const qc = useQueryClient();
-  const usdToIdr = useUsdToIdr();
+  const rates = useExchangeRates();
   return useMutation({
-    mutationFn: (input: CreateAccountInput) => createAccount(input, usdToIdr),
+    mutationFn: (input: CreateAccountInput) => createAccount(input, rates),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["accounts"] }),
   });
 }

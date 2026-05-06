@@ -4,6 +4,10 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { NumericFormat } from "react-number-format";
+import {
+  Wallet, CreditCard, Building, Smartphone, Landmark, PiggyBank,
+} from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,35 +26,32 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import { useCreateAccount, useUpdateAccount } from "@/lib/hooks/use-accounts";
 import type { Account } from "@/lib/types/database.types";
 
-const ACCOUNT_COLORS = [
-  "#6366f1",
-  "#22c55e",
-  "#ef4444",
-  "#f97316",
-  "#eab308",
-  "#3b82f6",
-  "#8b5cf6",
-  "#ec4899",
-  "#14b8a6",
-  "#64748b",
+const ACCOUNT_ICONS = [
+  { value: "wallet",      Icon: Wallet },
+  { value: "credit-card", Icon: CreditCard },
+  { value: "building",    Icon: Building },
+  { value: "smartphone",  Icon: Smartphone },
+  { value: "landmark",    Icon: Landmark },
+  { value: "piggy-bank",  Icon: PiggyBank },
 ];
 
-const ACCOUNT_ICONS = [
-  { value: "wallet", label: "Wallet" },
-  { value: "credit-card", label: "Card" },
-  { value: "building", label: "Bank" },
-  { value: "smartphone", label: "E-Wallet" },
-  { value: "landmark", label: "Landmark" },
-  { value: "piggy-bank", label: "Piggy Bank" },
+const COLOR_PALETTE = [
+  "#5a7a4e", "#7d9870", "#c89b3c", "#b8615a", "#5a7a8e",
+  "#8b6f9c", "#c87941", "#4e7a6e", "#7a5a8e", "#8e7a4e",
 ];
+
+function randomColor() {
+  return COLOR_PALETTE[Math.floor(Math.random() * COLOR_PALETTE.length)];
+}
 
 const schema = z.object({
   name: z.string().min(1, "Name is required").max(50),
   type: z.enum(["checking", "savings", "cash", "ewallet"]),
-  currency: z.enum(["USD", "IDR"]),
+  currency: z.enum(["USD", "IDR", "EUR", "SGD", "GBP", "JPY"]),
   initialBalance: z.number().min(0, "Balance must be 0 or more"),
   color: z.string(),
   icon: z.string(),
@@ -76,12 +77,13 @@ export function AccountForm({ open, onClose, account }: AccountFormProps) {
       type: "checking",
       currency: "IDR",
       initialBalance: 0,
-      color: "#6366f1",
+      color: "#5a7a4e",
       icon: "wallet",
     },
   });
 
   useEffect(() => {
+    if (!open) return;
     if (account) {
       form.reset({
         name: account.name,
@@ -97,7 +99,7 @@ export function AccountForm({ open, onClose, account }: AccountFormProps) {
         type: "checking",
         currency: "IDR",
         initialBalance: 0,
-        color: "#6366f1",
+        color: randomColor(),
         icon: "wallet",
       });
     }
@@ -193,6 +195,10 @@ export function AccountForm({ open, onClose, account }: AccountFormProps) {
                       <SelectContent>
                         <SelectItem value="IDR">IDR</SelectItem>
                         <SelectItem value="USD">USD</SelectItem>
+                        <SelectItem value="EUR">EUR</SelectItem>
+                        <SelectItem value="SGD">SGD</SelectItem>
+                        <SelectItem value="GBP">GBP</SelectItem>
+                        <SelectItem value="JPY">JPY</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -208,12 +214,16 @@ export function AccountForm({ open, onClose, account }: AccountFormProps) {
                   <FormItem>
                     <FormLabel>Initial balance</FormLabel>
                     <FormControl>
-                      <Input
-                        type="number"
-                        min="0"
-                        step="any"
-                        {...field}
-                        onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                      <NumericFormat
+                        thousandSeparator="."
+                        decimalSeparator=","
+                        allowNegative={false}
+                        allowLeadingZeros={false}
+                        value={field.value || ""}
+                        onValueChange={(v) => field.onChange(v.floatValue ?? 0)}
+                        placeholder="0"
+                        inputMode="decimal"
+                        className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                       />
                     </FormControl>
                     <FormMessage />
@@ -223,49 +233,24 @@ export function AccountForm({ open, onClose, account }: AccountFormProps) {
             )}
             <FormField
               control={form.control}
-              name="color"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Color</FormLabel>
-                  <div className="flex gap-2 flex-wrap">
-                    {ACCOUNT_COLORS.map((c) => (
-                      <button
-                        key={c}
-                        type="button"
-                        className="w-7 h-7 rounded-full border-2 transition-transform hover:scale-110"
-                        style={{
-                          backgroundColor: c,
-                          borderColor: field.value === c ? "white" : "transparent",
-                          outlineOffset: "2px",
-                          outline: field.value === c ? `2px solid ${c}` : "none",
-                        }}
-                        onClick={() => field.onChange(c)}
-                      />
-                    ))}
-                  </div>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name="icon"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Icon</FormLabel>
-                  <div className="flex gap-2 flex-wrap">
-                    {ACCOUNT_ICONS.map((i) => (
+                  <div className="flex gap-2">
+                    {ACCOUNT_ICONS.map(({ value, Icon }) => (
                       <button
-                        key={i.value}
+                        key={value}
                         type="button"
-                        className={`px-3 py-1.5 rounded-md text-xs border transition-colors ${
-                          field.value === i.value
-                            ? "bg-primary text-primary-foreground border-primary"
+                        onClick={() => field.onChange(value)}
+                        className={cn(
+                          "flex items-center justify-center w-10 h-10 rounded-lg border transition-colors",
+                          field.value === value
+                            ? "border-primary bg-primary/10"
                             : "border-border hover:bg-muted"
-                        }`}
-                        onClick={() => field.onChange(i.value)}
+                        )}
                       >
-                        {i.label}
+                        <Icon className="h-4 w-4" />
                       </button>
                     ))}
                   </div>

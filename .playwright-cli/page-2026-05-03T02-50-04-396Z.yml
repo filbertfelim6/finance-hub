@@ -1,0 +1,204 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e6]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e12]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e14]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e16]:
+        - link "Dashboard" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e24] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e28] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e34] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e41]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e43]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e47]:
+        - heading "Settings" [level=1] [ref=e48]
+        - generic [ref=e49]:
+          - heading "Appearance" [level=2] [ref=e50]
+          - generic [ref=e51]:
+            - paragraph [ref=e52]: Theme
+            - generic [ref=e53]:
+              - button "light" [ref=e54]:
+                - img [ref=e55]
+                - text: light
+              - button "dark" [ref=e61]:
+                - img [ref=e62]
+                - text: dark
+              - button "system" [ref=e64]:
+                - img [ref=e65]
+                - text: system
+        - separator [ref=e67]
+        - generic [ref=e68]:
+          - heading "Display" [level=2] [ref=e69]
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]:
+                - paragraph [ref=e73]: Display currency
+                - paragraph [ref=e74]: All amounts are shown in this currency
+              - combobox [active] [ref=e75]:
+                - generic [ref=e76]: SGD
+                - img: ▼
+              - textbox [ref=e77]: SGD
+            - separator [ref=e78]
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - paragraph [ref=e81]: Privacy mode
+                - paragraph [ref=e82]: Hide all amounts and balances
+              - switch [ref=e121]
+              - checkbox [ref=e122]
+        - separator [ref=e83]
+        - generic [ref=e84]:
+          - heading "Categories" [level=2] [ref=e85]
+          - generic [ref=e123]:
+            - tablist [ref=e124]:
+              - tab "Expense" [selected] [ref=e125]
+              - tab "Income" [ref=e126]
+            - tabpanel "Expense" [ref=e127]:
+              - generic [ref=e128]:
+                - generic [ref=e129]:
+                  - img [ref=e131]
+                  - generic [ref=e133]: Bills & Utilities
+                - generic [ref=e134]:
+                  - img [ref=e136]
+                  - generic [ref=e138]: Charity
+                - generic [ref=e139]:
+                  - img [ref=e141]
+                  - generic [ref=e143]: Clothing
+                - generic [ref=e144]:
+                  - img [ref=e146]
+                  - generic [ref=e149]: Courses
+                - generic [ref=e150]:
+                  - img [ref=e152]
+                  - generic [ref=e154]: Dining Out
+                - generic [ref=e155]:
+                  - img [ref=e157]
+                  - generic [ref=e159]: Education
+                - generic [ref=e160]:
+                  - img [ref=e162]
+                  - generic [ref=e164]: Electricity
+                - generic [ref=e165]:
+                  - img [ref=e167]
+                  - generic [ref=e169]: Electronics
+                - generic [ref=e170]:
+                  - img [ref=e172]
+                  - generic [ref=e175]: Entertainment
+                - generic [ref=e176]:
+                  - img [ref=e178]
+                  - generic [ref=e181]: Food & Drink
+                - generic [ref=e182]:
+                  - img [ref=e184]
+                  - generic [ref=e187]: Fuel
+                - generic [ref=e188]:
+                  - img [ref=e190]
+                  - generic [ref=e192]: Games
+                - generic [ref=e193]:
+                  - img [ref=e195]
+                  - generic [ref=e199]: Groceries
+                - generic [ref=e200]:
+                  - img [ref=e202]
+                  - generic [ref=e208]: Gym & Fitness
+                - generic [ref=e209]:
+                  - img [ref=e211]
+                  - generic [ref=e217]: Haircut & Beauty
+                - generic [ref=e218]:
+                  - img [ref=e220]
+                  - generic [ref=e222]: Health
+                - generic [ref=e223]:
+                  - img [ref=e225]
+                  - generic [ref=e227]: Home Repairs
+                - generic [ref=e228]:
+                  - img [ref=e230]
+                  - generic [ref=e233]: Hotels
+                - generic [ref=e234]:
+                  - img [ref=e236]
+                  - generic [ref=e239]: Housing
+                - generic [ref=e240]:
+                  - img [ref=e242]
+                  - generic [ref=e244]: Insurance
+                - generic [ref=e245]:
+                  - img [ref=e247]
+                  - generic [ref=e251]: Internet & Phone
+                - generic [ref=e252]:
+                  - img [ref=e254]
+                  - generic [ref=e258]: Medical
+                - generic [ref=e259]:
+                  - img [ref=e261]
+                  - generic [ref=e265]: Other Expense
+                - generic [ref=e266]:
+                  - img [ref=e268]
+                  - generic [ref=e271]: Personal Care
+                - generic [ref=e272]:
+                  - img [ref=e274]
+                  - generic [ref=e277]: Pharmacy
+                - generic [ref=e278]:
+                  - img [ref=e280]
+                  - generic [ref=e283]: Rent
+                - generic [ref=e284]:
+                  - img [ref=e286]
+                  - generic [ref=e288]: Ride-Hailing
+                - generic [ref=e289]:
+                  - img [ref=e291]
+                  - generic [ref=e294]: Shopping
+                - generic [ref=e295]:
+                  - img [ref=e297]
+                  - generic [ref=e300]: Streaming
+                - generic [ref=e301]:
+                  - img [ref=e303]
+                  - generic [ref=e308]: Subscriptions
+                - generic [ref=e309]:
+                  - img [ref=e311]
+                  - generic [ref=e313]: Taxes
+                - generic [ref=e314]:
+                  - img [ref=e316]
+                  - generic [ref=e320]: Transport
+                - generic [ref=e321]:
+                  - img [ref=e323]
+                  - generic [ref=e325]: Travel
+                - generic [ref=e326]:
+                  - img [ref=e328]
+                  - generic [ref=e331]: Water
+                - button "Add category" [ref=e332]:
+                  - img [ref=e333]
+                  - text: Add category
+        - separator [ref=e103]
+        - generic [ref=e104]:
+          - heading "Account" [level=2] [ref=e105]
+          - generic [ref=e107]:
+            - generic [ref=e108]:
+              - paragraph [ref=e109]: Sign out
+              - paragraph [ref=e110]: Sign out of your account on this device
+            - button "Sign out" [ref=e111]:
+              - img
+              - text: Sign out
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e117] [cursor=pointer]:
+    - img [ref=e118]
+  - alert [ref=e334]

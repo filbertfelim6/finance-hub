@@ -1,0 +1,84 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e197]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e198]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e199]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e200]:
+        - link "Dashboard" [ref=e201] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e202] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e203] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e204] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e205]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e206]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading "Budgets" [level=1] [ref=e207]
+          - button "Add Budget" [active] [ref=e208]:
+            - img
+            - text: Add Budget
+        - generic [ref=e51]:
+          - link "Budgets" [ref=e209] [cursor=pointer]:
+            - /url: /budgets
+          - link "Goals" [ref=e210] [cursor=pointer]:
+            - /url: /goals
+          - link "Subscriptions" [ref=e211] [cursor=pointer]:
+            - /url: /subscriptions
+        - generic [ref=e212]:
+          - generic [ref=e213]:
+            - paragraph [ref=e214]: Total Spent
+            - paragraph [ref=e215]: Rp 150.000
+          - generic [ref=e216]:
+            - paragraph [ref=e217]: Total Budgeted
+            - paragraph [ref=e218]: Rp 500.000
+        - generic [ref=e219]:
+          - generic [ref=e220]:
+            - generic [ref=e221]:
+              - img [ref=e223]
+              - generic [ref=e226]:
+                - paragraph [ref=e227]: Food & Drink
+                - paragraph [ref=e228]: monthly
+            - button "Budget options" [ref=e229]:
+              - img
+          - generic [ref=e230]:
+            - generic [ref=e231]:
+              - generic [ref=e232]: Rp150.0K
+              - generic [ref=e233]: Rp 500.000
+            - progressbar [ref=e234]: x
+            - paragraph [ref=e239]: 30% used
+  - region "Notifications alt+T":
+    - list:
+      - listitem [ref=e240]:
+        - img [ref=e242]
+        - generic [ref=e246]: Budget created
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]

@@ -1,5 +1,6 @@
 "use client";
 
+import { NumericFormat } from "react-number-format";
 import { Button } from "@/components/ui/button";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
@@ -29,10 +30,7 @@ export function AmountStep({
       return;
     }
     if (key === "." && amount.includes(".")) return;
-    if (amount === "0" && key !== ".") {
-      onAmountChange(key);
-      return;
-    }
+    if (amount === "0" && key !== ".") { onAmountChange(key); return; }
     onAmountChange((amount || "") + key);
   }
 
@@ -40,25 +38,34 @@ export function AmountStep({
 
   return (
     <div className="space-y-6">
-      <div className="text-center space-y-2">
-        <div className="flex items-center justify-center gap-2">
-          <Select value={currency} onValueChange={(v) => onCurrencyChange(v as Currency)}>
-            <SelectTrigger className="w-20 h-8 text-sm border-0 bg-muted">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="IDR">IDR</SelectItem>
-              <SelectItem value="USD">USD</SelectItem>
-            </SelectContent>
-          </Select>
-          <input
-            readOnly
-            placeholder="0"
-            value={amount || ""}
-            className="text-4xl font-semibold tabular-nums min-w-[4ch] bg-transparent border-none outline-none text-center w-24"
-            aria-label="amount"
-          />
-        </div>
+      <div className="text-center space-y-3">
+        <Select value={currency} onValueChange={(v) => onCurrencyChange(v as Currency)}>
+          <SelectTrigger className="mx-auto w-20 h-8 text-sm border-0 bg-muted">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="IDR">IDR</SelectItem>
+            <SelectItem value="USD">USD</SelectItem>
+            <SelectItem value="EUR">EUR</SelectItem>
+            <SelectItem value="SGD">SGD</SelectItem>
+            <SelectItem value="GBP">GBP</SelectItem>
+            <SelectItem value="JPY">JPY</SelectItem>
+          </SelectContent>
+        </Select>
+        <NumericFormat
+          autoFocus
+          thousandSeparator="."
+          decimalSeparator=","
+          value={amount}
+          onValueChange={(values) => onAmountChange(values.value)}
+          placeholder="0"
+          inputMode="decimal"
+          className="w-full text-4xl font-semibold tabular-nums bg-transparent border-none outline-none text-center focus:outline-none"
+          aria-label="amount"
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && numericAmount > 0) { e.preventDefault(); onNext(); }
+          }}
+        />
       </div>
 
       <div className="grid grid-cols-3 gap-2">
@@ -66,19 +73,15 @@ export function AmountStep({
           <button
             key={k}
             type="button"
-            onClick={() => handleKey(k)}
+            onMouseDown={(e) => { e.preventDefault(); handleKey(k); }}
             className="h-14 rounded-xl bg-muted hover:bg-muted/70 text-lg font-medium transition-colors"
           >
-            {k}
+            {k === "." ? "," : k}
           </button>
         ))}
       </div>
 
-      <Button
-        className="w-full"
-        disabled={numericAmount <= 0}
-        onClick={onNext}
-      >
+      <Button className="w-full" disabled={numericAmount <= 0} onClick={onNext}>
         Continue
       </Button>
     </div>

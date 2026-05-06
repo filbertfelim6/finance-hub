@@ -4,14 +4,16 @@ import { TrendingUp, TrendingDown, Percent } from "lucide-react";
 import { formatCurrency, cn } from "@/lib/utils";
 import { useDisplayCurrency } from "@/lib/context/display-currency-context";
 import { usePrivacy } from "@/lib/context/privacy-context";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface KpiStripProps {
   income: number;
   expenses: number;
   savingsRate: number;
+  isLoading?: boolean;
 }
 
-export function KpiStrip({ income, expenses, savingsRate }: KpiStripProps) {
+export function KpiStrip({ income, expenses, savingsRate, isLoading }: KpiStripProps) {
   const { displayCurrency } = useDisplayCurrency();
   const { isPrivate } = usePrivacy();
   const mask = "••••";
@@ -21,24 +23,40 @@ export function KpiStrip({ income, expenses, savingsRate }: KpiStripProps) {
       label: "Income",
       value: isPrivate ? mask : formatCurrency(income, displayCurrency),
       icon: TrendingUp,
-      color: "text-green-600 dark:text-green-400",
-      bg: "bg-green-500/10",
+      color: "text-[var(--tx-income-text)]",
+      bg: "bg-[var(--tx-income-bg)]",
     },
     {
       label: "Expenses",
       value: isPrivate ? mask : formatCurrency(expenses, displayCurrency),
       icon: TrendingDown,
-      color: "text-red-600 dark:text-red-400",
-      bg: "bg-red-500/10",
+      color: "text-[var(--tx-expense-text)]",
+      bg: "bg-[var(--tx-expense-bg)]",
     },
     {
       label: "Savings Rate",
       value: isPrivate ? mask : `${savingsRate.toFixed(1)}%`,
       icon: Percent,
-      color: savingsRate >= 20 ? "text-green-600 dark:text-green-400" : savingsRate >= 10 ? "text-yellow-600 dark:text-yellow-400" : "text-red-600 dark:text-red-400",
-      bg: savingsRate >= 20 ? "bg-green-500/10" : savingsRate >= 10 ? "bg-yellow-500/10" : "bg-red-500/10",
+      color: savingsRate >= 20 ? "text-[var(--tx-income-text)]" : savingsRate >= 10 ? "text-[var(--tx-warn-text)]" : "text-[var(--tx-expense-text)]",
+      bg: savingsRate >= 20 ? "bg-[var(--tx-income-bg)]" : savingsRate >= 10 ? "bg-[var(--tx-warn-bg)]" : "bg-[var(--tx-expense-bg)]",
     },
   ];
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-3 gap-3">
+        {[0, 1, 2].map((i) => (
+          <div key={i} className="rounded-xl border bg-card p-3 space-y-2">
+            <Skeleton className="w-7 h-7 rounded-md" />
+            <div className="space-y-1.5">
+              <Skeleton className="h-3 w-16" />
+              <Skeleton className="h-4 w-24" />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-3 gap-3">

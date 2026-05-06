@@ -1,0 +1,64 @@
+- generic [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e38] [cursor=pointer]:
+    - img [ref=e39]
+  - alert [ref=e42]
+  - generic [ref=e43]:
+    - complementary [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - img "FinanceHub" [ref=e47]:
+            - generic [ref=e52]: FinanceHub
+          - button "Collapse sidebar" [ref=e53]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e55]:
+        - img
+        - generic [ref=e56]: Log transaction
+      - navigation "Main navigation" [ref=e57]:
+        - link "Dashboard" [ref=e58] [cursor=pointer]:
+          - /url: /
+          - img [ref=e59]
+          - generic [ref=e64]: Dashboard
+        - link "Accounts" [ref=e65] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e66]
+          - generic [ref=e68]: Accounts
+        - link "Plan" [active] [ref=e69] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e70]
+          - generic [ref=e74]: Plan
+        - link "Settings" [ref=e75] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e76]
+          - generic [ref=e79]: Settings
+      - separator [ref=e80]
+      - generic [ref=e81]:
+        - button "Toggle theme" [ref=e82]:
+          - img
+          - generic [ref=e83]: Dark mode
+        - button "Sign out" [ref=e84]:
+          - img
+          - generic [ref=e85]: Sign out
+    - main [ref=e87]:
+      - generic [ref=e612]:
+        - generic [ref=e613]:
+          - heading "Budgets" [level=1] [ref=e614]
+          - button "Add Budget" [ref=e615]:
+            - img
+            - text: Add Budget
+        - generic [ref=e616]:
+          - link "Budgets" [ref=e617] [cursor=pointer]:
+            - /url: /budgets
+          - link "Goals" [ref=e618] [cursor=pointer]:
+            - /url: /goals
+          - link "Subscriptions" [ref=e619] [cursor=pointer]:
+            - /url: /subscriptions
+        - generic [ref=e620]:
+          - paragraph [ref=e621]: No budgets yet.
+          - button "Add your first budget" [ref=e622]:
+            - img
+            - text: Add your first budget
+  - region "Notifications alt+T"
+  - generic [ref=e543]: 0%

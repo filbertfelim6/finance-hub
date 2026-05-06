@@ -1,0 +1,23 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - button "Toggle theme" [ref=e4]:
+      - img
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img "FinanceHub" [ref=e7]:
+          - generic [ref=e12]: FinanceHub
+        - heading "Reset password" [level=1] [ref=e13]
+        - paragraph [ref=e14]: Enter your email and we'll send a reset link.
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]: Email
+          - textbox "Email" [active] [ref=e18]:
+            - /placeholder: you@example.com
+          - paragraph [ref=e32]: Invalid email
+        - button "Send reset link" [ref=e19]
+      - paragraph [ref=e20]:
+        - link "Back to sign in" [ref=e21] [cursor=pointer]:
+          - /url: /auth/login
+  - button "Open Next.js Dev Tools" [ref=e27] [cursor=pointer]:
+    - img [ref=e28]
+  - alert [ref=e31]

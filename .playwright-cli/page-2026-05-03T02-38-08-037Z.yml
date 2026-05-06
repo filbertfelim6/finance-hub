@@ -1,0 +1,85 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e164]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e165]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e166]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e167]:
+        - link "Dashboard" [ref=e168] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e169] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e170] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e171] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e172]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e173]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading "Accounts" [level=1] [ref=e174]
+          - combobox [ref=e50]:
+            - option "IDR — Indonesian Rupiah" [selected]
+            - option "USD — US Dollar"
+            - option "EUR — Euro"
+            - option "SGD — Singapore Dollar"
+            - option "GBP — British Pound"
+            - option "JPY — Japanese Yen"
+          - button "Add account" [ref=e175]:
+            - img
+            - text: Add account
+        - generic [ref=e66]:
+          - generic [ref=e68] [cursor=pointer]:
+            - generic [ref=e69]:
+              - generic [ref=e70]:
+                - img [ref=e72]
+                - generic [ref=e75]:
+                  - paragraph [ref=e76]: Cash Wallet
+                  - paragraph [ref=e77]: cash
+              - button "Account options" [active] [ref=e176]:
+                - img
+            - generic [ref=e79]:
+              - paragraph [ref=e80]: Balance
+              - paragraph [ref=e81]: Rp 500.000
+              - paragraph [ref=e82]: = Rp 500.000
+          - generic [ref=e84] [cursor=pointer]:
+            - generic [ref=e85]:
+              - generic [ref=e86]:
+                - img [ref=e88]
+                - generic [ref=e91]:
+                  - paragraph [ref=e92]: BCA Savings
+                  - paragraph [ref=e93]: checking
+              - button "Account options" [ref=e177]:
+                - img
+            - generic [ref=e95]:
+              - paragraph [ref=e96]: Balance
+              - paragraph [ref=e97]: Rp 16.000.000
+              - paragraph [ref=e98]: ≈ $1,000.00
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e61] [cursor=pointer]:
+    - img [ref=e62]
+  - alert [ref=e65]

@@ -1,0 +1,121 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e6]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e12]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e14]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e16]:
+        - link "Dashboard" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e24] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Transactions" [ref=e28] [cursor=pointer]:
+          - /url: /transactions
+          - img [ref=e29]
+          - generic [ref=e32]: Transactions
+        - link "Budgets" [ref=e33] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e34]
+          - generic [ref=e37]: Budgets
+        - link "Goals" [ref=e38] [cursor=pointer]:
+          - /url: /goals
+          - img [ref=e39]
+          - generic [ref=e43]: Goals
+        - link "Subscriptions" [ref=e44] [cursor=pointer]:
+          - /url: /subscriptions
+          - img [ref=e45]
+          - generic [ref=e50]: Subscriptions
+        - link "Settings" [ref=e51] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e52]
+          - generic [ref=e55]: Settings
+      - separator [ref=e56]
+      - generic [ref=e57]:
+        - button "Toggle theme" [ref=e58]:
+          - img
+          - generic [ref=e59]: Dark mode
+        - button "Sign out" [ref=e60]:
+          - img
+          - generic [ref=e61]: Sign out
+    - main [ref=e63]:
+      - generic [ref=e65]:
+        - heading "Log transaction" [level=1] [ref=e66]
+        - generic [ref=e67]:
+          - button "back" [ref=e96]:
+            - img
+            - text: Back
+          - generic [ref=e97]:
+            - generic [ref=e98]: Expense
+            - generic [ref=e118]: Rp 50.000
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - heading "Category" [level=2] [ref=e122]
+              - button "Split" [ref=e123]:
+                - img
+                - text: Split
+            - generic [ref=e124]:
+              - button "Bills & Utilities" [ref=e125]:
+                - img [ref=e127]
+                - generic [ref=e129]: Bills & Utilities
+              - button "Education" [ref=e130]:
+                - img [ref=e132]
+                - generic [ref=e134]: Education
+              - button "Entertainment" [ref=e135]:
+                - img [ref=e137]
+                - generic [ref=e140]: Entertainment
+              - button "Food & Drink" [ref=e141]:
+                - img [ref=e143]
+                - generic [ref=e146]: Food & Drink
+              - button "Health" [ref=e147]:
+                - img [ref=e149]
+                - generic [ref=e151]: Health
+              - button "Housing" [ref=e152]:
+                - img [ref=e154]
+                - generic [ref=e157]: Housing
+              - button "Other Expense" [ref=e158]:
+                - img [ref=e160]
+                - generic [ref=e164]: Other Expense
+              - button "Shopping" [ref=e165]:
+                - img [ref=e167]
+                - generic [ref=e170]: Shopping
+              - button "Transport" [ref=e171]:
+                - img [ref=e173]
+                - generic [ref=e177]: Transport
+              - button "Travel" [ref=e178]:
+                - img [ref=e180]
+                - generic [ref=e182]: Travel
+              - button "Hai" [ref=e183]:
+                - img [ref=e185]
+                - generic [ref=e188]: Hai
+              - button "Hai2" [ref=e189]:
+                - img [ref=e191]
+                - generic [ref=e194]: Hai2
+              - button "Tes" [ref=e195]:
+                - img [ref=e197]
+                - generic [ref=e199]: Tes
+              - button "Tes lagi" [ref=e200]:
+                - img [ref=e202]
+                - generic [ref=e205]: Tes lagi
+              - button "Test" [ref=e206]:
+                - img [ref=e208]
+                - generic [ref=e211]: Test
+              - button "New" [ref=e212]:
+                - img [ref=e213]
+                - generic [ref=e214]: New
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e91] [cursor=pointer]:
+    - img [ref=e92]
+  - alert [ref=e95]

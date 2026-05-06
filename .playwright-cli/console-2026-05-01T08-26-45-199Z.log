@@ -1,0 +1,1158 @@
+[     245ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/auth/login:0
+[     289ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     370ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   21024ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   21024ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   21042ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   21042ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   21085ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   21087ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   21120ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   21120ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   22575ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   22575ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   22596ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[   22596ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 1731767ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 9951010ms] [ERROR] Failed to load resource: net::ERR_TIMED_OUT @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[ 9951057ms] [ERROR] TypeError: Failed to fetch
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:604:23
+    at _handleRequest (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:967:24)
+    at _request (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:954:24)
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7518:220
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:674:42
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:686:11
+    at new Promise (<anonymous>)
+    at retryable (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:668:21)
+    at SupabaseAuthClient._refreshAccessToken (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7513:219)
+    at SupabaseAuthClient._callRefreshToken (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7669:48)
+    at SupabaseAuthClient.__loadSession (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:6028:57)
+    at async SupabaseAuthClient._useSession (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:5958:28)
+    at async http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7939:32 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[ 9951406ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 9951452ms] [LOG] [Fast Refresh] done in 148ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14069066ms] [ERROR] Failed to load resource: net::ERR_ADDRESS_UNREACHABLE @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[14069089ms] [ERROR] TypeError: Failed to fetch
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:604:23
+    at _handleRequest (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:967:24)
+    at _request (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:954:24)
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7518:220
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:674:42
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:686:11
+    at new Promise (<anonymous>)
+    at retryable (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:668:21)
+    at SupabaseAuthClient._refreshAccessToken (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7513:219)
+    at SupabaseAuthClient._callRefreshToken (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7669:48)
+    at SupabaseAuthClient.__loadSession (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:6028:57)
+    at async SupabaseAuthClient._useSession (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:5958:28)
+    at async http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7939:32 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[14088300ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[14088478ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[14088483ms] [ERROR] TypeError: Failed to fetch
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:604:23
+    at _handleRequest (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:967:24)
+    at _request (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:954:24)
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7518:220
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:674:42
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:686:11
+    at new Promise (<anonymous>)
+    at retryable (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:668:21)
+    at SupabaseAuthClient._refreshAccessToken (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7513:219)
+    at SupabaseAuthClient._callRefreshToken (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7669:48)
+    at SupabaseAuthClient.__loadSession (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:6028:57)
+    at async SupabaseAuthClient._useSession (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:5958:28)
+    at async http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7939:32
+    at async http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:5907:28 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[14088707ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[14088707ms] [ERROR] TypeError: Failed to fetch
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:604:23
+    at _handleRequest (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:967:24)
+    at _request (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:954:24)
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7518:220
+    at async http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:674:36 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[14088744ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14088872ms] [LOG] [Fast Refresh] done in 229ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14089111ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[14089111ms] [ERROR] TypeError: Failed to fetch
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:604:23
+    at _handleRequest (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:967:24)
+    at _request (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:954:24)
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7518:220
+    at async http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:674:36 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[14089917ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[14089918ms] [ERROR] TypeError: Failed to fetch
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:604:23
+    at _handleRequest (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:967:24)
+    at _request (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:954:24)
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7518:220
+    at async http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:674:36 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[14091522ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[14091523ms] [ERROR] TypeError: Failed to fetch
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:604:23
+    at _handleRequest (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:967:24)
+    at _request (http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:954:24)
+    at http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:7518:220
+    at async http://localhost:3000/_next/static/chunks/node_modules_%40supabase_auth-js_dist_module_0.pzobh._.js:674:36 @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[14156059ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14156863ms] [LOG] [Fast Refresh] done in 258ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14161488ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14161937ms] [LOG] [Fast Refresh] done in 99ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14185475ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14185534ms] [LOG] [Fast Refresh] done in 162ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470036ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470106ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470249ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470249ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470268ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470269ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470315ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470315ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470335ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14470335ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14471330ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14471331ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14471411ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14471411ms] [WARNING] The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[15041045ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[15041062ms] [LOG] [Fast Refresh] done in 123ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[15136873ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[15137975ms] [LOG] [Fast Refresh] done in 1208ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[17521142ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[17521151ms] [LOG] [Fast Refresh] done in 114ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[17585845ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[17585855ms] [LOG] [Fast Refresh] done in 117ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[17591372ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://nokgprrjyvtbprmlehjd.supabase.co/auth/v1/token?grant_type=refresh_token:0
+[17593294ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[17593489ms] [LOG] [Fast Refresh] done in 297ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[17832411ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[17832629ms] [LOG] [Fast Refresh] done in 322ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18290388ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18290624ms] [LOG] [Fast Refresh] done in 338ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18291847ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18291878ms] [LOG] [Fast Refresh] done in 133ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18583860ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18584056ms] [LOG] [Fast Refresh] done in 303ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18619412ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18620444ms] [LOG] [Fast Refresh] done in 1132ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18620769ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18620816ms] [LOG] [Fast Refresh] done in 148ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18621195ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18621274ms] [LOG] [Fast Refresh] done in 180ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18621359ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/auth/login:0
+[18621396ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18621431ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18625846ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18627013ms] [LOG] [Fast Refresh] done in 951ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18630436ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18630672ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18630828ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18630929ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18631729ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18631832ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18632402ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18632420ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18632506ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18632534ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18632585ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18632607ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18632747ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login:0
+[18632902ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_react-dom_0bruynb._.js:15305
+[18632963ms] Error: ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./components/goals/goal-card.tsx:19:7)
+    at Object.getCompilationErrors (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/hot-reloader-turbopack.js:1186:59)
+    at DevBundlerService.getCompilationError (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/lib/dev-bundler-service.js:44:55)
+    at DevServer.getCompilationError (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/next-dev-server.js:719:42)
+    at DevServer.findPageComponents (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/next-dev-server.js:689:43)
+    at async DevServer.renderErrorToResponseImpl (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/base-server.js:1745:26)
+[18632960ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18632962ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18633008ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18633091ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18633112ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18634000ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18634066ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18634134ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18634442ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18634447ms] [ERROR] ./components/goals/goal-card.tsx:19:7
+the name `ICON_MAP` is defined multiple times
+  17 | import type { SavingsGoal } from "@/lib/types/database.types";
+  18 |
+> 19 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  20 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  21 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  22 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-card.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-card.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18634580ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18635437ms] [LOG] [Fast Refresh] done in 382ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18635640ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18635656ms] [LOG] [Fast Refresh] done in 117ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18636239ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18636407ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18636433ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/auth/login:0
+[18636637ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18636683ms] [LOG] [Fast Refresh] done in 147ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18636790ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18636860ms] [LOG] [Fast Refresh] done in 173ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18637883ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18637955ms] [LOG] [Fast Refresh] done in 173ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18641892ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18641960ms] [ERROR] ./components/goals/goal-form.tsx:24:7
+the name `ICON_MAP` is defined multiple times
+  22 | import type { SavingsGoal } from "@/lib/types/database.types";
+  23 |
+> 24 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  25 |   target: Target, briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp,
+  26 |   "plus-circle": PlusCircle, utensils: Utensils, car: Car, "shopping-bag": ShoppingBag,
+  27 |   heart: Heart, zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/goals/goal-form.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Client Component Browser]
+    ./app/(app)/goals/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/goals/goal-form.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Client Component SSR]
+    ./app/(app)/goals/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18645506ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18645567ms] [LOG] [Fast Refresh] done in 80ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18655214ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18655388ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18655410ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18655468ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18655470ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18655498ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18655519ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18655582ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login:0
+[18655625ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_react-dom_0bruynb._.js:15305
+[18655656ms] Error: ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./components/subscriptions/subscription-card.tsx:14:7)
+    at Object.getCompilationErrors (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/hot-reloader-turbopack.js:1186:59)
+    at DevBundlerService.getCompilationError (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/lib/dev-bundler-service.js:44:55)
+    at DevServer.getCompilationError (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/next-dev-server.js:719:42)
+    at DevServer.findPageComponents (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/next-dev-server.js:689:43)
+    at async DevServer.renderErrorToResponseImpl (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/base-server.js:1745:26)
+[18655636ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18655638ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18655692ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18655747ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18656961ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18657022ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18657095ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18657161ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18657214ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18657281ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18657327ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18657395ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18657448ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18657516ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18657579ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18657645ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18658081ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18658160ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18658225ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18658370ms] [ERROR] ./components/subscriptions/subscription-card.tsx:14:7
+the name `ICON_MAP` is defined multiple times
+  12 | import type { RecurringTransaction, Category } from "@/lib/types/database.types";
+  13 |
+> 14 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  15 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  16 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  17 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./components/subscriptions/subscription-card.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Client Component Browser]
+    ./app/(app)/subscriptions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/subscriptions/subscription-card.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Client Component SSR]
+    ./app/(app)/subscriptions/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18658400ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18659228ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18659545ms] [LOG] [Fast Refresh] done in 144ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18660456ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/auth/login:0
+[18660523ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18660549ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18660844ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18661473ms] [LOG] [Fast Refresh] done in 731ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18669240ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18669395ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18669411ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18669432ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login?_rsc=61gpq:0
+[18669458ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18669539ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:3272
+[18669570ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/auth/login:0
+[18669617ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_react-dom_0bruynb._.js:15305
+[18669650ms] Error: ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/(app)/settings/page.tsx:28:7)
+    at Object.getCompilationErrors (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/hot-reloader-turbopack.js:1186:59)
+    at DevBundlerService.getCompilationError (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/lib/dev-bundler-service.js:44:55)
+    at DevServer.getCompilationError (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/next-dev-server.js:719:42)
+    at DevServer.findPageComponents (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/dev/next-dev-server.js:689:43)
+    at async DevServer.renderErrorToResponseImpl (file:///Users/filbertfelim/Filbert Felim/Claude/financehub/node_modules/next/dist/server/base-server.js:1745:26)
+[18669641ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18669654ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18669659ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18669692ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18669791ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18669819ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18669887ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18669923ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18670025ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18670065ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18670104ms] [ERROR] ./app/(app)/settings/page.tsx:28:7
+the name `ICON_MAP` is defined multiple times
+  26 | import type { Category, CategoryType } from "@/lib/types/database.types";
+  27 |
+> 28 | const ICON_MAP: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+     |       ^^^^^^^^
+  29 |   briefcase: Briefcase, laptop: Laptop, "trending-up": TrendingUp, "plus-circle": PlusCircle,
+  30 |   utensils: Utensils, car: Car, "shopping-bag": ShoppingBag, heart: Heart,
+  31 |   zap: Zap, tv: Tv, book: Book, plane: Plane, home: Home, "more-horizontal": MoreHorizontal, tag: Tag,
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./app/(app)/settings/page.tsx [Client Component Browser]
+    ./app/(app)/settings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/(app)/settings/page.tsx [Client Component SSR]
+    ./app/(app)/settings/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1945
+[18670167ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18673268ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18673644ms] [LOG] [Fast Refresh] done in 224ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_0u_w_5s._.js:1226
+[18674260ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18674311ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/auth/login:0
+[18674313ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18674452ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18674482ms] [LOG] [Fast Refresh] done in 130ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18674584ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18674799ms] [LOG] [Fast Refresh] done in 316ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18675750ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18675765ms] [LOG] [Fast Refresh] done in 118ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18691228ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18691553ms] [LOG] [Fast Refresh] done in 294ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18694166ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18694290ms] [LOG] [Fast Refresh] done in 166ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18700509ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18700655ms] [LOG] [Fast Refresh] done in 146ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18704236ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18704243ms] [LOG] [Fast Refresh] done in 108ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431

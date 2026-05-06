@@ -25,14 +25,20 @@ export default function TransactionsPage() {
   }
 
   return (
-    <div className="p-6 max-w-3xl mx-auto space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">Transactions</h1>
-        <Button variant="outline" size="sm" onClick={handleExport} disabled={transactions.length === 0}>
-          <Download className="h-4 w-4 mr-1" />
+    <div className="max-w-3xl mx-auto">
+      <div className="flex items-center gap-3 pb-5 mb-6 border-b">
+        <h1 className="text-xl font-semibold tracking-tight mr-auto">Transactions</h1>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleExport}
+          disabled={transactions.length === 0}
+        >
+          <Download className="h-4 w-4 mr-1.5" />
           Export CSV
         </Button>
       </div>
+
       <TransactionList showFilters />
     </div>
   );

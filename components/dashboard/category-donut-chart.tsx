@@ -9,6 +9,7 @@ import { useAccounts } from "@/lib/hooks/use-accounts";
 import { usePrivacy } from "@/lib/context/privacy-context";
 import { useDisplayCurrency } from "@/lib/context/display-currency-context";
 import { formatCurrency, TOOLTIP_STYLE } from "@/lib/utils";
+import { ChartSkeleton } from "@/components/ui/chart-skeleton";
 import type { RangeKey } from "@/lib/utils/dashboard";
 
 export function CategoryDonutChart() {
@@ -18,61 +19,93 @@ export function CategoryDonutChart() {
   const [selectedIds, setSelectedIds] = useState<string[] | null>(null);
 
   const { data: accounts = [] } = useAccounts();
-  const { categoryBreakdown } = usePeriodSummary(range, customFrom || undefined, customTo || undefined, selectedIds ?? undefined);
+  const { categoryBreakdown, isLoading } = usePeriodSummary(
+    range,
+    customFrom || undefined,
+    customTo || undefined,
+    selectedIds ?? undefined,
+  );
   const { isPrivate } = usePrivacy();
   const { displayCurrency } = useDisplayCurrency();
 
   const total = categoryBreakdown.reduce((s, c) => s + c.value, 0);
-  const isEmpty = categoryBreakdown.length === 0;
+  const isEmpty = !isLoading && categoryBreakdown.length === 0;
 
   return (
     <div className="rounded-xl border bg-card p-4 flex flex-col gap-4">
       <div className="flex items-start justify-between gap-2 flex-wrap">
         <h3 className="text-sm font-semibold pt-1">Spending by Category</h3>
-        <div className="flex flex-wrap items-center gap-2 justify-end">
-          <AccountFilter accounts={accounts} selectedIds={selectedIds} onChange={setSelectedIds} />
-          <RangeSelector
-            value={range}
-            onChange={setRange}
-            customDateFrom={customFrom}
-            customDateTo={customTo}
-            onCustomDateChange={(f, t) => { setCustomFrom(f); setCustomTo(t); }}
-          />
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2 justify-end">
+            <AccountFilter
+              accounts={accounts}
+              selectedIds={selectedIds}
+              onChange={setSelectedIds}
+            />
+            <RangeSelector value={range} onChange={setRange} />
+          </div>
+          {range === "custom" && (
+            <div className="flex items-center gap-1 w-full">
+              <input
+                type="date"
+                value={customFrom}
+                onChange={(e) => setCustomFrom(e.target.value)}
+                className="h-7 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground"
+              />
+              <span className="text-xs text-muted-foreground shrink-0">–</span>
+              <input
+                type="date"
+                value={customTo}
+                onChange={(e) => setCustomTo(e.target.value)}
+                className="h-7 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground"
+              />
+            </div>
+          )}
         </div>
       </div>
 
-      {isEmpty ? (
+      {isLoading ? (
+        <ChartSkeleton className="min-h-[350px]" />
+      ) : isEmpty ? (
         <div className="flex-1 min-h-[180px] flex items-center justify-center text-sm text-muted-foreground">
           No expenses in this period
         </div>
       ) : (
         <>
-          <div className="relative flex-1 min-h-[150px]">
+          <div className="relative flex-1 min-h-[350px]">
             <div className="absolute inset-0">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart style={{ overflow: "visible" }}>
-                <Pie
-                  data={categoryBreakdown}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius="40%"
-                  outerRadius="65%"
-                  paddingAngle={2}
-                  dataKey="value"
-                >
-                  {categoryBreakdown.map((entry, i) => (
-                    <Cell key={`cell-${i}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  formatter={(value: any) => [
-                    isPrivate ? "••••" : formatCurrency(Number(value ?? 0), displayCurrency),
-                  ]}
-                  contentStyle={TOOLTIP_STYLE}
-                />
-              </PieChart>
-            </ResponsiveContainer>
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart style={{ overflow: "visible" }}>
+                  <Pie
+                    data={categoryBreakdown}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius="40%"
+                    outerRadius="65%"
+                    paddingAngle={0}
+                    dataKey="value"
+                    strokeWidth={0}
+                  >
+                    {categoryBreakdown.map((entry, i) => (
+                      <Cell
+                        key={`cell-${i}`}
+                        fill={entry.color}
+                        stroke="var(--card)"
+                        strokeWidth={1}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    formatter={(value: any) => [
+                      isPrivate
+                        ? "••••"
+                        : formatCurrency(Number(value ?? 0), displayCurrency),
+                    ]}
+                    contentStyle={TOOLTIP_STYLE}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
             </div>
           </div>
 
@@ -86,9 +119,13 @@ export function CategoryDonutChart() {
                     className="h-2 w-2 rounded-full shrink-0"
                     style={{ backgroundColor: cat.color }}
                   />
-                  <span className="flex-1 truncate text-foreground">{cat.name}</span>
+                  <span className="flex-1 truncate text-foreground">
+                    {cat.name}
+                  </span>
                   <span className="text-muted-foreground tabular-nums">
-                    {isPrivate ? "••••" : formatCurrency(cat.value, displayCurrency)}
+                    {isPrivate
+                      ? "••••"
+                      : formatCurrency(cat.value, displayCurrency)}
                   </span>
                   <span className="w-10 text-right text-muted-foreground tabular-nums">
                     {pct.toFixed(1)}%

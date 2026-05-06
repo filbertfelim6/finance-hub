@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"></head>
+<body>
+<div class="fh-card">
+  <div style="display:grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom:14px;">
+    <div class="sw"><div class="sw-chip" style="background:var(--viz-1);"></div><div class="sw-name">viz-1</div><div class="sw-hex">moss</div></div>
+    <div class="sw"><div class="sw-chip" style="background:var(--viz-2);"></div><div class="sw-name">viz-2</div><div class="sw-hex">amber</div></div>
+    <div class="sw"><div class="sw-chip" style="background:var(--viz-3);"></div><div class="sw-name">viz-3</div><div class="sw-hex">terracotta</div></div>
+    <div class="sw"><div class="sw-chip" style="background:var(--viz-4);"></div><div class="sw-name">viz-4</div><div class="sw-hex">slate</div></div>
+    <div class="sw"><div class="sw-chip" style="background:var(--viz-5);"></div><div class="sw-name">viz-5</div><div class="sw-hex">mauve</div></div>
+    <div class="sw"><div class="sw-chip" style="background:var(--viz-6);"></div><div class="sw-name">viz-6</div><div class="sw-hex">lt moss</div></div>
+  </div>
+  <!-- Mini stacked area sample -->
+  <div style="background:#fff; border:1px solid var(--border-soft); border-radius:10px; padding:14px;">
+    <svg viewBox="0 0 600 100" width="100%" height="100" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5a7a4e" stop-opacity="0.30"/><stop offset="1" stop-color="#5a7a4e" stop-opacity="0.05"/></linearGradient>
+        <linearGradient id="g3" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b8615a" stop-opacity="0.28"/><stop offset="1" stop-color="#b8615a" stop-opacity="0.05"/></linearGradient>
+      </defs>
+      <path d="M0 80 C 60 70, 120 40, 200 50 S 360 25, 440 30 S 560 18, 600 22 L 600 100 L 0 100 Z" fill="url(#g1)"/>
+      <path d="M0 80 C 60 70, 120 40, 200 50 S 360 25, 440 30 S 560 18, 600 22" stroke="#5a7a4e" stroke-width="1.5" fill="none"/>
+      <path d="M0 90 C 80 85, 160 88, 240 78 S 400 70, 480 72 S 580 65, 600 64 L 600 100 L 0 100 Z" fill="url(#g3)"/>
+      <path d="M0 90 C 80 85, 160 88, 240 78 S 400 70, 480 72 S 580 65, 600 64" stroke="#b8615a" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+  <div style="margin-top:10px; font-family:var(--font-mono); font-size:11px; color:var(--fg-3);">Charts: 1.5px stroke · 22% area fill · gridlines = border-soft</div>
+</div>
+</body></html>

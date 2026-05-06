@@ -3,7 +3,7 @@ export type TransactionType = "income" | "expense" | "transfer";
 export type CategoryType = "income" | "expense";
 export type BudgetPeriod = "monthly" | "weekly";
 export type RecurringFrequency = "daily" | "weekly" | "monthly" | "yearly";
-export type Currency = "USD" | "IDR";
+export type Currency = "USD" | "IDR" | "EUR" | "SGD" | "GBP" | "JPY";
 
 export interface Account {
   id: string;
@@ -36,6 +36,7 @@ export interface Transaction {
   account_id: string;
   type: TransactionType;
   amount: number;
+  balance_delta: number | null;
   currency: Currency;
   converted_amount_usd: number | null;
   category_id: string | null;

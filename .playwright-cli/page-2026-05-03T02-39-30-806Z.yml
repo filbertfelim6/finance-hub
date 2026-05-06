@@ -1,0 +1,74 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e6]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e12]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e14]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e16]:
+        - link "Dashboard" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e24] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e28] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e34] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e41]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e43]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e48]:
+        - heading "Log transaction" [level=1] [ref=e49]
+        - generic [ref=e50]:
+          - button "back" [ref=e512]:
+            - img
+            - text: Back
+          - generic [ref=e514]: Expense
+          - generic [ref=e515]:
+            - generic [ref=e516]:
+              - combobox [ref=e517]:
+                - generic [ref=e518]: IDR
+                - img: ▼
+              - textbox [ref=e519]: IDR
+              - textbox "amount" [active] [ref=e520]:
+                - /placeholder: "0"
+            - generic [ref=e521]:
+              - button "1" [ref=e522]
+              - button "2" [ref=e523]
+              - button "3" [ref=e524]
+              - button "4" [ref=e525]
+              - button "5" [ref=e526]
+              - button "6" [ref=e527]
+              - button "7" [ref=e528]
+              - button "8" [ref=e529]
+              - button "9" [ref=e530]
+              - button "," [ref=e531]
+              - button "0" [ref=e532]
+              - button "⌫" [ref=e533]
+            - button "Continue" [disabled]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e74] [cursor=pointer]:
+    - img [ref=e75]
+  - alert [ref=e78]

@@ -15,7 +15,7 @@ vi.mock("@/lib/hooks/use-transactions", () => ({
   useCreateTransfer: () => ({ mutateAsync: vi.fn(), isPending: false }),
 }));
 vi.mock("@/lib/hooks/use-exchange-rate", () => ({
-  useUsdToIdr: () => 16000,
+  useExchangeRates: () => ({ USD: 1, IDR: 16000, EUR: 0.92, SGD: 1.35, GBP: 0.79, JPY: 149 }),
 }));
 
 function Wrapper({ children }: { children: React.ReactNode }) {

@@ -1,0 +1,54 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"></head>
+<body>
+<div class="fh-card">
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+    <!-- Default text input -->
+    <div>
+      <label class="fh-meta" style="display:block; margin-bottom:6px;">Account name</label>
+      <div style="display:flex; align-items:center; gap:8px; padding:10px 12px; background:#fff; border:1px solid var(--border-medium); border-radius:10px; box-shadow:var(--shadow-xs);">
+        <span style="font-size:14px; color:var(--fg-1);">Mandiri Checking</span>
+      </div>
+    </div>
+    <!-- Focused -->
+    <div>
+      <label class="fh-meta" style="display:block; margin-bottom:6px;">Amount · focused</label>
+      <div style="display:flex; align-items:center; gap:8px; padding:10px 12px; background:#fff; border:1px solid var(--brand); border-radius:10px; box-shadow: 0 0 0 3px var(--focus-ring);">
+        <span style="font-size:14px; color:var(--fg-3);">Rp</span>
+        <span style="font-size:14px; color:var(--fg-1); font-feature-settings:'tnum' 1;">5.500.000</span>
+      </div>
+    </div>
+    <!-- Search -->
+    <div>
+      <label class="fh-meta" style="display:block; margin-bottom:6px;">Search</label>
+      <div style="display:flex; align-items:center; gap:8px; padding:10px 12px; background:var(--cream-100); border:1px solid var(--border-soft); border-radius:999px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--fg-3);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span style="font-size:14px; color:var(--fg-4);">Search notes…</span>
+      </div>
+    </div>
+    <!-- Select -->
+    <div>
+      <label class="fh-meta" style="display:block; margin-bottom:6px;">Currency</label>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 12px; background:#fff; border:1px solid var(--border-medium); border-radius:10px;">
+        <span style="font-size:14px; color:var(--fg-1);">IDR — Indonesian Rupiah</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--fg-3);"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </div>
+    <!-- Error -->
+    <div>
+      <label class="fh-meta" style="display:block; margin-bottom:6px;">Email · error</label>
+      <div style="display:flex; align-items:center; padding:10px 12px; background:#fff; border:1px solid var(--bad-500); border-radius:10px;">
+        <span style="font-size:14px; color:var(--fg-1);">jane@</span>
+      </div>
+      <div style="font-size:11px; color:var(--bad-500); margin-top:4px;">Doesn't look like a complete address.</div>
+    </div>
+    <!-- Disabled -->
+    <div>
+      <label class="fh-meta" style="display:block; margin-bottom:6px;">Locked</label>
+      <div style="display:flex; align-items:center; padding:10px 12px; background:var(--cream-100); border:1px solid var(--border-soft); border-radius:10px; opacity:0.55;">
+        <span style="font-size:14px; color:var(--fg-2);">Read-only</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,16 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { getExchangeRate } from "@/lib/queries/exchange-rates";
+import { getAllExchangeRates } from "@/lib/queries/exchange-rates";
 
-export function useExchangeRate(from: string, to: string) {
-  return useQuery({
-    queryKey: ["exchange-rate", from, to],
-    queryFn: () => getExchangeRate(from, to),
-    staleTime: 1000 * 60 * 60, // 1 hour
+const FALLBACK_RATES: Record<string, number> = { USD: 1, IDR: 16000, EUR: 0.92, SGD: 1.35, GBP: 0.79, JPY: 154 };
+
+/** Returns rates map from USD base — e.g. { USD: 1, IDR: 16000, EUR: 0.92 } */
+export function useExchangeRates(): Record<string, number> {
+  const { data } = useQuery({
+    queryKey: ["exchange-rates"],
+    queryFn: getAllExchangeRates,
+    staleTime: 1000 * 60 * 60,
   });
+  return data ?? FALLBACK_RATES;
 }
 
-/** Returns USD→IDR rate (e.g. 16000), defaulting to 16000 while loading */
-export function useUsdToIdr(): number {
-  const { data } = useExchangeRate("USD", "IDR");
-  return data ?? 16000;
-}

@@ -1,0 +1,92 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e38] [cursor=pointer]:
+    - img [ref=e39]
+  - alert [ref=e42]
+  - generic [ref=e44]:
+    - complementary [ref=e45]:
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - img "FinanceHub" [ref=e48]:
+            - generic [ref=e53]: FinanceHub
+          - button "Collapse sidebar" [ref=e54]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e56]:
+        - img
+        - generic [ref=e57]: Log transaction
+      - navigation "Main navigation" [ref=e58]:
+        - link "Dashboard" [ref=e59] [cursor=pointer]:
+          - /url: /
+          - img [ref=e60]
+          - generic [ref=e65]: Dashboard
+        - link "Accounts" [ref=e66] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e67]
+          - generic [ref=e69]: Accounts
+        - link "Plan" [ref=e70] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e71]
+          - generic [ref=e75]: Plan
+        - link "Settings" [ref=e76] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e77]
+          - generic [ref=e80]: Settings
+      - separator [ref=e81]
+      - generic [ref=e82]:
+        - button "Toggle theme" [ref=e83]:
+          - img
+          - generic [ref=e84]: Dark mode
+        - button "Sign out" [ref=e85]:
+          - img
+          - generic [ref=e86]: Sign out
+    - main [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - paragraph [ref=e92]: Total Net Worth
+            - paragraph [ref=e93]: Rp 0
+          - generic [ref=e94]:
+            - combobox [ref=e95]:
+              - generic [ref=e96]: IDR
+              - img: ▼
+            - textbox [ref=e97]: IDR
+            - button "Hide balances" [ref=e98]:
+              - img
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - paragraph [ref=e102]: Period Summary
+              - link "Transactions →" [ref=e103] [cursor=pointer]:
+                - /url: /transactions
+            - generic [ref=e105]:
+              - button "7D" [ref=e106]
+              - button "30D" [ref=e107]
+              - button "90D" [ref=e108]
+              - button "1Y" [ref=e109]
+              - button "Custom" [ref=e110]
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - img [ref=e114]
+              - generic [ref=e117]:
+                - paragraph [ref=e118]: Income
+                - paragraph [ref=e119]: Rp 0
+            - generic [ref=e120]:
+              - img [ref=e122]
+              - generic [ref=e125]:
+                - paragraph [ref=e126]: Expenses
+                - paragraph [ref=e127]: Rp 0
+            - generic [ref=e128]:
+              - img [ref=e130]
+              - generic [ref=e134]:
+                - paragraph [ref=e135]: Savings Rate
+                - paragraph [ref=e136]: 0.0%
+        - generic [ref=e137]:
+          - img [ref=e139]
+          - generic [ref=e143]:
+            - paragraph [ref=e144]: No accounts yet
+            - paragraph [ref=e145]: Add an account to start tracking your finances.
+          - link "Add account" [ref=e146] [cursor=pointer]:
+            - /url: /accounts
+  - region "Notifications alt+T"

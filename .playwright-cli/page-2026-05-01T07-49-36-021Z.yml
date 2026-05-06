@@ -1,0 +1,226 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e6]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e12]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e14]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e16]:
+        - link "Dashboard" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e24] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Transactions" [ref=e28] [cursor=pointer]:
+          - /url: /transactions
+          - img [ref=e29]
+          - generic [ref=e32]: Transactions
+        - link "Budgets" [ref=e33] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e34]
+          - generic [ref=e37]: Budgets
+        - link "Goals" [ref=e38] [cursor=pointer]:
+          - /url: /goals
+          - img [ref=e39]
+          - generic [ref=e43]: Goals
+        - link "Subscriptions" [ref=e44] [cursor=pointer]:
+          - /url: /subscriptions
+          - img [ref=e45]
+          - generic [ref=e50]: Subscriptions
+        - link "Settings" [ref=e51] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e52]
+          - generic [ref=e55]: Settings
+      - separator [ref=e56]
+      - generic [ref=e57]:
+        - button "Toggle theme" [ref=e58]:
+          - img
+          - generic [ref=e59]: Dark mode
+        - button "Sign out" [ref=e60]:
+          - img
+          - generic [ref=e61]: Sign out
+    - main [ref=e63]:
+      - generic [ref=e64]:
+        - heading "Settings" [level=1] [ref=e65]
+        - generic [ref=e66]:
+          - heading "Appearance" [level=2] [ref=e67]
+          - generic [ref=e68]:
+            - paragraph [ref=e69]: Theme
+            - generic [ref=e70]:
+              - button "light" [ref=e71]:
+                - img [ref=e72]
+                - text: light
+              - button "dark" [ref=e78]:
+                - img [ref=e79]
+                - text: dark
+              - button "system" [ref=e81]:
+                - img [ref=e82]
+                - text: system
+        - separator [ref=e84]
+        - generic [ref=e85]:
+          - heading "Display" [level=2] [ref=e86]
+          - generic [ref=e87]:
+            - generic [ref=e88]:
+              - generic [ref=e89]:
+                - paragraph [ref=e90]: Display currency
+                - paragraph [ref=e91]: All amounts are shown in this currency
+              - combobox [ref=e92]:
+                - generic [ref=e93]: IDR
+                - img: ▼
+              - textbox [ref=e94]: IDR
+            - separator [ref=e95]
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - paragraph [ref=e98]: Privacy mode
+                - paragraph [ref=e99]: Hide all amounts and balances
+              - switch [ref=e131]
+              - checkbox [ref=e132]
+        - separator [ref=e100]
+        - generic [ref=e101]:
+          - heading "Categories" [level=2] [ref=e102]
+          - generic [ref=e105]:
+            - tablist [ref=e106]:
+              - tab "Expense" [selected] [ref=e107]
+              - tab "Income" [ref=e108]
+            - tabpanel "Expense" [ref=e133]:
+              - generic [ref=e110]:
+                - generic [ref=e134]:
+                  - img [ref=e136]
+                  - generic [ref=e138]: Bills & Utilities
+                - generic [ref=e139]:
+                  - img [ref=e141]
+                  - generic [ref=e143]: Education
+                - generic [ref=e144]:
+                  - img [ref=e146]
+                  - generic [ref=e149]: Entertainment
+                - generic [ref=e150]:
+                  - img [ref=e152]
+                  - generic [ref=e155]: Food & Drink
+                - generic [ref=e156]:
+                  - img [ref=e158]
+                  - generic [ref=e160]: Health
+                - generic [ref=e161]:
+                  - img [ref=e163]
+                  - generic [ref=e166]: Housing
+                - generic [ref=e167]:
+                  - img [ref=e169]
+                  - generic [ref=e173]: Other Expense
+                - generic [ref=e174]:
+                  - img [ref=e176]
+                  - generic [ref=e179]: Shopping
+                - generic [ref=e180]:
+                  - img [ref=e182]
+                  - generic [ref=e186]: Transport
+                - generic [ref=e187]:
+                  - img [ref=e189]
+                  - generic [ref=e191]: Travel
+                - generic [ref=e303]:
+                  - generic [ref=e304]:
+                    - textbox [active] [ref=e321]: E2E Test Category
+                    - button [ref=e322]:
+                      - img
+                  - generic [ref=e323]:
+                    - button [ref=e324]:
+                      - img [ref=e325]
+                    - button [ref=e328]:
+                      - img [ref=e329]
+                    - button [ref=e331]:
+                      - img [ref=e332]
+                    - button [ref=e335]:
+                      - img [ref=e336]
+                    - button [ref=e338]:
+                      - img [ref=e339]
+                    - button [ref=e342]:
+                      - img [ref=e343]
+                    - button [ref=e347]:
+                      - img [ref=e348]
+                    - button [ref=e351]:
+                      - img [ref=e352]
+                    - button [ref=e354]:
+                      - img [ref=e355]
+                    - button [ref=e357]:
+                      - img [ref=e358]
+                    - button [ref=e361]:
+                      - img [ref=e362]
+                    - button [ref=e364]:
+                      - img [ref=e365]
+                    - button [ref=e367]:
+                      - img [ref=e368]
+                    - button [ref=e371]:
+                      - img [ref=e372]
+                    - button [ref=e376]:
+                      - img [ref=e377]
+                  - generic [ref=e309]:
+                    - textbox [ref=e381] [cursor=pointer]: "#5a7a4e"
+                    - code [ref=e382]: "#5A7A4E"
+                    - button "Save" [ref=e383]:
+                      - img
+                      - text: Save
+                - generic [ref=e192]:
+                  - img [ref=e194]
+                  - generic [ref=e197]: Hai
+                  - generic [ref=e198]:
+                    - button [ref=e199]:
+                      - img
+                    - button [ref=e200]:
+                      - img
+                - generic [ref=e201]:
+                  - img [ref=e203]
+                  - generic [ref=e206]: Hai2
+                  - generic [ref=e207]:
+                    - button [ref=e208]:
+                      - img
+                    - button [ref=e209]:
+                      - img
+                - generic [ref=e210]:
+                  - img [ref=e212]
+                  - generic [ref=e214]: Tes
+                  - generic [ref=e215]:
+                    - button [ref=e216]:
+                      - img
+                    - button [ref=e217]:
+                      - img
+                - generic [ref=e218]:
+                  - img [ref=e220]
+                  - generic [ref=e223]: Tes lagi
+                  - generic [ref=e224]:
+                    - button [ref=e225]:
+                      - img
+                    - button [ref=e226]:
+                      - img
+                - generic [ref=e227]:
+                  - img [ref=e229]
+                  - generic [ref=e232]: Test
+                  - generic [ref=e233]:
+                    - button [ref=e234]:
+                      - img
+                    - button [ref=e235]:
+                      - img
+                - button "Add category" [ref=e312]:
+                  - img [ref=e313]
+                  - text: Add category
+        - separator [ref=e113]
+        - generic [ref=e114]:
+          - heading "Account" [level=2] [ref=e115]
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - paragraph [ref=e119]: Sign out
+              - paragraph [ref=e120]: Sign out of your account on this device
+            - button "Sign out" [ref=e121]:
+              - img
+              - text: Sign out
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e127] [cursor=pointer]:
+    - img [ref=e128]
+  - alert [ref=e236]

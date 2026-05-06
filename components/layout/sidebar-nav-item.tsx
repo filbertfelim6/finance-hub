@@ -31,14 +31,18 @@ export function SidebarNavItem({
       aria-current={isActive ? "page" : undefined}
       className={cn(
         "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
-        isCollapsed ? "justify-center" : "",
         isActive
           ? "bg-accent text-accent-foreground"
           : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
       )}
     >
       <Icon className="h-4 w-4 shrink-0" />
-      {!isCollapsed && <span>{label}</span>}
+      <span className={cn(
+        "overflow-hidden whitespace-nowrap transition-[max-width,opacity] duration-200 ease-in-out",
+        isCollapsed ? "max-w-0 opacity-0" : "max-w-xs opacity-100"
+      )}>
+        {label}
+      </span>
     </Link>
   );
 

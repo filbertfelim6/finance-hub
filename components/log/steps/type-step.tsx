@@ -7,9 +7,9 @@ interface TypeStepProps {
 }
 
 const TYPES = [
-  { value: "expense" as const, label: "Expense", icon: ArrowUpRight, color: "text-red-500", bg: "bg-red-500/10 hover:bg-red-500/20" },
-  { value: "income" as const, label: "Income", icon: ArrowDownLeft, color: "text-green-500", bg: "bg-green-500/10 hover:bg-green-500/20" },
-  { value: "transfer" as const, label: "Transfer", icon: ArrowLeftRight, color: "text-blue-500", bg: "bg-blue-500/10 hover:bg-blue-500/20" },
+  { value: "expense" as const, label: "Expense", icon: ArrowUpRight, color: "text-[var(--tx-expense-text)]", bg: "bg-[var(--tx-expense-bg)]" },
+  { value: "income" as const, label: "Income", icon: ArrowDownLeft, color: "text-[var(--tx-income-text)]", bg: "bg-[var(--tx-income-bg)]" },
+  { value: "transfer" as const, label: "Transfer", icon: ArrowLeftRight, color: "text-[var(--tx-transfer-text)]", bg: "bg-[var(--tx-transfer-bg)]" },
 ];
 
 export function TypeStep({ onSelect }: TypeStepProps) {

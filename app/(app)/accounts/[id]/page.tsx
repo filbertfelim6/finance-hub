@@ -3,10 +3,10 @@
 import { use } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn, formatCurrency } from "@/lib/utils";
 import { TransactionList } from "@/components/transactions/transaction-list";
 import { useAccount } from "@/lib/hooks/use-accounts";
-import { formatCurrency } from "@/lib/utils";
 
 export default function AccountDetailPage({
   params,
@@ -17,31 +17,45 @@ export default function AccountDetailPage({
   const { data: account, isLoading } = useAccount(id);
 
   return (
-    <div className="p-6 max-w-3xl mx-auto space-y-6">
-      <div className="flex items-center gap-3">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8"
-          render={<Link href="/accounts" />}
+    <div className="max-w-3xl mx-auto">
+      {/* Page header */}
+      <div className="flex items-start gap-3 pb-5 mb-6 border-b">
+        <Link
+          href="/accounts"
+          aria-label="Back to accounts"
+          className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "h-8 w-8 mt-0.5 shrink-0")}
         >
           <ArrowLeft className="h-4 w-4" />
-        </Button>
+        </Link>
+
         {isLoading ? (
-          <div className="h-7 w-40 bg-muted rounded animate-pulse" />
+          <div className="space-y-2 flex-1">
+            <div className="h-6 w-40 bg-muted rounded animate-pulse" />
+            <div className="h-4 w-24 bg-muted rounded animate-pulse" />
+          </div>
         ) : (
-          <div>
-            <h1 className="text-2xl font-semibold">{account?.name}</h1>
-            <p className="text-sm text-muted-foreground">
-              {account
-                ? formatCurrency(account.balance, account.currency)
-                : ""}
+          <div className="flex-1 min-w-0">
+            <h1 className="text-xl font-semibold tracking-tight truncate">{account?.name}</h1>
+            <p className="text-sm text-muted-foreground mt-0.5">
+              {account ? (
+                <>
+                  <span className="capitalize">{account.type}</span>
+                  <span className="mx-1.5 opacity-40">·</span>
+                  <span className="font-medium text-foreground tabular-nums">
+                    {formatCurrency(account.balance, account.currency)}
+                  </span>
+                </>
+              ) : null}
             </p>
           </div>
         )}
       </div>
 
-      <TransactionList baseOptions={{ accountId: id }} showFilters />
+      {/* Transactions */}
+      <div>
+        <h2 className="text-sm font-medium text-muted-foreground mb-4">Transactions</h2>
+        <TransactionList baseOptions={{ accountId: id }} showFilters />
+      </div>
     </div>
   );
 }

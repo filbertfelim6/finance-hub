@@ -9,14 +9,17 @@ import { useDisplayCurrency } from "@/lib/context/display-currency-context";
 import {
   getRangeInterval,
   buildNetWorthSeries,
+  buildNetWorthFlowSeries,
   buildIncomeExpenseSeries,
   buildCategoryBreakdown,
   computeSavingsRate,
   buildSavingsRateSeries,
   buildCategoryTrendSeries,
   buildCashFlowWaterfall,
+  buildBudgetProgress,
   type RangeKey,
 } from "@/lib/utils/dashboard";
+import { useBudgets } from "@/lib/hooks/use-budgets";
 import { convertCurrency } from "@/lib/utils";
 
 export function usePeriodSummary(
@@ -28,33 +31,38 @@ export function usePeriodSummary(
   const { dateFrom, dateTo, granularity } = getRangeInterval(range, customFrom, customTo);
   const rates = useExchangeRates();
   const { displayCurrency } = useDisplayCurrency();
-  const { data: transactions = [] } = useTransactions({ dateFrom, dateTo });
-  const { data: categories = [] } = useCategories();
+  const { data: transactions = [], isLoading: txLoading, isFetching: txFetching } = useTransactions({ dateFrom, dateTo });
+  const { data: categories = [], isLoading: catLoading } = useCategories();
 
-  return useMemo(() => {
+  const result = useMemo(() => {
     const txns = accountIds ? transactions.filter((t) => accountIds.includes(t.account_id)) : transactions;
 
     const income = txns
       .filter((t) => t.type === "income")
       .reduce((s, t) => {
-        const usd = t.converted_amount_usd ?? t.amount / (rates[t.currency] ?? 1);
-        return s + usd * (rates[displayCurrency] ?? 1);
+        const inDisplay = t.currency === displayCurrency
+          ? t.amount
+          : (t.converted_amount_usd ?? t.amount / (rates[t.currency] ?? 1)) * (rates[displayCurrency] ?? 1);
+        return s + inDisplay;
       }, 0);
 
     const expenses = txns
       .filter((t) => t.type === "expense")
       .reduce((s, t) => {
-        const usd = t.converted_amount_usd ?? t.amount / (rates[t.currency] ?? 1);
-        return s + usd * (rates[displayCurrency] ?? 1);
+        const inDisplay = t.currency === displayCurrency
+          ? t.amount
+          : (t.converted_amount_usd ?? t.amount / (rates[t.currency] ?? 1)) * (rates[displayCurrency] ?? 1);
+        return s + inDisplay;
       }, 0);
 
     const savingsRate = computeSavingsRate(income, expenses);
-
     const incomeExpense = buildIncomeExpenseSeries(txns, dateFrom, dateTo, granularity, rates, displayCurrency);
     const categoryBreakdown = buildCategoryBreakdown(txns, categories, rates, displayCurrency);
 
     return { income, expenses, savingsRate, incomeExpense, categoryBreakdown };
   }, [transactions, categories, rates, displayCurrency, dateFrom, dateTo, granularity, accountIds]);
+
+  return { ...result, isLoading: txLoading || catLoading, isFetching: txFetching || catLoading };
 }
 
 export function useNetWorthSeries(
@@ -66,14 +74,16 @@ export function useNetWorthSeries(
   const { dateFrom, dateTo, granularity } = getRangeInterval(range, customFrom, customTo);
   const rates = useExchangeRates();
   const { displayCurrency } = useDisplayCurrency();
-  const { data: transactions = [] } = useTransactions({ dateFrom, dateTo });
-  const { data: accounts = [] } = useAccounts();
+  const { data: transactions = [], isLoading: txLoading, isFetching: txFetching } = useTransactions({ dateFrom, dateTo });
+  const { data: accounts = [], isLoading: accLoading } = useAccounts();
 
-  return useMemo(() => {
+  const data = useMemo(() => {
     const filteredAccounts = accountIds ? accounts.filter((a) => accountIds.includes(a.id)) : accounts;
     const filteredTxns = accountIds ? transactions.filter((t) => accountIds.includes(t.account_id)) : transactions;
     return buildNetWorthSeries(filteredAccounts, filteredTxns, dateFrom, dateTo, granularity, rates, displayCurrency);
   }, [accounts, transactions, dateFrom, dateTo, granularity, rates, displayCurrency, accountIds]);
+
+  return { data, isLoading: txLoading || accLoading, isFetching: txFetching || accLoading };
 }
 
 export function useTotalNetWorth() {
@@ -97,12 +107,14 @@ export function useSavingsRateSeries(
   const { dateFrom, dateTo, granularity } = getRangeInterval(range, customFrom, customTo);
   const rates = useExchangeRates();
   const { displayCurrency } = useDisplayCurrency();
-  const { data: transactions = [] } = useTransactions({ dateFrom, dateTo });
+  const { data: transactions = [], isLoading, isFetching } = useTransactions({ dateFrom, dateTo });
 
-  return useMemo(() => {
+  const data = useMemo(() => {
     const txns = accountIds ? transactions.filter((t) => accountIds.includes(t.account_id)) : transactions;
     return buildSavingsRateSeries(txns, dateFrom, dateTo, granularity, rates, displayCurrency);
   }, [transactions, rates, displayCurrency, dateFrom, dateTo, granularity, accountIds]);
+
+  return { data, isLoading, isFetching };
 }
 
 export function useCategoryTrendSeries(
@@ -114,13 +126,34 @@ export function useCategoryTrendSeries(
   const { dateFrom, dateTo, granularity } = getRangeInterval(range, customFrom, customTo);
   const rates = useExchangeRates();
   const { displayCurrency } = useDisplayCurrency();
-  const { data: transactions = [] } = useTransactions({ dateFrom, dateTo });
-  const { data: categories = [] } = useCategories();
+  const { data: transactions = [], isLoading: txLoading, isFetching: txFetching } = useTransactions({ dateFrom, dateTo });
+  const { data: categories = [], isLoading: catLoading } = useCategories();
 
-  return useMemo(() => {
+  const result = useMemo(() => {
     const txns = accountIds ? transactions.filter((t) => accountIds.includes(t.account_id)) : transactions;
     return buildCategoryTrendSeries(txns, categories, 5, dateFrom, dateTo, granularity, rates, displayCurrency);
   }, [transactions, categories, rates, displayCurrency, dateFrom, dateTo, granularity, accountIds]);
+
+  return { ...result, isLoading: txLoading || catLoading, isFetching: txFetching || catLoading };
+}
+
+export function useNetWorthFlowSeries(
+  range: RangeKey,
+  accountIds?: string[]
+) {
+  const { dateFrom, dateTo, granularity } = getRangeInterval(range);
+  const rates = useExchangeRates();
+  const { displayCurrency } = useDisplayCurrency();
+  const { data: transactions = [], isLoading: txLoading, isFetching: txFetching } = useTransactions({ dateFrom, dateTo });
+  const { data: accounts = [], isLoading: accLoading } = useAccounts();
+
+  const data = useMemo(() => {
+    const filteredAccounts = accountIds ? accounts.filter((a) => accountIds.includes(a.id)) : accounts;
+    const filteredTxns = accountIds ? transactions.filter((t) => accountIds.includes(t.account_id)) : transactions;
+    return buildNetWorthFlowSeries(filteredAccounts, filteredTxns, dateFrom, dateTo, granularity, rates, displayCurrency);
+  }, [accounts, transactions, dateFrom, dateTo, granularity, rates, displayCurrency, accountIds]);
+
+  return { data, isLoading: txLoading || accLoading, isFetching: txFetching || accLoading };
 }
 
 export function useCashFlowWaterfall(
@@ -139,4 +172,22 @@ export function useCashFlowWaterfall(
     const txns = accountIds ? transactions.filter((t) => accountIds.includes(t.account_id)) : transactions;
     return buildCashFlowWaterfall(txns, categories, rates, displayCurrency);
   }, [transactions, categories, rates, displayCurrency, dateFrom, dateTo, accountIds]);
+}
+
+export function useBudgetProgress() {
+  const today = new Date();
+  const dateFrom = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-01`;
+  const dateTo = today.toISOString().split("T")[0];
+  const rates = useExchangeRates();
+  const { displayCurrency } = useDisplayCurrency();
+  const { data: transactions = [], isLoading: txLoading } = useTransactions({ dateFrom, dateTo });
+  const { data: categories = [], isLoading: catLoading } = useCategories();
+  const { data: budgets = [], isLoading: budgetsLoading } = useBudgets();
+
+  const data = useMemo(
+    () => buildBudgetProgress(budgets, transactions, categories, rates, displayCurrency),
+    [budgets, transactions, categories, rates, displayCurrency]
+  );
+
+  return { data, isLoading: txLoading || catLoading || budgetsLoading };
 }

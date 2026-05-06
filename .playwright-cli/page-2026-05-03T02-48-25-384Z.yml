@@ -1,0 +1,74 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e1208]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e1209]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e1210]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e1211]:
+        - link "Dashboard" [ref=e1212] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e1213] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e1214] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e1215] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e1216]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e1217]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e954]:
+        - generic [ref=e955]:
+          - heading "Subscriptions" [level=1] [ref=e1218]
+          - button "Add" [ref=e1219]:
+            - img
+            - text: Add
+        - generic [ref=e958]:
+          - link "Budgets" [ref=e1220] [cursor=pointer]:
+            - /url: /budgets
+          - link "Goals" [ref=e1221] [cursor=pointer]:
+            - /url: /goals
+          - link "Subscriptions" [ref=e1222] [cursor=pointer]:
+            - /url: /subscriptions
+        - generic [ref=e1118]:
+          - img [ref=e1120]
+          - generic [ref=e1123]:
+            - generic [ref=e1124]:
+              - generic [ref=e1125]:
+                - paragraph [ref=e1126]: Netflix
+                - paragraph [ref=e1127]: Entertainment · monthly
+              - generic [ref=e1128]:
+                - generic [ref=e1129]: Rp 180.000
+                - button "Subscription options" [active] [ref=e1223]:
+                  - img
+            - generic [ref=e1132]: Due 2026-06-03
+  - region "Notifications alt+T":
+    - list:
+      - listitem [ref=e1224]:
+        - img [ref=e1226]
+        - generic [ref=e1230]: Subscription updated
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]

@@ -24,12 +24,12 @@ interface DetailsStepProps {
 
 export function DetailsStep({ state, update, onSubmit, isPending }: DetailsStepProps) {
   return (
-    <div className="space-y-4">
-      <h2 className="text-lg font-semibold text-center">Details</h2>
+    <div className="space-y-5">
+      <h2 className="text-base font-semibold">Details</h2>
 
-      <div className="space-y-3">
-        <div>
-          <label className="text-sm font-medium block mb-1">Date</label>
+      <div className="space-y-4">
+        <div className="space-y-1.5">
+          <label className="text-sm font-medium">Date</label>
           <Input
             type="date"
             value={state.date}
@@ -37,8 +37,8 @@ export function DetailsStep({ state, update, onSubmit, isPending }: DetailsStepP
           />
         </div>
 
-        <div>
-          <label className="text-sm font-medium block mb-1">Notes (optional)</label>
+        <div className="space-y-1.5">
+          <label className="text-sm font-medium text-muted-foreground">Notes <span className="font-normal">(optional)</span></label>
           <Textarea
             placeholder="Add a note…"
             value={state.notes}
@@ -48,23 +48,27 @@ export function DetailsStep({ state, update, onSubmit, isPending }: DetailsStepP
           />
         </div>
 
-        <div className="flex items-center gap-3">
+        {/* Recurring toggle */}
+        <div className="flex items-center justify-between rounded-lg border px-4 py-3">
+          <div>
+            <p className="text-sm font-medium">Repeat</p>
+            <p className="text-xs text-muted-foreground mt-0.5">Set a recurring schedule</p>
+          </div>
           <button
             type="button"
             role="switch"
             aria-checked={state.isRecurring}
             onClick={() => update({ isRecurring: !state.isRecurring })}
-            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors shrink-0 ${
               state.isRecurring ? "bg-primary" : "bg-muted"
             }`}
           >
             <span
-              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+              className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${
                 state.isRecurring ? "translate-x-6" : "translate-x-1"
               }`}
             />
           </button>
-          <label className="text-sm font-medium">Repeat</label>
         </div>
 
         {state.isRecurring && (

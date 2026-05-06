@@ -1,0 +1,109 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e965]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e966]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e967]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e968]:
+        - link [ref=e969] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e970] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e971] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link [ref=e972] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button [ref=e973]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button [ref=e974]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e954]:
+        - generic [ref=e955]:
+          - heading [level=1] [ref=e975]: Subscriptions
+          - button [ref=e976]:
+            - img
+            - text: Add
+        - generic [ref=e958]:
+          - link [ref=e977] [cursor=pointer]:
+            - /url: /budgets
+            - text: Budgets
+          - link [ref=e978] [cursor=pointer]:
+            - /url: /goals
+            - text: Goals
+          - link [ref=e979] [cursor=pointer]:
+            - /url: /subscriptions
+            - text: Subscriptions
+        - generic [ref=e962]:
+          - paragraph [ref=e963]: No subscriptions yet.
+          - button [ref=e980]:
+            - img
+            - text: Add your first subscription
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]
+  - dialog "Add subscription" [ref=e984]:
+    - heading "Add subscription" [level=2] [ref=e986]
+    - generic [ref=e987]:
+      - generic [ref=e988]:
+        - generic [ref=e989]: Name
+        - textbox "Name" [active] [ref=e990]:
+          - /placeholder: Netflix, Spotify…
+      - generic [ref=e991]:
+        - generic [ref=e992]: Type
+        - generic [ref=e993]:
+          - button "expense" [ref=e994]
+          - button "income" [ref=e995]
+      - generic [ref=e996]:
+        - generic [ref=e997]:
+          - generic [ref=e998]: Amount
+          - spinbutton "Amount" [ref=e999]: "0"
+        - generic [ref=e1000]:
+          - generic [ref=e1001]: Currency
+          - combobox "Currency" [ref=e1002]:
+            - generic [ref=e1003]: IDR
+            - img: ▼
+          - textbox [ref=e1004]: IDR
+      - generic [ref=e1005]:
+        - generic [ref=e1006]: Category (optional)
+        - combobox "Category (optional)" [ref=e1007]:
+          - generic [ref=e1008]: None
+          - img: ▼
+        - textbox [ref=e1009]
+      - generic [ref=e1010]:
+        - generic [ref=e1011]: Frequency
+        - combobox "Frequency" [ref=e1012]:
+          - generic [ref=e1013]: monthly
+          - img: ▼
+        - textbox [ref=e1014]: monthly
+      - generic [ref=e1015]:
+        - generic [ref=e1016]: Next due date
+        - textbox "Next due date" [ref=e1017]: 2026-05-03
+      - generic [ref=e1018]:
+        - button "Cancel" [ref=e1019]
+        - button "Add subscription" [ref=e1020]
+    - button "Close" [ref=e1021]:
+      - img
+      - generic [ref=e1022]: Close

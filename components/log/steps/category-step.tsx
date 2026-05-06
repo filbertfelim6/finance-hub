@@ -1,14 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Scissors } from "lucide-react";
+import { Plus, Scissors, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useCategories, useCreateCategory } from "@/lib/hooks/use-categories";
 import { cn } from "@/lib/utils";
 import type { CategoryType } from "@/lib/types/database.types";
+import { ICON_MAP } from "@/lib/utils/icon-map";
 
-const CATEGORY_COLORS = ["#22c55e","#ef4444","#f97316","#eab308","#3b82f6","#8b5cf6","#ec4899","#14b8a6"];
+function CategoryIcon({ name, color }: { name: string; color: string }) {
+  const Icon = ICON_MAP[name] ?? Tag;
+  return <Icon className="h-3.5 w-3.5" style={{ color }} />;
+}
+
 
 interface CategoryStepProps {
   type: CategoryType;
@@ -22,19 +27,21 @@ export function CategoryStep({ type, selectedId, onSelect, onSplitMode }: Catego
   const createCategory = useCreateCategory();
   const [adding, setAdding] = useState(false);
   const [newName, setNewName] = useState("");
-  const [newColor, setNewColor] = useState(CATEGORY_COLORS[0]);
+  const [newColor, setNewColor] = useState("#5a7a4e");
+  const [newIcon, setNewIcon] = useState("tag");
 
   async function handleAdd() {
     if (!newName.trim()) return;
     const cat = await createCategory.mutateAsync({
       name: newName.trim(),
       type,
-      icon: "tag",
+      icon: newIcon,
       color: newColor,
     });
     setAdding(false);
     setNewName("");
-    setNewColor(CATEGORY_COLORS[0]);
+    setNewColor("#5a7a4e");
+    setNewIcon("tag");
     onSelect(cat.id);
   }
 
@@ -62,9 +69,11 @@ export function CategoryStep({ type, selectedId, onSelect, onSplitMode }: Catego
             )}
           >
             <div
-              className="w-7 h-7 rounded-full"
+              className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
               style={{ backgroundColor: cat.color + "33" }}
-            />
+            >
+              <CategoryIcon name={cat.icon} color={cat.color} />
+            </div>
             <span className="truncate w-full text-center">{cat.name}</span>
           </button>
         ))}
@@ -86,21 +95,40 @@ export function CategoryStep({ type, selectedId, onSelect, onSplitMode }: Catego
             onChange={(e) => setNewName(e.target.value)}
             autoFocus
           />
-          <div className="flex gap-2">
-            {CATEGORY_COLORS.map((c) => (
-              <button
-                key={c}
-                type="button"
-                onClick={() => setNewColor(c)}
-                className="w-6 h-6 rounded-full border-2"
-                style={{
-                  backgroundColor: c,
-                  borderColor: newColor === c ? "white" : "transparent",
-                  outline: newColor === c ? `2px solid ${c}` : "none",
-                  outlineOffset: "2px",
-                }}
+          <div className="space-y-1.5">
+            <p className="text-xs text-muted-foreground">Icon</p>
+            <div className="grid grid-cols-8 gap-1">
+              {Object.entries(ICON_MAP).map(([key, Icon]) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setNewIcon(key)}
+                  className={cn(
+                    "flex items-center justify-center w-8 h-8 rounded-lg border transition-colors",
+                    newIcon === key
+                      ? "border-primary bg-primary/10"
+                      : "border-border hover:bg-muted"
+                  )}
+                >
+                  <Icon className="h-3.5 w-3.5" style={{ color: newColor }} />
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div
+              className="relative w-8 h-8 rounded-lg border border-border cursor-pointer overflow-hidden shrink-0"
+              style={{ backgroundColor: newColor }}
+            >
+              <input
+                type="color"
+                value={newColor}
+                onChange={(e) => setNewColor(e.target.value)}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
               />
-            ))}
+            </div>
+            <p className="text-xs text-muted-foreground">Color</p>
+            <code className="text-xs text-muted-foreground">{newColor.toUpperCase()}</code>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" size="sm" onClick={() => setAdding(false)}>

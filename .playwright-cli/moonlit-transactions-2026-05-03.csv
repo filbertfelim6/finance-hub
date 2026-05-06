@@ -1,0 +1,8 @@
+date,type,amount,currency,converted_usd,category_id,notes,account_id
+2026-05-03,transfer,100000,USD,100000,,Cash Wallet → BCA Savings,11a3c0ad-b6c5-4ab0-817f-9150c7e024a3
+2026-05-03,transfer,100000,IDR,6.25,,Cash Wallet → BCA Savings,6a5e7e40-1229-440c-ad4a-4063bcdba944
+2026-05-03,expense,100000,IDR,6.25,a2ce723f-67f0-4230-b717-73d0299677a8,,6a5e7e40-1229-440c-ad4a-4063bcdba944
+2026-05-03,expense,100000,IDR,6.25,b73ab319-467b-481d-bcd5-09276faf9977,,6a5e7e40-1229-440c-ad4a-4063bcdba944
+2026-05-03,expense,50000,IDR,3.13,b73ab319-467b-481d-bcd5-09276faf9977,Lunch,6a5e7e40-1229-440c-ad4a-4063bcdba944
+2026-05-03,income,3000000,IDR,187.5,23b40175-8b7f-4fb9-b777-a9a2e3ac3781,Monthly salary,6a5e7e40-1229-440c-ad4a-4063bcdba944
+2026-04-26,expense,25000,IDR,1.56,a2ce723f-67f0-4230-b717-73d0299677a8,,6a5e7e40-1229-440c-ad4a-4063bcdba944

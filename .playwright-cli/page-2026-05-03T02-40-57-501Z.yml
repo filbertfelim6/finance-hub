@@ -1,0 +1,68 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e6]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e12]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e14]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e16]:
+        - link "Dashboard" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e24] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e28] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e34] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e41]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e43]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e48]:
+        - heading "Log transaction" [level=1] [ref=e49]
+        - generic [ref=e50]:
+          - button "back" [ref=e903]:
+            - img
+            - text: Back
+          - generic [ref=e904]:
+            - generic [ref=e905]: Expense
+            - generic [ref=e925]: Rp 25.000
+            - generic [ref=e1138]: Transport
+          - generic [ref=e1139]:
+            - heading "Account" [level=2] [ref=e1140]
+            - generic [ref=e1141]:
+              - button "Cash Wallet cash Rp 3.150.000" [ref=e1142]:
+                - generic [ref=e1143]:
+                  - paragraph [ref=e1144]: Cash Wallet
+                  - paragraph [ref=e1145]: cash
+                - paragraph [ref=e1146]: Rp 3.150.000
+              - button "BCA Savings checking $101,000.00" [ref=e1147]:
+                - generic [ref=e1148]:
+                  - paragraph [ref=e1149]: BCA Savings
+                  - paragraph [ref=e1150]: checking
+                - paragraph [ref=e1151]: $101,000.00
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e74] [cursor=pointer]:
+    - img [ref=e75]
+  - alert [ref=e78]

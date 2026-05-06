@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 56" width="260" height="56">
+  <g transform="translate(4, 8)">
+    <path fill="#7d9870" stroke="none" d="M20 38 C 6 32, 4 14, 18 4 C 22 14, 24 26, 20 38 Z"></path>
+    <path fill="#5a7a4e" stroke="none" d="M20 38 C 34 32, 36 14, 22 4 C 18 14, 16 26, 20 38 Z"></path>
+    <rect fill="#364d2c" stroke="none" x="18.5" y="34" width="3" height="10" rx="1.5"></rect>
+  </g>
+  <text x="56" y="36" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#1a1f17">Finance<tspan fill="#5a7a4e">Hub</tspan></text>
+</svg>

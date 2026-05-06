@@ -1,0 +1,16 @@
+date,type,amount,currency,converted_usd,category_id,notes,account_id
+2026-05-01,income,200000000,IDR,12500,4b3eb87a-bb80-4253-8d67-5f52781e2212,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-29,expense,25865,IDR,1.62,6eb63135-caf9-4e77-af3e-98e95fb30806,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-29,expense,52222,IDR,3.26,ce314970-adf2-4dc1-b045-50daaf0e3e85,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-27,expense,28888888,IDR,1805.56,b43405e5-cca8-47f1-a0e4-481ed293cf08,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-26,expense,2000000000,IDR,116321.82,b3e3d098-9acd-44c1-92ba-4461afdcf3b7,,72a3f167-c72f-4f1d-b8cb-2fc7dfc92203
+2026-04-26,expense,1000,IDR,0.06,b3e3d098-9acd-44c1-92ba-4461afdcf3b7,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-26,expense,20,EUR,23.42,5f34a39b-bf71-4d02-ad3f-d56a593d4903,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-26,expense,200000,IDR,11.63,5f34a39b-bf71-4d02-ad3f-d56a593d4903,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-26,expense,288888,IDR,16.8,b3e3d098-9acd-44c1-92ba-4461afdcf3b7,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-26,expense,288888,IDR,16.8,b3e3d098-9acd-44c1-92ba-4461afdcf3b7,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-26,expense,1000000,IDR,58.16,5f34a39b-bf71-4d02-ad3f-d56a593d4903,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-25,expense,200,USD,200,ca6b368c-dc00-4c51-a846-cdee4370eeec,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-25,expense,200,USD,200,ca6b368c-dc00-4c51-a846-cdee4370eeec,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-16,expense,100000,IDR,5.82,5f34a39b-bf71-4d02-ad3f-d56a593d4903,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19
+2026-04-15,expense,8,IDR,0,349868ed-2998-446b-ab6e-731658b4aa51,,a8bbbd17-6eb1-4bdd-afe2-79ab9a0f3e19

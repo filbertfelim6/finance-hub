@@ -1,8 +1,8 @@
 "use client";
 
 import { Plus, Trash2 } from "lucide-react";
+import { NumericFormat } from "react-number-format";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useCategories } from "@/lib/hooks/use-categories";
 import { formatCurrency, cn } from "@/lib/utils";
 import type { CategoryType, Currency } from "@/lib/types/database.types";
@@ -74,14 +74,14 @@ export function SplitCategoryStep({
                   <option key={c.id} value={c.id}>{c.name}</option>
                 ))}
               </select>
-              <Input
-                type="number"
-                min="0"
-                step="any"
-                placeholder="Amount"
+              <NumericFormat
+                thousandSeparator="."
+                decimalSeparator=","
                 value={split.amount}
-                onChange={(e) => updateSplit(i, { amount: e.target.value })}
-                className="h-9"
+                onValueChange={(v) => updateSplit(i, { amount: v.value })}
+                placeholder="0"
+                inputMode="decimal"
+                className="h-9 w-full tabular-nums rounded-md border border-input bg-background px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
             <Button

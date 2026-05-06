@@ -1,0 +1,98 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e89]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e90]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e91]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e92]:
+        - link [ref=e93] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e94] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e95] [cursor=pointer]:
+          - /url: /transactions
+          - img [ref=e29]
+          - generic [ref=e32]: Transactions
+        - link [ref=e96] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e34]
+          - generic [ref=e37]: Budgets
+        - link [ref=e97] [cursor=pointer]:
+          - /url: /goals
+          - img [ref=e39]
+          - generic [ref=e43]: Goals
+        - link [ref=e98] [cursor=pointer]:
+          - /url: /subscriptions
+          - img [ref=e45]
+          - generic [ref=e50]: Subscriptions
+        - link [ref=e99] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e52]
+          - generic [ref=e55]: Settings
+      - separator [ref=e56]
+      - generic [ref=e57]:
+        - button [ref=e100]:
+          - img
+          - generic [ref=e59]: Dark mode
+        - button [ref=e101]:
+          - img
+          - generic [ref=e61]: Sign out
+    - main [ref=e63]:
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - heading [level=1] [ref=e102]: Budgets
+          - button [ref=e103]:
+            - img
+            - text: Add Budget
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: No budgets yet.
+          - button [ref=e104]:
+            - img
+            - text: Add your first budget
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e76] [cursor=pointer]:
+    - img [ref=e77]
+  - alert [ref=e80]
+  - dialog "Add budget" [ref=e108]:
+    - heading "Add budget" [level=2] [ref=e110]
+    - generic [ref=e111]:
+      - generic [ref=e112]:
+        - generic [ref=e113]: Category
+        - combobox "Category" [active] [ref=e114]:
+          - generic [ref=e115]: Select category
+          - img: ▼
+        - textbox [ref=e116]
+      - generic [ref=e117]:
+        - generic [ref=e118]:
+          - generic [ref=e119]: Amount
+          - spinbutton "Amount" [ref=e120]: "0"
+        - generic [ref=e121]:
+          - generic [ref=e122]: Currency
+          - combobox "Currency" [ref=e123]:
+            - generic [ref=e124]: IDR
+            - img: ▼
+          - textbox [ref=e125]: IDR
+      - generic [ref=e126]:
+        - generic [ref=e127]: Period
+        - generic [ref=e128]:
+          - button "Monthly" [ref=e129]
+          - button "Weekly" [ref=e130]
+      - generic [ref=e131]:
+        - button "Cancel" [ref=e132]
+        - button "Add budget" [ref=e133]
+    - button "Close" [ref=e134]:
+      - img
+      - generic [ref=e135]: Close

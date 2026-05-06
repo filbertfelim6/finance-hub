@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"></head>
+<body>
+<div class="fh-card">
+  <div style="display:flex; flex-wrap:wrap; gap:10px 12px; align-items:center;">
+    <!-- Primary -->
+    <button style="font-family:var(--font-sans); font-size:14px; font-weight:600; color:var(--fg-on-brand); background:var(--brand); border:none; border-radius:10px; padding:9px 16px; box-shadow: var(--shadow-inset), var(--shadow-sm); cursor:pointer;">Log transaction</button>
+    <!-- Primary hover -->
+    <button style="font-family:var(--font-sans); font-size:14px; font-weight:600; color:var(--fg-on-brand); background:var(--brand-hover); border:none; border-radius:10px; padding:9px 16px; box-shadow: var(--shadow-inset), var(--shadow-md); cursor:pointer;">Hover</button>
+    <!-- Primary press -->
+    <button style="font-family:var(--font-sans); font-size:14px; font-weight:600; color:var(--fg-on-brand); background:var(--brand-press); border:none; border-radius:10px; padding:9px 16px; transform:translateY(1px); cursor:pointer;">Pressed</button>
+    <!-- Secondary -->
+    <button style="font-family:var(--font-sans); font-size:14px; font-weight:600; color:var(--fg-1); background:#fff; border:1px solid var(--border-medium); border-radius:10px; padding:9px 16px; cursor:pointer;">Add account</button>
+    <!-- Ghost -->
+    <button style="font-family:var(--font-sans); font-size:14px; font-weight:500; color:var(--fg-2); background:transparent; border:none; border-radius:10px; padding:9px 12px; cursor:pointer;">Cancel</button>
+    <!-- Destructive -->
+    <button style="font-family:var(--font-sans); font-size:14px; font-weight:600; color:var(--bad-500); background:var(--bad-100); border:1px solid color-mix(in oklab, var(--bad-500) 30%, transparent); border-radius:10px; padding:9px 16px; cursor:pointer;">Delete</button>
+    <!-- Disabled -->
+    <button disabled style="font-family:var(--font-sans); font-size:14px; font-weight:600; color:var(--fg-on-brand); background:var(--brand); border:none; border-radius:10px; padding:9px 16px; opacity:0.4; cursor:not-allowed;">Disabled</button>
+  </div>
+
+  <div style="display:flex; gap:8px; margin-top:14px; align-items:center;">
+    <button style="font-family:var(--font-sans); font-size:12px; font-weight:600; color:var(--fg-on-brand); background:var(--brand); border:none; border-radius:8px; padding:6px 10px; cursor:pointer;">Small</button>
+    <button style="font-family:var(--font-sans); font-size:14px; font-weight:600; color:var(--fg-on-brand); background:var(--brand); border:none; border-radius:10px; padding:9px 16px; cursor:pointer;">Medium</button>
+    <button style="font-family:var(--font-sans); font-size:16px; font-weight:600; color:var(--fg-on-brand); background:var(--brand); border:none; border-radius:12px; padding:12px 22px; cursor:pointer;">Large</button>
+    <span class="fh-meta" style="margin-left:8px;">sm · md · lg</span>
+  </div>
+  <div style="margin-top:12px; font-family:var(--font-mono); font-size:11px; color:var(--fg-3);">Primary uses inset top highlight + soft shadow for subtle depth</div>
+</div>
+</body></html>

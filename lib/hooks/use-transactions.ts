@@ -6,7 +6,7 @@ import {
   type CreateTransactionInput,
   type GetTransactionsOptions,
 } from "@/lib/queries/transactions";
-import { useUsdToIdr } from "./use-exchange-rate";
+import { useExchangeRates } from "./use-exchange-rate";
 import type { Currency } from "@/lib/types/database.types";
 
 export function useTransactions(options: GetTransactionsOptions = {}) {
@@ -18,15 +18,15 @@ export function useTransactions(options: GetTransactionsOptions = {}) {
 
 export function useCreateTransaction() {
   const qc = useQueryClient();
-  const usdToIdr = useUsdToIdr();
+  const rates = useExchangeRates();
   return useMutation({
     mutationFn: (
       input: Omit<CreateTransactionInput, "converted_amount_usd"> & {
         currency: Currency;
       }
     ) => {
-      const convertedUsd =
-        input.currency === "USD" ? input.amount : input.amount / usdToIdr;
+      const fromRate = rates[input.currency] ?? 1;
+      const convertedUsd = input.amount / fromRate;
       return createTransaction({ ...input, converted_amount_usd: convertedUsd });
     },
     onSuccess: (txn) => {
@@ -39,18 +39,22 @@ export function useCreateTransaction() {
 
 export function useCreateTransfer() {
   const qc = useQueryClient();
-  const usdToIdr = useUsdToIdr();
+  const rates = useExchangeRates();
   return useMutation({
     mutationFn: (params: {
       sourceAccountId: string;
+      sourceAccountName: string;
       destAccountId: string;
+      destAccountName: string;
       amount: number;
       sourceCurrency: Currency;
+      sourceAccountCurrency: Currency;
       destCurrency: Currency;
+      destAccountCurrency: Currency;
       destAmount: number;
       notes: string | null;
       date: string;
-    }) => createTransfer({ ...params, usdToIdrRate: usdToIdr }),
+    }) => createTransfer({ ...params, ratesFromUsd: rates }),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["transactions"] });
       qc.invalidateQueries({ queryKey: ["accounts"] });

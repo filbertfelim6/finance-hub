@@ -1,0 +1,124 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img [ref=e170]:
+            - generic [ref=e11]: FinanceHub
+          - button [ref=e171]:
+            - img
+        - generic:
+          - button:
+            - img
+      - button [ref=e172]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation [ref=e173]:
+        - link [ref=e174] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link [ref=e175] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link [ref=e176] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link [ref=e177] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button [ref=e178]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button [ref=e179]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - heading [level=1] [ref=e180]: Accounts
+          - combobox [ref=e50]
+          - button [ref=e181]:
+            - img
+            - text: Add account
+        - generic [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]:
+            - generic [ref=e157]:
+              - img [ref=e159]
+              - generic [ref=e162]:
+                - paragraph [ref=e163]: Cash
+                - paragraph [ref=e164]: cash
+            - button [ref=e182]:
+              - img
+          - generic [ref=e166]:
+            - paragraph [ref=e167]: Balance
+            - paragraph [ref=e168]: Rp 500.000
+            - paragraph [ref=e169]: = Rp 500.000
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e61] [cursor=pointer]:
+    - img [ref=e62]
+  - alert [ref=e68]
+  - dialog "Add account" [ref=e186]:
+    - heading "Add account" [level=2] [ref=e188]
+    - generic [ref=e189]:
+      - generic [ref=e190]:
+        - generic [ref=e191]: Name
+        - textbox "Name" [ref=e192]:
+          - /placeholder: BCA Savings
+          - text: BCA Savings
+      - generic [ref=e193]:
+        - generic [ref=e194]:
+          - generic [ref=e195]: Type
+          - combobox "Type" [ref=e196]:
+            - generic [ref=e197]: checking
+            - img: ▼
+          - textbox [ref=e198]: checking
+        - generic [ref=e199]:
+          - generic [ref=e200]: Currency
+          - combobox "Currency" [expanded] [ref=e201]:
+            - generic [ref=e202]: IDR
+            - img: ▼
+          - listbox [ref=e231]:
+            - option "IDR" [active] [selected] [ref=e232]:
+              - generic [ref=e233]: IDR
+              - generic:
+                - img
+            - option "USD" [ref=e234]:
+              - generic [ref=e235]: USD
+            - option "EUR" [ref=e236]:
+              - generic [ref=e237]: EUR
+            - option "SGD" [ref=e238]:
+              - generic [ref=e239]: SGD
+            - option "GBP" [ref=e240]:
+              - generic [ref=e241]: GBP
+            - option "JPY" [ref=e242]:
+              - generic [ref=e243]: JPY
+          - textbox [ref=e203]: IDR
+      - generic [ref=e204]:
+        - generic [ref=e205]: Initial balance
+        - spinbutton "Initial balance" [ref=e206]: "0"
+      - generic [ref=e207]:
+        - generic [ref=e208]: Color
+        - generic [ref=e209]:
+          - textbox [ref=e211] [cursor=pointer]: "#5a7a4e"
+          - code [ref=e212]: "#5A7A4E"
+      - generic [ref=e213]:
+        - generic [ref=e214]: Icon
+        - generic [ref=e215]:
+          - button "Wallet" [ref=e216]
+          - button "Card" [ref=e217]
+          - button "Bank" [ref=e218]
+          - button "E-Wallet" [ref=e219]
+          - button "Landmark" [ref=e220]
+          - button "Piggy Bank" [ref=e221]
+      - generic [ref=e222]:
+        - button "Cancel" [ref=e223]
+        - button "Add account" [ref=e224]
+    - button "Close" [ref=e225]:
+      - img
+      - generic [ref=e226]: Close

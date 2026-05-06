@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, WalletCards, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { useAccounts } from "@/lib/hooks/use-accounts";
 import { NetWorthChart } from "@/components/dashboard/net-worth-chart";
 import { IncomeExpenseChart } from "@/components/dashboard/income-expense-chart";
 import { CategoryDonutChart } from "@/components/dashboard/category-donut-chart";
@@ -15,6 +17,7 @@ import { useDisplayCurrency, DISPLAY_CURRENCIES } from "@/lib/context/display-cu
 import { usePrivacy } from "@/lib/context/privacy-context";
 import { formatCurrency, cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
@@ -24,8 +27,17 @@ export default function DashboardPage() {
   const { displayCurrency, setDisplayCurrency } = useDisplayCurrency();
   const { isPrivate, togglePrivacy } = usePrivacy();
   const totalNetWorth = useTotalNetWorth();
+  const { data: accounts = [], isLoading: accountsLoading } = useAccounts();
   const [kpiRange, setKpiRange] = useState<RangeKey>("30D");
-  const { income, expenses, savingsRate } = usePeriodSummary(kpiRange);
+  const [kpiCustomFrom, setKpiCustomFrom] = useState("");
+  const [kpiCustomTo, setKpiCustomTo] = useState("");
+  const { income, expenses, savingsRate, isLoading: kpiLoading } = usePeriodSummary(
+    kpiRange,
+    kpiCustomFrom || undefined,
+    kpiCustomTo || undefined,
+  );
+
+  const noAccounts = !accountsLoading && accounts.length === 0;
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
@@ -33,9 +45,13 @@ export default function DashboardPage() {
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Total Net Worth</p>
-          <p className="text-3xl font-bold tabular-nums">
-            {isPrivate ? "••••••" : formatCurrency(totalNetWorth, displayCurrency)}
-          </p>
+          {accountsLoading ? (
+            <Skeleton className="h-9 w-44 mt-1" />
+          ) : (
+            <p className="text-3xl font-bold tabular-nums">
+              {isPrivate ? "••••••" : formatCurrency(totalNetWorth, displayCurrency)}
+            </p>
+          )}
         </div>
 
         <div className="flex items-center gap-2">
@@ -65,27 +81,77 @@ export default function DashboardPage() {
 
       {/* KPI strip with its own range */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Period Summary</p>
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-3">
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide pt-1">Period Summary</p>
+            <Link
+              href="/transactions"
+              className="inline-flex items-center gap-1 rounded-full border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            >
+              Transactions <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
           <RangeSelector value={kpiRange} onChange={setKpiRange} />
         </div>
-        <KpiStrip income={income} expenses={expenses} savingsRate={savingsRate} />
+        {kpiRange === "custom" && (
+          <div className="flex items-center gap-1 w-full">
+            <input type="date" value={kpiCustomFrom} onChange={(e) => setKpiCustomFrom(e.target.value)}
+              className="h-7 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground" />
+            <span className="text-xs text-muted-foreground shrink-0">–</span>
+            <input type="date" value={kpiCustomTo} onChange={(e) => setKpiCustomTo(e.target.value)}
+              className="h-7 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground" />
+          </div>
+        )}
+        <KpiStrip income={income} expenses={expenses} savingsRate={savingsRate} isLoading={kpiLoading} />
       </div>
 
-      {/* Charts */}
-      <NetWorthChart />
+      {/* Charts or empty state */}
+      {accountsLoading ? (
+        <div className="space-y-4">
+          <Skeleton className="h-64 rounded-xl" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Skeleton className="h-48 rounded-xl" />
+            <Skeleton className="h-48 rounded-xl" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Skeleton className="h-48 rounded-xl" />
+            <Skeleton className="h-48 rounded-xl" />
+          </div>
+          <Skeleton className="h-48 rounded-xl" />
+        </div>
+      ) : noAccounts ? (
+        <div className="rounded-xl border bg-card flex flex-col items-center justify-center gap-4 py-20 text-center">
+          <div className="rounded-full bg-muted p-4">
+            <WalletCards className="h-8 w-8 text-muted-foreground" />
+          </div>
+          <div className="space-y-1">
+            <p className="font-medium">No accounts yet</p>
+            <p className="text-sm text-muted-foreground">Add an account to start tracking your finances.</p>
+          </div>
+          <Link
+            href="/accounts"
+            className={cn(buttonVariants({ size: "sm" }))}
+          >
+            Add account
+          </Link>
+        </div>
+      ) : (
+        <>
+          <NetWorthChart />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <IncomeExpenseChart />
-        <CategoryDonutChart />
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <IncomeExpenseChart />
+            <CategoryDonutChart />
+          </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <SavingsRateChart />
-        <CashFlowWaterfallChart />
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <SavingsRateChart />
+            <CashFlowWaterfallChart />
+          </div>
 
-      <CategoryTrendChart />
+          <CategoryTrendChart />
+        </>
+      )}
     </div>
   );
 }

@@ -1,0 +1,63 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "FinanceHub" [ref=e304]:
+            - generic [ref=e11]: FinanceHub
+          - button "Collapse sidebar" [ref=e305]:
+            - img
+        - generic:
+          - button "Expand sidebar":
+            - img
+      - button "Log transaction" [ref=e306]:
+        - img
+        - generic [ref=e15]: Log transaction
+      - navigation "Main navigation" [ref=e307]:
+        - link "Dashboard" [ref=e308] [cursor=pointer]:
+          - /url: /
+          - img [ref=e18]
+          - generic [ref=e23]: Dashboard
+        - link "Accounts" [ref=e309] [cursor=pointer]:
+          - /url: /accounts
+          - img [ref=e25]
+          - generic [ref=e27]: Accounts
+        - link "Plan" [ref=e310] [cursor=pointer]:
+          - /url: /budgets
+          - img [ref=e29]
+          - generic [ref=e33]: Plan
+        - link "Settings" [ref=e311] [cursor=pointer]:
+          - /url: /settings
+          - img [ref=e35]
+          - generic [ref=e38]: Settings
+      - separator [ref=e39]
+      - generic [ref=e40]:
+        - button "Toggle theme" [ref=e312]:
+          - img
+          - generic [ref=e42]: Dark mode
+        - button "Sign out" [ref=e313]:
+          - img
+          - generic [ref=e44]: Sign out
+    - main [ref=e46]:
+      - generic [ref=e345]:
+        - generic [ref=e346]:
+          - heading "Savings Goals" [level=1] [ref=e347]
+          - button "Add Goal" [ref=e348]:
+            - img
+            - text: Add Goal
+        - generic [ref=e349]:
+          - link "Budgets" [ref=e350] [cursor=pointer]:
+            - /url: /budgets
+          - link "Goals" [ref=e351] [cursor=pointer]:
+            - /url: /goals
+          - link "Subscriptions" [ref=e352] [cursor=pointer]:
+            - /url: /subscriptions
+        - generic [ref=e353]:
+          - paragraph [ref=e354]: No savings goals yet.
+          - button "Add your first goal" [ref=e355]:
+            - img
+            - text: Add your first goal
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e65] [cursor=pointer]:
+    - img [ref=e66]
+  - alert [ref=e69]
