@@ -81,9 +81,9 @@ export default function DashboardPage() {
 
       {/* KPI strip with its own range */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide pt-1">Period Summary</p>
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Period Summary</p>
             <Link
               href="/transactions"
               className="inline-flex items-center gap-1 rounded-full border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"

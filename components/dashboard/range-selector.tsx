@@ -19,7 +19,7 @@ export function RangeSelector({
   className,
 }: RangeSelectorProps) {
   return (
-    <div className={cn("flex items-center gap-1 justify-end", className)}>
+    <div className={cn("flex flex-wrap items-center gap-1", className)}>
       {ranges.map((r) => (
         <button
           key={r}
