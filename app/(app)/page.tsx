@@ -42,21 +42,21 @@ export default function DashboardPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
       {/* Header */}
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <div>
+      <div className="flex items-center justify-between gap-3">
+        <div className="min-w-0">
           <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium">Total Net Worth</p>
           {accountsLoading ? (
-            <Skeleton className="h-9 w-44 mt-1" />
+            <Skeleton className="h-7 w-36 mt-1" />
           ) : (
-            <p className="text-3xl font-bold tabular-nums">
+            <p className="text-2xl sm:text-3xl font-bold tabular-nums">
               {isPrivate ? "••••••" : formatCurrency(totalNetWorth, displayCurrency)}
             </p>
           )}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <Select value={displayCurrency} onValueChange={(v) => v && setDisplayCurrency(v)}>
-            <SelectTrigger className="h-8 w-28 text-xs">
+            <SelectTrigger className="h-8 w-16 text-xs">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -81,7 +81,7 @@ export default function DashboardPage() {
 
       {/* KPI strip with its own range */}
       <div className="space-y-3">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-1.5">
           <div className="flex items-center gap-3">
             <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Period Summary</p>
             <Link
@@ -92,16 +92,16 @@ export default function DashboardPage() {
             </Link>
           </div>
           <RangeSelector value={kpiRange} onChange={setKpiRange} />
+          {kpiRange === "custom" && (
+            <div className="flex items-center gap-1.5">
+              <input type="date" value={kpiCustomFrom} onChange={(e) => setKpiCustomFrom(e.target.value)}
+                className="h-6 w-28 rounded border border-input bg-background px-1.5 text-xs text-foreground" />
+              <span className="text-xs text-muted-foreground">–</span>
+              <input type="date" value={kpiCustomTo} onChange={(e) => setKpiCustomTo(e.target.value)}
+                className="h-6 w-28 rounded border border-input bg-background px-1.5 text-xs text-foreground" />
+            </div>
+          )}
         </div>
-        {kpiRange === "custom" && (
-          <div className="flex items-center gap-1 w-full">
-            <input type="date" value={kpiCustomFrom} onChange={(e) => setKpiCustomFrom(e.target.value)}
-              className="h-7 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground" />
-            <span className="text-xs text-muted-foreground shrink-0">–</span>
-            <input type="date" value={kpiCustomTo} onChange={(e) => setKpiCustomTo(e.target.value)}
-              className="h-7 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground" />
-          </div>
-        )}
         <KpiStrip income={income} expenses={expenses} savingsRate={savingsRate} isLoading={kpiLoading} />
       </div>
 

@@ -52,9 +52,9 @@ export function IncomeExpenseChart() {
 
   return (
     <div className="rounded-xl border bg-card p-4 flex flex-col gap-4">
-      <div className="flex items-start justify-between gap-2 flex-wrap">
-        <h3 className="text-sm font-semibold pt-1">Income vs Expenses</h3>
-        <div className="flex items-center gap-2 justify-end">
+      <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="text-sm font-semibold">Income vs Expenses</h3>
+        <div className="flex items-center gap-1.5 flex-wrap">
           <AccountFilter
             accounts={accounts}
             selectedIds={selectedIds}

@@ -131,7 +131,7 @@ export function useCategoryTrendSeries(
 
   const result = useMemo(() => {
     const txns = accountIds ? transactions.filter((t) => accountIds.includes(t.account_id)) : transactions;
-    return buildCategoryTrendSeries(txns, categories, 5, dateFrom, dateTo, granularity, rates, displayCurrency);
+    return buildCategoryTrendSeries(txns, categories, 8, dateFrom, dateTo, granularity, rates, displayCurrency);
   }, [transactions, categories, rates, displayCurrency, dateFrom, dateTo, granularity, accountIds]);
 
   return { ...result, isLoading: txLoading || catLoading, isFetching: txFetching || catLoading };

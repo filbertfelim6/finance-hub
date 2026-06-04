@@ -81,10 +81,10 @@ export function NetWorthChart() {
 
   return (
     <div className="rounded-xl border bg-card p-4 flex flex-col gap-4">
-      <div className="flex items-start justify-between gap-2 flex-wrap">
-        <h3 className="text-sm font-semibold pt-1">Net Worth</h3>
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2 justify-end">
+      <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between">
+          <h3 className="text-sm font-semibold">Net Worth</h3>
+          <div className="flex items-center gap-1.5 flex-wrap">
             <AccountFilter
               accounts={accounts}
               selectedIds={selectedIds}
@@ -92,24 +92,24 @@ export function NetWorthChart() {
             />
             <RangeSelector value={range} onChange={setRange} />
           </div>
-          {range === "custom" && (
-            <div className="flex items-center gap-1 w-full">
-              <input
-                type="date"
-                value={customFrom}
-                onChange={(e) => setCustomFrom(e.target.value)}
-                className="h-7 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground"
-              />
-              <span className="text-xs text-muted-foreground shrink-0">–</span>
-              <input
-                type="date"
-                value={customTo}
-                onChange={(e) => setCustomTo(e.target.value)}
-                className="h-7 flex-1 min-w-0 rounded border border-input bg-background px-1.5 text-xs text-foreground"
-              />
-            </div>
-          )}
         </div>
+        {range === "custom" && (
+          <div className="flex items-center gap-1.5 sm:justify-end">
+            <input
+              type="date"
+              value={customFrom}
+              onChange={(e) => setCustomFrom(e.target.value)}
+              className="h-6 w-28 rounded border border-input bg-background px-1.5 text-xs text-foreground"
+            />
+            <span className="text-xs text-muted-foreground">–</span>
+            <input
+              type="date"
+              value={customTo}
+              onChange={(e) => setCustomTo(e.target.value)}
+              className="h-6 w-28 rounded border border-input bg-background px-1.5 text-xs text-foreground"
+            />
+          </div>
+        )}
       </div>
 
       {(isLoading || isFetching) ? (
