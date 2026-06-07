@@ -31,6 +31,8 @@ export function SplitCategoryStep({
   onNext,
 }: SplitCategoryStepProps) {
   const { data: categories = [] } = useCategories(categoryType);
+  const userCategories = categories.filter((c) => !c.is_system);
+  const systemCategories = categories.filter((c) => c.is_system);
 
   const allocatedTotal = splits.reduce((s, sp) => s + (parseFloat(sp.amount) || 0), 0);
   const remaining = totalAmount - allocatedTotal;
@@ -70,9 +72,20 @@ export function SplitCategoryStep({
                 className="w-full h-9 rounded-md border border-input bg-background px-3 text-sm"
               >
                 <option value="">Category…</option>
-                {categories.map((c) => (
-                  <option key={c.id} value={c.id}>{c.name}</option>
-                ))}
+                {userCategories.length > 0 && (
+                  <optgroup label="My categories">
+                    {userCategories.map((c) => (
+                      <option key={c.id} value={c.id}>{c.name}</option>
+                    ))}
+                  </optgroup>
+                )}
+                {systemCategories.length > 0 && (
+                  <optgroup label="Templates">
+                    {systemCategories.map((c) => (
+                      <option key={c.id} value={c.id}>{c.name}</option>
+                    ))}
+                  </optgroup>
+                )}
               </select>
               <NumericFormat
                 thousandSeparator="."

@@ -254,20 +254,52 @@ function CategoriesSection() {
           <TabsTrigger value="income">Income</TabsTrigger>
         </TabsList>
         <TabsContent value="expense">
-          <div className="divide-y divide-border">
-            {expenseCategories.map((cat) => (
-              <CategoryRow key={cat.id} category={cat} />
-            ))}
-            <AddCategoryRow type="expense" />
-          </div>
+          {(() => {
+            const userCats = expenseCategories.filter((c) => !c.is_system);
+            const systemCats = expenseCategories.filter((c) => c.is_system);
+            return (
+              <div className="space-y-1">
+                <p className="text-xs font-medium text-muted-foreground pt-3 pb-1">My categories</p>
+                <div className="divide-y divide-border">
+                  {userCats.map((cat) => <CategoryRow key={cat.id} category={cat} />)}
+                  <AddCategoryRow type="expense" />
+                </div>
+                {systemCats.length > 0 && (
+                  <>
+                    <Separator className="my-3" />
+                    <p className="text-xs font-medium text-muted-foreground pb-1">Templates</p>
+                    <div className="divide-y divide-border">
+                      {systemCats.map((cat) => <CategoryRow key={cat.id} category={cat} />)}
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })()}
         </TabsContent>
         <TabsContent value="income">
-          <div className="divide-y divide-border">
-            {incomeCategories.map((cat) => (
-              <CategoryRow key={cat.id} category={cat} />
-            ))}
-            <AddCategoryRow type="income" />
-          </div>
+          {(() => {
+            const userCats = incomeCategories.filter((c) => !c.is_system);
+            const systemCats = incomeCategories.filter((c) => c.is_system);
+            return (
+              <div className="space-y-1">
+                <p className="text-xs font-medium text-muted-foreground pt-3 pb-1">My categories</p>
+                <div className="divide-y divide-border">
+                  {userCats.map((cat) => <CategoryRow key={cat.id} category={cat} />)}
+                  <AddCategoryRow type="income" />
+                </div>
+                {systemCats.length > 0 && (
+                  <>
+                    <Separator className="my-3" />
+                    <p className="text-xs font-medium text-muted-foreground pb-1">Templates</p>
+                    <div className="divide-y divide-border">
+                      {systemCats.map((cat) => <CategoryRow key={cat.id} category={cat} />)}
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })()}
         </TabsContent>
       </Tabs>
     </div>

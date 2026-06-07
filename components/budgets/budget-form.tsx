@@ -23,7 +23,10 @@ import {
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -50,6 +53,8 @@ interface BudgetFormProps {
 export function BudgetForm({ open, onClose, budget }: BudgetFormProps) {
   const isEdit = !!budget;
   const { data: categories = [] } = useCategories("expense");
+  const userCategories = categories.filter((c) => !c.is_system);
+  const systemCategories = categories.filter((c) => c.is_system);
   const createBudget = useCreateBudget();
   const updateBudget = useUpdateBudget();
 
@@ -126,11 +131,23 @@ export function BudgetForm({ open, onClose, budget }: BudgetFormProps) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {categories.map((cat) => (
-                        <SelectItem key={cat.id} value={cat.id}>
-                          {cat.name}
-                        </SelectItem>
-                      ))}
+                      {userCategories.length > 0 && (
+                        <SelectGroup>
+                          <SelectLabel>My categories</SelectLabel>
+                          {userCategories.map((cat) => (
+                            <SelectItem key={cat.id} value={cat.id}>{cat.name}</SelectItem>
+                          ))}
+                        </SelectGroup>
+                      )}
+                      {userCategories.length > 0 && systemCategories.length > 0 && <SelectSeparator />}
+                      {systemCategories.length > 0 && (
+                        <SelectGroup>
+                          <SelectLabel>Templates</SelectLabel>
+                          {systemCategories.map((cat) => (
+                            <SelectItem key={cat.id} value={cat.id}>{cat.name}</SelectItem>
+                          ))}
+                        </SelectGroup>
+                      )}
                     </SelectContent>
                   </Select>
                   <FormMessage />

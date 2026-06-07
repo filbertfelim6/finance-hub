@@ -59,6 +59,10 @@ export function TransactionFilters({
 
   const expenseCategories = categories.filter((c) => c.type === "expense");
   const incomeCategories = categories.filter((c) => c.type === "income");
+  const expenseUserCats = expenseCategories.filter((c) => !c.is_system);
+  const expenseSystemCats = expenseCategories.filter((c) => c.is_system);
+  const incomeUserCats = incomeCategories.filter((c) => !c.is_system);
+  const incomeSystemCats = incomeCategories.filter((c) => c.is_system);
   const typeCount = filters.types.length;
   const catCount = filters.categoryIds.length;
   const active = hasActiveFilters(filters);
@@ -128,30 +132,70 @@ export function TransactionFilters({
               {expenseCategories.length > 0 && (
                 <>
                   <p className="px-2 pt-2 pb-1 text-xs font-semibold text-red-500 uppercase tracking-wide">Expense</p>
-                  {expenseCategories.map((cat) => (
-                    <DropdownMenuCheckboxItem
-                      key={cat.id}
-                      checked={filters.categoryIds.includes(cat.id)}
-                      onCheckedChange={(checked) => toggleCategory(cat.id, checked as boolean)}
-                    >
-                      {cat.name}
-                    </DropdownMenuCheckboxItem>
-                  ))}
+                  {expenseUserCats.length > 0 && (
+                    <>
+                      <p className="px-2 pt-1 pb-0.5 text-[11px] text-muted-foreground">My categories</p>
+                      {expenseUserCats.map((cat) => (
+                        <DropdownMenuCheckboxItem
+                          key={cat.id}
+                          checked={filters.categoryIds.includes(cat.id)}
+                          onCheckedChange={(checked) => toggleCategory(cat.id, checked as boolean)}
+                        >
+                          {cat.name}
+                        </DropdownMenuCheckboxItem>
+                      ))}
+                    </>
+                  )}
+                  {expenseUserCats.length > 0 && expenseSystemCats.length > 0 && <DropdownMenuSeparator />}
+                  {expenseSystemCats.length > 0 && (
+                    <>
+                      {expenseUserCats.length > 0 && <p className="px-2 pt-1 pb-0.5 text-[11px] text-muted-foreground">Templates</p>}
+                      {expenseSystemCats.map((cat) => (
+                        <DropdownMenuCheckboxItem
+                          key={cat.id}
+                          checked={filters.categoryIds.includes(cat.id)}
+                          onCheckedChange={(checked) => toggleCategory(cat.id, checked as boolean)}
+                        >
+                          {cat.name}
+                        </DropdownMenuCheckboxItem>
+                      ))}
+                    </>
+                  )}
                 </>
               )}
               {expenseCategories.length > 0 && incomeCategories.length > 0 && <DropdownMenuSeparator />}
               {incomeCategories.length > 0 && (
                 <>
                   <p className="px-2 pt-2 pb-1 text-xs font-semibold text-green-600 uppercase tracking-wide">Income</p>
-                  {incomeCategories.map((cat) => (
-                    <DropdownMenuCheckboxItem
-                      key={cat.id}
-                      checked={filters.categoryIds.includes(cat.id)}
-                      onCheckedChange={(checked) => toggleCategory(cat.id, checked as boolean)}
-                    >
-                      {cat.name}
-                    </DropdownMenuCheckboxItem>
-                  ))}
+                  {incomeUserCats.length > 0 && (
+                    <>
+                      <p className="px-2 pt-1 pb-0.5 text-[11px] text-muted-foreground">My categories</p>
+                      {incomeUserCats.map((cat) => (
+                        <DropdownMenuCheckboxItem
+                          key={cat.id}
+                          checked={filters.categoryIds.includes(cat.id)}
+                          onCheckedChange={(checked) => toggleCategory(cat.id, checked as boolean)}
+                        >
+                          {cat.name}
+                        </DropdownMenuCheckboxItem>
+                      ))}
+                    </>
+                  )}
+                  {incomeUserCats.length > 0 && incomeSystemCats.length > 0 && <DropdownMenuSeparator />}
+                  {incomeSystemCats.length > 0 && (
+                    <>
+                      {incomeUserCats.length > 0 && <p className="px-2 pt-1 pb-0.5 text-[11px] text-muted-foreground">Templates</p>}
+                      {incomeSystemCats.map((cat) => (
+                        <DropdownMenuCheckboxItem
+                          key={cat.id}
+                          checked={filters.categoryIds.includes(cat.id)}
+                          onCheckedChange={(checked) => toggleCategory(cat.id, checked as boolean)}
+                        >
+                          {cat.name}
+                        </DropdownMenuCheckboxItem>
+                      ))}
+                    </>
+                  )}
                 </>
               )}
             </DropdownMenuContent>

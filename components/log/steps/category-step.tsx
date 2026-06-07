@@ -24,6 +24,8 @@ interface CategoryStepProps {
 
 export function CategoryStep({ type, selectedId, onSelect, onSplitMode }: CategoryStepProps) {
   const { data: categories = [] } = useCategories(type);
+  const userCategories = categories.filter((c) => !c.is_system);
+  const systemCategories = categories.filter((c) => c.is_system);
   const createCategory = useCreateCategory();
   const [adding, setAdding] = useState(false);
   const [newName, setNewName] = useState("");
@@ -55,36 +57,72 @@ export function CategoryStep({ type, selectedId, onSelect, onSplitMode }: Catego
         </Button>
       </div>
 
-      <div className="grid grid-cols-3 gap-2 max-h-72 overflow-y-auto">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            type="button"
-            onClick={() => onSelect(cat.id)}
-            className={cn(
-              "flex flex-col items-center gap-1.5 rounded-xl p-3 border transition-colors text-xs font-medium",
-              selectedId === cat.id
-                ? "border-primary bg-primary/10"
-                : "border-border hover:bg-muted"
-            )}
-          >
-            <div
-              className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
-              style={{ backgroundColor: cat.color + "33" }}
+      <div className="max-h-72 overflow-y-auto space-y-3">
+        {/* User-created */}
+        <div className="space-y-1.5">
+          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">My categories</p>
+          <div className="grid grid-cols-3 gap-2">
+            {userCategories.map((cat) => (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => onSelect(cat.id)}
+                className={cn(
+                  "flex flex-col items-center gap-1.5 rounded-xl p-3 border transition-colors text-xs font-medium",
+                  selectedId === cat.id
+                    ? "border-primary bg-primary/10"
+                    : "border-border hover:bg-muted"
+                )}
+              >
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: cat.color + "33" }}
+                >
+                  <CategoryIcon name={cat.icon} color={cat.color} />
+                </div>
+                <span className="truncate w-full text-center">{cat.name}</span>
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => setAdding(true)}
+              className="flex flex-col items-center gap-1.5 rounded-xl p-3 border border-dashed border-border hover:bg-muted transition-colors text-xs font-medium text-muted-foreground"
             >
-              <CategoryIcon name={cat.icon} color={cat.color} />
+              <Plus className="h-5 w-5" />
+              <span>New</span>
+            </button>
+          </div>
+        </div>
+
+        {/* System / Templates */}
+        {systemCategories.length > 0 && (
+          <div className="space-y-1.5">
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Templates</p>
+            <div className="grid grid-cols-3 gap-2">
+              {systemCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => onSelect(cat.id)}
+                  className={cn(
+                    "flex flex-col items-center gap-1.5 rounded-xl p-3 border transition-colors text-xs font-medium",
+                    selectedId === cat.id
+                      ? "border-primary bg-primary/10"
+                      : "border-border hover:bg-muted"
+                  )}
+                >
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: cat.color + "33" }}
+                  >
+                    <CategoryIcon name={cat.icon} color={cat.color} />
+                  </div>
+                  <span className="truncate w-full text-center">{cat.name}</span>
+                </button>
+              ))}
             </div>
-            <span className="truncate w-full text-center">{cat.name}</span>
-          </button>
-        ))}
-        <button
-          type="button"
-          onClick={() => setAdding(true)}
-          className="flex flex-col items-center gap-1.5 rounded-xl p-3 border border-dashed border-border hover:bg-muted transition-colors text-xs font-medium text-muted-foreground"
-        >
-          <Plus className="h-5 w-5" />
-          <span>New</span>
-        </button>
+          </div>
+        )}
       </div>
 
       {adding && (

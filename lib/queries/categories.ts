@@ -3,17 +3,17 @@ import type { Category, CategoryType } from "@/lib/types/database.types";
 
 export async function getCategories(type?: CategoryType): Promise<Category[]> {
   const supabase = createClient();
-  let query = supabase
-    .from("categories")
-    .select("*")
-    .order("is_system", { ascending: false })
-    .order("name", { ascending: true });
-
+  let query = supabase.from("categories").select("*");
   if (type) query = query.eq("type", type);
 
   const { data, error } = await query;
   if (error) throw error;
-  return data as Category[];
+
+  return (data as Category[]).sort((a, b) => {
+    if (a.is_system !== b.is_system) return a.is_system ? 1 : -1;
+    if (!a.is_system) return a.created_at.localeCompare(b.created_at);
+    return a.name.localeCompare(b.name);
+  });
 }
 
 export async function createCategory(input: {
